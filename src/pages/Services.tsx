@@ -676,7 +676,7 @@ const Services = () => {
                 />
               </Link>
               <Link
-                to="/gallery"
+                to="/#gallery"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-10 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/5"
               >
                 View Our Work

@@ -1,15 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
   { label: "Marine Flooring", path: "/marine-flooring" },
-  { label: "Campers & 4x4", path: "/campers" },
-  { label: "3D Scanning", path: "/3d-scanning" },
-  { label: "Gallery", path: "/gallery" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -21,7 +17,6 @@ const Navbar = () => {
   // ── Scroll detection ──
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    // Check on mount in case the page is already scrolled
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -49,7 +44,6 @@ const Navbar = () => {
       document.body.style.left = "";
       document.body.style.right = "";
       document.body.style.overflow = "";
-      // Restore scroll position
       if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || "0") * -1);
       }
@@ -66,12 +60,6 @@ const Navbar = () => {
 
   const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
-  // Determine text colour states
-  // When menu is open: always use foreground colours (menu has solid bg)
-  // When scrolled: foreground colours (glass bg)
-  // Default: white (transparent over hero)
-  const showDark = isOpen || scrolled;
-
   return (
     <>
       {/* ── HEADER BAR ── */}
@@ -80,82 +68,71 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isOpen
-            ? "bg-background"
+            ? "bg-white"
             : scrolled
-              ? "nav-glass border-b border-border/50 shadow-sm"
+              ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
               : "bg-transparent"
           }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
+            {/* Logo — wave icon */}
             <Link to="/" className="relative z-[70]" onClick={() => setIsOpen(false)}>
-              <div className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                  <span className="font-display text-lg font-bold text-primary-foreground">
-                    D
-                  </span>
-                </div>
-                <div className="flex flex-col leading-none">
-                  <span
-                    className={`font-display text-xl font-bold tracking-tight transition-colors duration-300 ${showDark ? "text-foreground" : "text-white"
-                      }`}
-                  >
-                    Deckpro
-                  </span>
-                  <span
-                    className={`text-[10px] font-body font-medium uppercase tracking-[0.25em] transition-colors duration-300 ${showDark ? "text-muted-foreground" : "text-white/60"
-                      }`}
-                  >
-                    Marine Flooring WA
-                  </span>
-                </div>
-              </div>
+              <svg
+                viewBox="0 0 40 28"
+                className="h-8 w-10 text-[#1e3348] transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+              >
+                <path
+                  d="M2 19 C8 13, 14 25, 20 19 C26 13, 32 25, 38 19"
+                  strokeWidth="2.5"
+                />
+                <path
+                  d="M5 13 C10 7, 15 19, 20 13 C25 7, 30 19, 35 13"
+                  strokeWidth="2"
+                  opacity="0.5"
+                />
+              </svg>
             </Link>
 
-            {/* Desktop Nav */}
+            {/* Center Nav Links */}
             <nav className="hidden items-center gap-1 lg:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === link.path
-                      ? scrolled
-                        ? "text-primary"
-                        : "text-white"
-                      : scrolled
-                        ? "text-muted-foreground hover:text-foreground"
-                        : "text-white/70 hover:text-white"
+                  className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === link.path
+                      ? "text-primary"
+                      : "text-[#1e3348]/60 hover:text-[#1e3348]"
                     }`}
                 >
                   {link.label}
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
                 </Link>
               ))}
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden items-center gap-4 lg:flex">
+            {/* Right Buttons */}
+            <div className="hidden items-center gap-3 lg:flex">
               <Link
                 to="/contact"
-                className="group flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium font-body text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+                className="rounded-full bg-[#1e3348] px-6 py-2.5 text-sm font-medium font-body text-white transition-all duration-300 hover:bg-[#1e3348]/90 hover:shadow-lg"
               >
-                <Phone size={14} />
                 Get a Quote
+              </Link>
+              <Link
+                to="/contact"
+                className="rounded-full border border-[#1e3348]/30 px-6 py-2.5 text-sm font-medium font-body text-[#1e3348] transition-all duration-300 hover:bg-[#1e3348]/5"
+              >
+                Get Support
               </Link>
             </div>
 
             {/* Mobile Toggle */}
             <button
               onClick={toggleMenu}
-              className={`relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg lg:hidden transition-colors duration-300 ${showDark ? "text-foreground" : "text-white"
-                }`}
+              className="relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg text-[#1e3348] lg:hidden transition-colors duration-300"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
@@ -187,7 +164,7 @@ const Navbar = () => {
         </div>
       </motion.header>
 
-      {/* ── MOBILE MENU OVERLAY (rendered OUTSIDE header for clean z-index) ── */}
+      {/* ── MOBILE MENU OVERLAY ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -195,9 +172,8 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[55] bg-background lg:hidden"
+            className="fixed inset-0 z-[55] bg-white lg:hidden"
           >
-            {/* Scrollable content area */}
             <div className="flex h-full flex-col overflow-y-auto overscroll-contain pt-24 pb-10 px-8">
               <nav className="flex flex-col gap-1">
                 {navLinks.map((link, i) => (
@@ -216,35 +192,36 @@ const Navbar = () => {
                           : "text-foreground/60 hover:text-foreground"
                         }`}
                     >
-                      <span className="flex items-center gap-3">
-                        {location.pathname === link.path && (
-                          <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                        )}
-                        {link.label}
-                      </span>
+                      {link.label}
                     </Link>
                   </motion.div>
                 ))}
               </nav>
 
-              {/* CTA */}
+              {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                className="mt-10"
+                transition={{ delay: 0.3, duration: 0.4 }}
+                className="mt-10 flex flex-col gap-3 sm:flex-row"
               >
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-body text-sm font-medium text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+                  className="inline-flex items-center justify-center rounded-full bg-[#1e3348] px-8 py-3.5 font-body text-sm font-medium text-white"
                 >
-                  <Phone size={16} />
                   Get a Quote
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-flex items-center justify-center rounded-full border border-[#1e3348]/30 px-8 py-3.5 font-body text-sm font-medium text-[#1e3348]"
+                >
+                  Get Support
                 </Link>
               </motion.div>
 
-              {/* Contact info at bottom */}
+              {/* Footer info */}
               <div className="mt-auto pt-10 border-t border-border/50">
                 <p className="font-body text-xs text-muted-foreground">
                   Perth, Western Australia

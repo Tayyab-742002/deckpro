@@ -129,7 +129,7 @@ const Campers = () => {
             <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
               Get a Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 glass">
+            <Link to="/#gallery" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 glass">
               View Our Work
             </Link>
           </motion.div>
@@ -265,7 +265,7 @@ const Campers = () => {
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
                 Get a Free Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-10 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/5">
+              <Link to="/#gallery" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-10 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/5">
                 View Our Work
               </Link>
             </div>

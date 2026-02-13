@@ -1,133 +1,148 @@
 import { motion } from "framer-motion";
-import { ScanLine, Palette, Factory, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Compass } from "lucide-react";
 
 const steps = [
   {
-    icon: ScanLine,
-    step: "01",
-    title: "3D Scanning",
+    number: "1",
+    title: "Choose Your Flooring",
     description:
-      "We use precision 3D scanning technology to capture every contour of your boat deck, campervan, or 4x4 floor.",
+      "Browse our marine flooring collection and find your perfect match for any vessel.",
+    image:
+      "https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=800&auto=format&fit=crop",
+    imageAlt: "Marine flooring options",
   },
   {
-    icon: Palette,
-    step: "02",
-    title: "Custom Design",
+    number: "2",
+    title: "Book a Consultation",
     description:
-      "Your flooring is designed to your exact specifications — colour, pattern, texture, and layout tailored to you.",
+      "Schedule a free 3D scan and consultation to get your custom design plan.",
+    image:
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=800&auto=format&fit=crop",
+    imageAlt: "Booking a consultation",
   },
   {
-    icon: Factory,
-    step: "03",
-    title: "Manufacturing",
+    number: "3",
+    title: "Set Sail",
     description:
-      "Each piece is CNC-machined from premium EVA foam in our workshop, ensuring a perfect fit every time.",
-  },
-  {
-    icon: Wrench,
-    step: "04",
-    title: "Expert Fitting",
-    description:
-      "Our team professionally installs your custom flooring on-site, delivering a flawless finish.",
+      "We handle the expert installation and you enjoy the open water in style.",
+    image:
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
+    imageAlt: "Enjoying your new flooring on the water",
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
 const HowItWorks = () => {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden section-cream">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-primary/5 blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl translate-x-1/3 translate-y-1/3" />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section Header */}
+    <section className="py-24 lg:py-32 bg-white">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-20 lg:mb-24"
         >
-          <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">
-            Our Process
-          </span>
-          <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-            How It Works
+          {/* Badge */}
+          <div className="flex items-center justify-center gap-2 mb-5">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
+              <Compass size={11} className="text-white" />
+            </span>
+            <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
+              How It Works
+            </span>
+          </div>
+
+          <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
+            Seamless From
+            <br />
+            Start to Sea
           </h2>
-          <p className="mt-5 mx-auto max-w-xl font-body text-lg text-muted-foreground">
-            From scan to fit — a seamless four-stage process delivering premium results.
+
+          <p className="mt-5 mx-auto max-w-sm text-sm leading-relaxed text-[#1a2f45]/40">
+            Unpack once and let the world drift by your window. From
+            sun-drenched islands to icy frontiers, your next story begins here.
           </p>
         </motion.div>
 
-        {/* Steps Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="group relative rounded-2xl border border-border bg-background p-8 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
-            >
-              {/* Step number */}
-              <span className="absolute top-6 right-6 font-display text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
-                {step.step}
-              </span>
+        {/* ── Steps with vertical timeline ── */}
+        <div className="relative">
+          {/* Timeline line — runs down the center on desktop */}
+          <div className="absolute left-1/2 top-4 bottom-24 w-px -translate-x-1/2 bg-gray-200 hidden md:block" />
 
-              {/* Icon */}
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                <step.icon size={24} />
-              </div>
+          <div className="space-y-14 md:space-y-0">
+            {steps.map((step, i) => {
+              const isReversed = i % 2 !== 0;
 
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                {step.title}
-              </h3>
-              <p className="font-body text-sm leading-relaxed text-muted-foreground">
-                {step.description}
-              </p>
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, delay: i * 0.1 }}
+                  className="grid md:grid-cols-2 gap-6 md:gap-0 items-center md:py-10"
+                >
+                  {/* Text column */}
+                  <div
+                    className={
+                      isReversed
+                        ? "md:order-2 md:pl-14 lg:pl-20"
+                        : "md:pr-14 lg:pr-20"
+                    }
+                  >
+                    {/* Number circle */}
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-sm font-medium text-[#1a2f45]/50">
+                      {step.number}
+                    </div>
 
-              {/* Connector line for desktop */}
-              {i < steps.length - 1 && (
-                <div className="absolute top-1/2 -right-4 hidden h-px w-8 bg-border lg:block" />
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+                    <h3 className="text-2xl font-semibold text-[#1a2f45] mb-2">
+                      {step.title}
+                    </h3>
 
-        {/* Payment Terms Notice */}
+                    <p className="text-sm leading-relaxed text-[#1a2f45]/40 max-w-[15rem]">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Image column */}
+                  <div
+                    className={
+                      isReversed
+                        ? "md:order-1 md:pr-14 lg:pr-20"
+                        : "md:pl-14 lg:pl-20"
+                    }
+                  >
+                    <div className="rounded-2xl bg-[#e8f1f8] overflow-hidden">
+                      <img
+                        src={step.image}
+                        alt={step.imageAlt}
+                        className="w-full aspect-[4/3] object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Bottom CTA ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-16 mx-auto max-w-2xl rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center"
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-16 lg:mt-20 text-center"
         >
-          <p className="font-body text-sm font-semibold uppercase tracking-widest text-primary mb-2">
-            Payment Terms
-          </p>
-          <p className="font-body text-base text-foreground">
-            50% deposit required upon accepting your quote to secure a scan date.
-            <br />
-            <span className="text-muted-foreground">
-              Remaining 50% is due upon job completion — no exceptions.
-            </span>
-          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
+          >
+            Book Now
+          </Link>
         </motion.div>
       </div>
     </section>
