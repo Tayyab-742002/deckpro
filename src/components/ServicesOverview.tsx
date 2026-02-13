@@ -99,9 +99,8 @@ const ServicesOverview = () => {
       {slides.map((s, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            i === current ? "opacity-100 z-[1]" : "opacity-0 z-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100 z-[1]" : "opacity-0 z-0"
+            }`}
         >
           <img
             src={s.bg}
@@ -202,7 +201,7 @@ const ServicesOverview = () => {
                 </p>
                 <div className="mt-3 flex gap-2">
                   <Link
-                    to="/services"
+                    to="/marine-flooring"
                     className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#1a2f45] transition-all hover:bg-white/90"
                   >
                     Learn More

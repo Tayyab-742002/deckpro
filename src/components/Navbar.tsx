@@ -1,17 +1,25 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Anchor, Truck, Box } from "lucide-react";
+
+/* ── Service dropdown items ── */
+const serviceLinks = [
+  { label: "Marine Flooring", desc: "Boats & Yachts", path: "/marine-flooring", icon: Anchor },
+  { label: "Campers & 4x4", desc: "Motorhomes & Off-Road", path: "/campers", icon: Truck },
+  { label: "3D Scanning", desc: "Precision Modelling", path: "/3d-scanning", icon: Box },
+];
 
 const navLinks = [
-  { label: "Services", path: "/services" },
-  { label: "Marine Flooring", path: "/marine-flooring" },
   { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   // ── Scroll detection ──
@@ -25,6 +33,8 @@ const Navbar = () => {
   // ── Close menu & scroll to top on route change ──
   useEffect(() => {
     setIsOpen(false);
+    setDropdownOpen(false);
+    setMobileServicesOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location.pathname]);
 
@@ -58,7 +68,20 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // ── Close dropdown on outside click ──
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
+
+  const isServicePage = serviceLinks.some((s) => location.pathname === s.path);
 
   return (
     <>
@@ -66,12 +89,12 @@ const Navbar = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isOpen
-            ? "bg-white"
-            : scrolled
-              ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
-              : "bg-transparent"
+          ? "bg-white"
+          : scrolled
+            ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
+            : "bg-transparent"
           }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -99,13 +122,64 @@ const Navbar = () => {
 
             {/* Center Nav Links */}
             <nav className="hidden items-center gap-1 lg:flex">
+              {/* Services Dropdown */}
+              <div ref={dropdownRef} className="relative">
+                <button
+                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${isServicePage
+                      ? "text-primary"
+                      : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                    }`}
+                >
+                  Services
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.2 }}
+                      onMouseLeave={() => setDropdownOpen(false)}
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 rounded-2xl border border-gray-100 bg-white p-2 shadow-xl shadow-black/5"
+                    >
+                      {serviceLinks.map((service) => (
+                        <Link
+                          key={service.path}
+                          to={service.path}
+                          className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 ${location.pathname === service.path
+                              ? "bg-[#e8f1f8] text-[#1a2f45]"
+                              : "text-[#1a2f45]/70 hover:bg-[#f5f8fa]"
+                            }`}
+                        >
+                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#e8f1f8]">
+                            <service.icon size={16} className="text-[#1a2f45]" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">{service.label}</p>
+                            <p className="text-xs text-[#1a2f45]/40">{service.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Regular nav links */}
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === link.path
-                      ? "text-primary"
-                      : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                    ? "text-primary"
+                    : "text-[#1e3348]/60 hover:text-[#1e3348]"
                     }`}
                 >
                   {link.label}
@@ -176,20 +250,73 @@ const Navbar = () => {
           >
             <div className="flex h-full flex-col overflow-y-auto overscroll-contain pt-24 pb-10 px-8">
               <nav className="flex flex-col gap-1">
+                {/* Services Accordion — Mobile */}
+                <div>
+                  <button
+                    onClick={() => setMobileServicesOpen((p) => !p)}
+                    className={`flex w-full items-center justify-between py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${isServicePage
+                        ? "text-primary"
+                        : "text-foreground/60 hover:text-foreground"
+                      }`}
+                  >
+                    Services
+                    <ChevronDown
+                      size={22}
+                      className={`transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        {serviceLinks.map((service, i) => (
+                          <motion.div
+                            key={service.path}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.05, duration: 0.3 }}
+                          >
+                            <Link
+                              to={service.path}
+                              onClick={() => setIsOpen(false)}
+                              className={`flex items-center gap-3 py-3 transition-colors ${location.pathname === service.path
+                                  ? "text-primary"
+                                  : "text-foreground/50 hover:text-foreground"
+                                }`}
+                            >
+                              <service.icon size={18} />
+                              <span className="font-display text-lg font-medium">
+                                {service.label}
+                              </span>
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Regular links */}
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.path}
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
-                    transition={{ delay: i * 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ delay: (i + 1) * 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                   >
                     <Link
                       to={link.path}
                       onClick={() => setIsOpen(false)}
                       className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === link.path
-                          ? "text-primary"
-                          : "text-foreground/60 hover:text-foreground"
+                        ? "text-primary"
+                        : "text-foreground/60 hover:text-foreground"
                         }`}
                     >
                       {link.label}

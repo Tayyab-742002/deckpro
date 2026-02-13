@@ -77,7 +77,7 @@ const HeroSection = () => {
           className="mt-8"
         >
           <Link
-            to="/services"
+            to="/marine-flooring"
             className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
           >
             Explore Services

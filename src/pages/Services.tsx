@@ -154,7 +154,7 @@ const itemPop = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -164,81 +164,139 @@ const Services = () => {
   return (
     <main>
       {/* ════════════════════════════════════════════
-          SECTION 1 — HERO BANNER
+          SECTION 1 — HERO BANNER (Inner-page style)
       ════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80"
-            alt="Premium marine flooring services"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f14]/95 via-[#0a0f14]/80 to-[#0a0f14]/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f14]/60 to-transparent" />
-        </div>
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[#d0e4f0]/40 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#d0e4f0]/30 blur-[80px]" />
 
-        {/* Decorative accent */}
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[150px]" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — Text */}
+            <div>
+              {/* Breadcrumb-style badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-6"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
+                    <Waves size={11} className="text-white" />
+                  </span>
+                  <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
+                    Our Services
+                  </span>
+                </div>
+              </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-32 lg:py-40">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-6"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-body font-semibold uppercase tracking-[0.3em] text-white/80 glass">
-              <Waves size={14} className="text-primary" />
-              Our Services
-            </span>
-          </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="text-4xl font-semibold text-[#1a2f45] leading-tight sm:text-5xl lg:text-6xl"
+              >
+                Crafted with
+                <br />
+                Precision
+              </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-          >
-            Crafted with Precision.
-            <br />
-            <span className="text-gradient">Built to Perform.</span>
-          </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="mt-5 max-w-md text-sm leading-relaxed text-[#1a2f45]/40 sm:text-base"
+              >
+                Premium custom EVA foam flooring for boats, campervans, and 4x4
+                vehicles. Every project follows our meticulous four-stage
+                process — from 3D scan to expert installation.
+              </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-6 max-w-xl font-body text-lg leading-relaxed text-white/70"
-          >
-            Premium custom EVA foam flooring for boats, campervans, and 4x4 vehicles.
-            Every project follows our meticulous four-stage process — from 3D scan to
-            expert installation.
-          </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65, duration: 0.5 }}
+                className="mt-8 flex flex-wrap gap-4"
+              >
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
+                >
+                  Start Your Project
+                </Link>
+                <a
+                  href="#our-services"
+                  className="inline-flex items-center justify-center rounded-full border border-[#1a2f45]/20 px-7 py-3 text-sm font-medium text-[#1a2f45]/70 transition-all duration-300 hover:bg-[#1a2f45]/5"
+                >
+                  Explore Below
+                </a>
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30"
+              {/* Mini stats strip */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.85, duration: 0.5 }}
+                className="mt-12 flex gap-10"
+              >
+                {[
+                  { value: "50+", label: "Projects Completed" },
+                  { value: "5yr", label: "Warranty" },
+                  { value: "WA", label: "Owned & Operated" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-2xl font-semibold text-[#1a2f45]">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-[#1a2f45]/40 mt-0.5">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right — Image composition */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative hidden lg:block"
             >
-              Start Your Project
-              <ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-            <a
-              href="#our-services"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 glass"
-            >
-              Explore Services
-            </a>
-          </motion.div>
+              <div className="relative">
+                {/* Main image */}
+                <div className="overflow-hidden rounded-3xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80"
+                    alt="Premium marine flooring services"
+                    className="w-full h-[480px] object-cover"
+                  />
+                </div>
+
+                {/* Floating accent card */}
+                <div className="absolute -bottom-6 -left-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-xl shadow-black/5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1f8]">
+                      <Ship size={20} className="text-[#1a2f45]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#1a2f45]">
+                        Marine Grade EVA
+                      </p>
+                      <p className="text-xs text-[#1a2f45]/40">
+                        UV & saltwater resistant
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Soft blob behind the image */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dce9f3]/50 blur-3xl" />
+            </motion.div>
+          </div>
         </div>
       </section>
 

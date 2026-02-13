@@ -68,7 +68,7 @@ const faqs = [
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 const popUp = {
   hidden: { opacity: 0, y: 30, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
@@ -92,47 +92,120 @@ const Campers = () => {
   return (
     <main>
       {/* ══════ HERO ══════ */}
-      <section className="relative min-h-[75vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=1600&q=80" alt="Campervan with premium custom flooring" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f14]/95 via-[#0a0f14]/75 to-[#0a0f14]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f14]/60 to-transparent" />
-        </div>
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[#d0e4f0]/40 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#d0e4f0]/30 blur-[80px]" />
 
-        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-amber-500/10 blur-[150px]" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-6"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
+                    <Truck size={11} className="text-white" />
+                  </span>
+                  <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
+                    Campers & 4x4
+                  </span>
+                </div>
+              </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-32 lg:py-40">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-body font-semibold uppercase tracking-[0.3em] text-white/80 glass">
-              <Truck size={14} className="text-primary" />
-              Campers & 4x4
-            </span>
-          </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+                className="text-4xl font-semibold text-[#1a2f45] leading-tight sm:text-5xl lg:text-6xl"
+              >
+                Adventure-Ready
+                <br />
+                Flooring
+              </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl"
-          >
-            Adventure-Ready
-            <br />
-            <span className="text-gradient">Custom Flooring.</span>
-          </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="mt-5 max-w-md text-sm leading-relaxed text-[#1a2f45]/40 sm:text-base"
+              >
+                Premium EVA foam flooring for campervans, motorhomes, and 4x4 vehicles.
+                Custom scanned, designed, and fitted to handle everything Australia throws at it.
+              </motion.p>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mt-6 max-w-xl font-body text-lg leading-relaxed text-white/70">
-            Premium EVA foam flooring for campervans, motorhomes, and 4x4 vehicles.
-            Custom scanned, designed, and fitted to handle everything Australia throws at it.
-          </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65, duration: 0.5 }}
+                className="mt-8 flex flex-wrap gap-4"
+              >
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
+                >
+                  Get a Quote
+                </Link>
+                <Link
+                  to="/#gallery"
+                  className="inline-flex items-center justify-center rounded-full border border-[#1a2f45]/20 px-7 py-3 text-sm font-medium text-[#1a2f45]/70 transition-all duration-300 hover:bg-[#1a2f45]/5"
+                >
+                  View Our Work
+                </Link>
+              </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-10 flex flex-wrap gap-4">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
-              Get a Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-            <Link to="/#gallery" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 glass">
-              View Our Work
-            </Link>
-          </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.85, duration: 0.5 }}
+                className="mt-12 flex gap-10"
+              >
+                {[
+                  { value: "All", label: "Vehicle Types" },
+                  { value: "5yr", label: "Warranty" },
+                  { value: "WA", label: "Wide Service" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-2xl font-semibold text-[#1a2f45]">{stat.value}</p>
+                    <p className="text-xs text-[#1a2f45]/40 mt-0.5">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative">
+                <div className="overflow-hidden rounded-3xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=900&q=80"
+                    alt="Campervan with premium custom flooring"
+                    className="w-full h-[480px] object-cover"
+                  />
+                </div>
+
+                <div className="absolute -bottom-6 -left-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-xl shadow-black/5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1f8]">
+                      <Truck size={20} className="text-[#1a2f45]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#1a2f45]">Built for Adventure</p>
+                      <p className="text-xs text-[#1a2f45]/40">Mud, sand & saltwater proof</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dce9f3]/50 blur-3xl" />
+            </motion.div>
+          </div>
         </div>
       </section>
 

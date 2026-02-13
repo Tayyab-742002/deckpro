@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Instagram, Facebook } from "lucide-react";
 
 const footerLinks = [
-  { label: "Services", path: "/services" },
   { label: "Marine Flooring", path: "/marine-flooring" },
   { label: "Campers & 4x4", path: "/campers" },
+  { label: "3D Scanning", path: "/3d-scanning" },
   { label: "Contact", path: "/contact" },
 ];
 
