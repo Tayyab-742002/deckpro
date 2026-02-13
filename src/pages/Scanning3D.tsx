@@ -69,20 +69,22 @@ const faqs = [
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 const popUp = {
-  hidden: { opacity: 0, y: 30, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
+
+/* ───────── FAQ ITEM ───────── */
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-border last:border-0">
-      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-primary">
-        <span className="font-display text-base font-bold text-foreground pr-4">{q}</span>
-        <ChevronDown size={20} className={`text-muted-foreground flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-primary" : ""}`} />
+    <div className="border-b border-gray-100 last:border-0">
+      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-[#1a2f45]">
+        <span className="text-base font-semibold text-[#1a2f45] pr-4">{q}</span>
+        <ChevronDown size={20} className={`text-[#1a2f45]/30 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#1a2f45]" : ""}`} />
       </button>
       <motion.div initial={false} animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-        <p className="pb-5 font-body text-sm leading-relaxed text-muted-foreground">{a}</p>
+        <p className="pb-5 text-sm leading-relaxed text-[#1a2f45]/40">{a}</p>
       </motion.div>
     </div>
   );
@@ -94,154 +96,171 @@ const Scanning3D = () => {
   return (
     <main>
       {/* ══════ HERO ══════ */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[#d0e4f0]/40 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#d0e4f0]/30 blur-[80px]" />
+      <section className="relative min-h-[70vh] overflow-hidden flex items-center">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CB9D8] via-[#74AAC9] to-[#4B8AB8]" />
+          <img
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
+            alt="3D scanning technology in action"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
+        </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="mb-6"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
-                    <Box size={11} className="text-white" />
-                  </span>
-                  <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
-                    3D Scanning
-                  </span>
-                </div>
-              </motion.div>
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-3xl px-6 pt-32 pb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mb-6"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#1a2f45]/75 px-5 py-2 text-xs font-medium tracking-wider text-white backdrop-blur-sm">
+              <Box size={13} />
+              3D Scanning
+            </span>
+          </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
-                className="text-4xl font-semibold text-[#1a2f45] leading-tight sm:text-5xl lg:text-6xl"
-              >
-                Precision
-                <br />
-                Scanning
-              </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+            className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl"
+          >
+            Precision
+            <br />
+            Scanning
+          </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="mt-5 max-w-md text-sm leading-relaxed text-[#1a2f45]/40 sm:text-base"
-              >
-                High-precision 3D scanning and digital modelling for marine, automotive,
-                and custom fabrication projects. Sub-millimetre accuracy, every time.
-              </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="mt-5 max-w-md mx-auto text-sm leading-relaxed text-[#1a2f45]/50 sm:text-base"
+          >
+            High-precision 3D scanning and digital modelling for marine, automotive,
+            and custom fabrication projects. Sub-millimetre accuracy, every time.
+          </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.65, duration: 0.5 }}
-                className="mt-8 flex flex-wrap gap-4"
-              >
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
-                >
-                  Request a Scan
-                </Link>
-                <Link
-                  to="/marine-flooring"
-                  className="inline-flex items-center justify-center rounded-full border border-[#1a2f45]/20 px-7 py-3 text-sm font-medium text-[#1a2f45]/70 transition-all duration-300 hover:bg-[#1a2f45]/5"
-                >
-                  Marine Flooring
-                </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.85, duration: 0.5 }}
-                className="mt-12 flex gap-10"
-              >
-                {[
-                  { value: "<0.5mm", label: "Accuracy" },
-                  { value: "1-2hr", label: "Typical Scan" },
-                  { value: "Any", label: "File Format" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-2xl font-semibold text-[#1a2f45]">{stat.value}</p>
-                    <p className="text-xs text-[#1a2f45]/40 mt-0.5">{stat.label}</p>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-              className="relative hidden lg:block"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-8"
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
             >
-              <div className="relative">
-                <div className="overflow-hidden rounded-3xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=80"
-                    alt="3D scanning technology in action"
-                    className="w-full h-[480px] object-cover"
-                  />
-                </div>
-
-                <div className="absolute -bottom-6 -left-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-xl shadow-black/5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1f8]">
-                      <Box size={20} className="text-[#1a2f45]" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#1a2f45]">Sub-mm Precision</p>
-                      <p className="text-xs text-[#1a2f45]/40">CAD/CAM compatible</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dce9f3]/50 blur-3xl" />
-            </motion.div>
-          </div>
+              Request a Scan
+            </Link>
+          </motion.div>
         </div>
       </section>
 
       {/* ══════ CAPABILITIES ══════ */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-            <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">Capabilities</span>
-            <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">What Our Scanners Deliver</h2>
-            <p className="mt-5 mx-auto max-w-xl font-body text-lg text-muted-foreground">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20 lg:mb-24"
+          >
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <Box size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">Capabilities</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
+              What Our Scanners<br />Deliver
+            </h2>
+            <p className="mt-4 mx-auto max-w-lg text-sm leading-relaxed text-[#1a2f45]/40">
               Industry-leading precision that powers perfect results.
+              Sub-millimetre accuracy for every project, every time.
             </p>
+            <Link
+              to="/contact"
+              className="mt-7 inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-lg"
+            >
+              Explore All
+            </Link>
           </motion.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {capabilities.map((c) => (
-              <motion.div key={c.title} variants={popUp} className="group rounded-2xl border border-border bg-card p-7 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <c.icon size={24} />
-                </div>
-                <h4 className="font-display text-base font-bold text-foreground mb-2">{c.title}</h4>
-                <p className="font-body text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
-              </motion.div>
-            ))}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="grid items-center gap-8 lg:grid-cols-[1fr_1.4fr_1fr]"
+          >
+            <div>
+              <p className="text-3xl font-light text-[#1a2f45]/20 mb-8">
+                <span className="text-[#1a2f45] font-semibold">01</span>/03
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
+                  <Crosshair size={12} /> Sub-mm
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
+                  <Layers size={12} /> 3D Model
+                </span>
+              </div>
+              <h3 className="text-2xl font-semibold text-[#1a2f45] mb-1.5">Precision Scanning</h3>
+              <p className="text-sm text-[#1a2f45]/40">Boats · Vehicles · Parts</p>
+            </div>
+
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
+                <img
+                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=900&auto=format&fit=crop"
+                  alt="3D scanning technology capturing precise measurements"
+                  className="w-full h-[380px] md:h-[460px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <button className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
+                <ArrowRight size={16} className="rotate-180" />
+              </button>
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
+                <ArrowRight size={16} />
+              </button>
+            </div>
+
+            <div className="lg:text-right">
+              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-6">
+                Our scanners capture every contour — compound curves, recessed
+                areas, hatches, and hardware. The digital model is exported in
+                any format your workflow requires.
+              </p>
+              <p className="text-3xl font-semibold text-[#1a2f45] mb-1">&lt;0.5mm</p>
+              <p className="text-xs text-[#1a2f45]/40 mb-6">Scan accuracy guaranteed</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-6 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-lg"
+              >
+                Book Now
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ══════ USE CASES ══════ */}
-      <section className="py-28 lg:py-36 section-cream">
+      <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
-            <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">Applications</span>
-            <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">How We Use 3D Scanning</h2>
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <Layers size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">Applications</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">How We Use 3D Scanning</h2>
           </motion.div>
 
           <div className="space-y-20">
@@ -251,18 +270,18 @@ const Scanning3D = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
                 className={`grid gap-12 lg:gap-16 lg:grid-cols-2 items-center ${i % 2 !== 0 ? "lg:[direction:rtl]" : ""}`}
               >
                 <div className="relative lg:[direction:ltr]">
-                  <div className="overflow-hidden rounded-2xl">
+                  <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
                     <img src={uc.image} alt={uc.title} className="h-72 lg:h-96 w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
                   </div>
                 </div>
                 <div className="lg:[direction:ltr]">
-                  <h3 className="font-display text-3xl font-bold text-foreground mb-4">{uc.title}</h3>
-                  <p className="font-body text-base leading-relaxed text-muted-foreground mb-6">{uc.desc}</p>
-                  <Link to="/contact" className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:underline">
+                  <h3 className="text-2xl font-semibold text-[#1a2f45] mb-4">{uc.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-6">{uc.desc}</p>
+                  <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                     Enquire About This <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -273,11 +292,16 @@ const Scanning3D = () => {
       </section>
 
       {/* ══════ HOW IT WORKS ══════ */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-            <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">How It Works</span>
-            <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">The Scanning Process</h2>
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <Box size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">How It Works</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">The Scanning Process</h2>
           </motion.div>
 
           <div className="mx-auto max-w-3xl space-y-6">
@@ -293,12 +317,12 @@ const Scanning3D = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="flex gap-6 items-start rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-md hover:border-primary/20"
+                className="flex gap-6 items-start rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:shadow-lg hover:shadow-black/5"
               >
-                <span className="flex-shrink-0 font-display text-3xl font-bold text-primary/20">{s.num}</span>
+                <span className="flex-shrink-0 text-3xl font-bold text-[#1a2f45]/10">{s.num}</span>
                 <div>
-                  <h4 className="font-display text-lg font-bold text-foreground mb-1">{s.title}</h4>
-                  <p className="font-body text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                  <h4 className="text-lg font-semibold text-[#1a2f45] mb-1">{s.title}</h4>
+                  <p className="text-sm leading-relaxed text-[#1a2f45]/40">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -307,18 +331,23 @@ const Scanning3D = () => {
       </section>
 
       {/* ══════ FAQ ══════ */}
-      <section className="py-28 lg:py-36 section-cream">
+      <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">FAQ</span>
-              <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl mb-6">Scanning Questions</h2>
-              <p className="font-body text-base text-muted-foreground mb-8">Common questions about our 3D scanning services.</p>
-              <Link to="/contact" className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:underline">
+              <div className="flex items-center gap-2 mb-5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                  <CheckCircle2 size={13} className="text-white" />
+                </span>
+                <span className="text-sm font-medium text-[#1a2f45]/70">FAQ</span>
+              </div>
+              <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl mb-5">Scanning Questions</h2>
+              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-8">Common questions about our 3D scanning services.</p>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                 Ask Us Anything <ArrowRight size={14} />
               </Link>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-border bg-background p-8">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
               {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
             </motion.div>
           </div>
@@ -326,19 +355,27 @@ const Scanning3D = () => {
       </section>
 
       {/* ══════ CTA ══════ */}
-      <section className="relative py-28 lg:py-36 overflow-hidden section-dark">
-        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
+          <img
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
+            alt="3D scanning equipment"
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            loading="lazy"
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <Zap size={32} className="text-primary mx-auto mb-6" />
-            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6">
-              Need Precision<br /><span className="text-gradient">3D Data?</span>
+            <Zap size={28} className="text-white/40 mx-auto mb-6" />
+            <h2 className="text-3xl font-semibold text-white leading-tight sm:text-4xl lg:text-5xl mb-5">
+              Need Precision<br />3D Data?
             </h2>
-            <p className="mx-auto max-w-lg font-body text-lg text-white/60 mb-10">
+            <p className="mx-auto max-w-lg text-sm leading-relaxed text-white/50 mb-10">
               Whether it&apos;s for flooring templates, custom parts, or detailed measurements — we&apos;ve got the technology.
             </p>
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
-              Request a Scan <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-medium text-[#1a2f45] transition-all duration-300 hover:shadow-xl">
+              Request a Scan <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Anchor, Truck, Box } from "lucide-react";
 
@@ -10,10 +10,6 @@ const serviceLinks = [
   { label: "3D Scanning", desc: "Precision Modelling", path: "/3d-scanning", icon: Box },
 ];
 
-const navLinks = [
-  { label: "Contact", path: "/contact" },
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +17,7 @@ const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // ── Scroll detection ──
   useEffect(() => {
@@ -35,8 +32,11 @@ const Navbar = () => {
     setIsOpen(false);
     setDropdownOpen(false);
     setMobileServicesOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, [location.pathname]);
+    // Only scroll to top if there's no hash
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
+  }, [location.pathname, location.hash]);
 
   // ── Lock body scroll when mobile menu is open ──
   useEffect(() => {
@@ -83,6 +83,26 @@ const Navbar = () => {
 
   const isServicePage = serviceLinks.some((s) => location.pathname === s.path);
 
+  /** Scroll to a section on the homepage — navigate first if not already there */
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate("/#" + sectionId);
+      // After navigation, wait for the page to render then scroll
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <>
       {/* ── HEADER BAR ── */}
@@ -120,8 +140,19 @@ const Navbar = () => {
               </svg>
             </Link>
 
-            {/* Center Nav Links */}
+            {/* ── Desktop Nav ── */}
             <nav className="hidden items-center gap-1 lg:flex">
+              {/* Home */}
+              <Link
+                to="/"
+                className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === "/" && !location.hash
+                    ? "text-primary"
+                    : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  }`}
+              >
+                Home
+              </Link>
+
               {/* Services Dropdown */}
               <div ref={dropdownRef} className="relative">
                 <button
@@ -172,34 +203,41 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Regular nav links */}
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === link.path
+              {/* How It Works — scroll link */}
+              <button
+                onClick={() => scrollToSection("how-it-works")}
+                className="px-4 py-2 text-sm font-medium font-body transition-colors duration-300 text-[#1e3348]/60 hover:text-[#1e3348]"
+              >
+                How It Works
+              </button>
+
+              {/* Gallery — scroll link */}
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="px-4 py-2 text-sm font-medium font-body transition-colors duration-300 text-[#1e3348]/60 hover:text-[#1e3348]"
+              >
+                Gallery
+              </button>
+
+              {/* Contact */}
+              <Link
+                to="/contact"
+                className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === "/contact"
                     ? "text-primary"
                     : "text-[#1e3348]/60 hover:text-[#1e3348]"
-                    }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+                  }`}
+              >
+                Contact
+              </Link>
             </nav>
 
-            {/* Right Buttons */}
-            <div className="hidden items-center gap-3 lg:flex">
+            {/* Right — single CTA button */}
+            <div className="hidden items-center lg:flex">
               <Link
                 to="/contact"
                 className="rounded-full bg-[#1e3348] px-6 py-2.5 text-sm font-medium font-body text-white transition-all duration-300 hover:bg-[#1e3348]/90 hover:shadow-lg"
               >
                 Get a Quote
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-full border border-[#1e3348]/30 px-6 py-2.5 text-sm font-medium font-body text-[#1e3348] transition-all duration-300 hover:bg-[#1e3348]/5"
-              >
-                Get Support
               </Link>
             </div>
 
@@ -250,8 +288,30 @@ const Navbar = () => {
           >
             <div className="flex h-full flex-col overflow-y-auto overscroll-contain pt-24 pb-10 px-8">
               <nav className="flex flex-col gap-1">
-                {/* Services Accordion — Mobile */}
-                <div>
+                {/* Home */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
+                  <Link
+                    to="/"
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === "/"
+                        ? "text-primary"
+                        : "text-foreground/60 hover:text-foreground"
+                      }`}
+                  >
+                    Home
+                  </Link>
+                </motion.div>
+
+                {/* Services Accordion */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
                   <button
                     onClick={() => setMobileServicesOpen((p) => !p)}
                     className={`flex w-full items-center justify-between py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${isServicePage
@@ -300,37 +360,61 @@ const Navbar = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
 
-                {/* Regular links */}
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{ delay: (i + 1) * 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                {/* How It Works */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
+                  <button
+                    onClick={() => scrollToSection("how-it-works")}
+                    className="block py-3.5 font-display text-2xl sm:text-3xl font-medium text-foreground/60 hover:text-foreground transition-colors text-left"
                   >
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === link.path
+                    How It Works
+                  </button>
+                </motion.div>
+
+                {/* Gallery */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.15, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
+                  <button
+                    onClick={() => scrollToSection("gallery")}
+                    className="block py-3.5 font-display text-2xl sm:text-3xl font-medium text-foreground/60 hover:text-foreground transition-colors text-left"
+                  >
+                    Gallery
+                  </button>
+                </motion.div>
+
+                {/* Contact */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === "/contact"
                         ? "text-primary"
                         : "text-foreground/60 hover:text-foreground"
-                        }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      }`}
+                  >
+                    Contact
+                  </Link>
+                </motion.div>
               </nav>
 
-              {/* CTA Buttons */}
+              {/* CTA Button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
-                className="mt-10 flex flex-col gap-3 sm:flex-row"
+                className="mt-10"
               >
                 <Link
                   to="/contact"
@@ -338,13 +422,6 @@ const Navbar = () => {
                   className="inline-flex items-center justify-center rounded-full bg-[#1e3348] px-8 py-3.5 font-body text-sm font-medium text-white"
                 >
                   Get a Quote
-                </Link>
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full border border-[#1e3348]/30 px-8 py-3.5 font-body text-sm font-medium text-[#1e3348]"
-                >
-                  Get Support
                 </Link>
               </motion.div>
 
