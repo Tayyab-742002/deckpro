@@ -114,29 +114,19 @@ const GallerySection = () => {
                 </div>
             </div>
 
-            {/* ── Infinite horizontal marquee ── */}
+            {/* ── Infinite horizontal marquee (pure CSS, GPU-composited) ── */}
             <div className="relative">
                 {/* Fade masks on the edges */}
                 <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
                 <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
 
-                <motion.div
-                    className="flex gap-5 w-max"
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{
-                        x: {
-                            duration: 40,
-                            repeat: Infinity,
-                            ease: "linear",
-                        },
-                    }}
-                >
+                <div className="marquee-track flex gap-5 w-max">
                     {marqueeItems.map((src, i) => {
                         const h = getHeight(i);
                         return (
                             <div
                                 key={i}
-                                className="group flex-shrink-0 cursor-pointer"
+                                className="marquee-card group flex-shrink-0 cursor-pointer"
                                 style={{ width: 280 }}
                                 onClick={() => setSelectedImage(src)}
                             >
@@ -147,14 +137,15 @@ const GallerySection = () => {
                                     <img
                                         src={src}
                                         alt="Deckpro custom EVA foam flooring project"
-                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="h-full w-full object-cover"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                             </div>
                         );
                     })}
-                </motion.div>
+                </div>
             </div>
 
             {/* ── Lightbox modal ── */}

@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ScanLine } from "lucide-react";
 import scanning from "@/assets/howitworks/scanning.png";
-import design from "@/assets/howitworks/design.png";
-import manufacturing from "@/assets/howitworks/manufacturing.png";
+import design from "@/assets/howitworks/design.jpg";
+import manufacturing from "@/assets/howitworks/manufacturing.jpg";
 import fitting from "@/assets/howitworks/expert-fitting.jpg";
 const steps = [
   {
