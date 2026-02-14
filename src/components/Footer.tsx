@@ -22,7 +22,7 @@ const Footer = () => {
     <footer className="relative min-h-[85vh] flex flex-col overflow-hidden">
       {/* ── Ocean background ── */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#b8d4e8] via-[#9ec5de] to-[#5a9dbf]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
         <img
           src="https://images.unsplash.com/photo-1733128666089-e313cc0113ef?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Open ocean background"
@@ -79,14 +79,14 @@ const Footer = () => {
       {/* ── Center content: heading + email form ── */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
         <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#1a2f45] leading-tight mb-4">
-          Stay on the
+          Ready to
           <br />
-          Radar
+          Get Started?
         </h2>
 
         <p className="text-sm text-[#1a2f45]/50 max-w-sm mb-8">
-          Join our mailing list for exclusive deals, project showcases, and
-          flooring tips delivered straight to your inbox.
+          Get in touch for a free quote on custom EVA foam flooring for your
+          boat, campervan, or 4x4. We serve all of Western Australia.
         </p>
       </div>
 

@@ -345,7 +345,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-lg mx-auto px-6"
           >
-            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#e8f1f8]">
+            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#e5f0f1]">
               <CheckCircle2 size={40} className="text-[#1a2f45]" />
             </div>
             <h1 className="text-3xl font-semibold text-[#1a2f45] mb-4">
@@ -377,7 +377,7 @@ const Contact = () => {
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         {/* Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#8CB9D8] via-[#74AAC9] to-[#4B8AB8]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
             src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=1760&auto=format&fit=crop"
             alt="Custom marine flooring craftsmanship"
@@ -483,7 +483,7 @@ const Contact = () => {
                 <span className="absolute top-5 right-5 text-5xl font-bold text-[#1a2f45]/[0.05] select-none">
                   {s.num}
                 </span>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f1f8] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
                   <s.icon size={22} />
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a2f45] mb-2">{s.title}</h3>
@@ -551,7 +551,7 @@ const Contact = () => {
                 {/* ── STEP 1: Personal Details ── */}
                 <div>
                   <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">
                       1
                     </span>
                     Your Details
@@ -585,7 +585,7 @@ const Contact = () => {
                 {/* ── STEP 2: Service Type ── */}
                 <div>
                   <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">
                       2
                     </span>
                     Service Type
@@ -611,7 +611,7 @@ const Contact = () => {
                         <div
                           className={`flex h-11 w-11 items-center justify-center rounded-xl transition-colors duration-300 ${formData.serviceType === opt.key
                             ? "bg-[#1a2f45] text-white"
-                            : "bg-[#e8f1f8] text-[#1a2f45]"
+                            : "bg-[#e5f0f1] text-[#1a2f45]"
                             }`}
                         >
                           <opt.icon size={20} />
@@ -638,7 +638,7 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">3</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">3</span>
                         Boat Details
                       </h3>
                       <div className="grid gap-5 sm:grid-cols-2">
@@ -689,7 +689,7 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">3</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">3</span>
                         Vehicle Details
                       </h3>
                       <div className="grid gap-5 sm:grid-cols-2">
@@ -747,7 +747,7 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">3</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">3</span>
                         Scanning Details
                       </h3>
                       <div className="grid gap-5 sm:grid-cols-2">
@@ -788,7 +788,7 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">4</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">4</span>
                         Photos & Dimensions
                       </h3>
                       <div className="grid gap-5">
@@ -849,7 +849,7 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f1f8] text-[#1a2f45] text-xs font-bold">5</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">5</span>
                         Additional Notes
                       </h3>
                       <textarea
@@ -940,7 +940,7 @@ const Contact = () => {
               >
                 <h4 className="text-base font-semibold text-[#1a2f45] mb-4">Get In Touch</h4>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e8f1f8] text-[#1a2f45] flex-shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] flex-shrink-0">
                     <MapPin size={18} />
                   </div>
                   <div>
@@ -949,7 +949,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e8f1f8] text-[#1a2f45] flex-shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] flex-shrink-0">
                     <Clock size={18} />
                   </div>
                   <div>
@@ -963,21 +963,21 @@ const Contact = () => {
                     href="https://www.facebook.com/share/1AVApWZLQa/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e8f1f8]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Facebook"
                   >
                     <Facebook size={18} />
                   </a>
                   <a
                     href="mailto:info@deckpro.com.au"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e8f1f8]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Email"
                   >
                     <Mail size={18} />
                   </a>
                   <a
                     href="tel:+61000000000"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e8f1f8]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Phone"
                   >
                     <Phone size={18} />

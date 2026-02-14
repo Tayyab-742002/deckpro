@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Anchor, Truck, Box } from "lucide-react";
+import logoImg from "@/assets/logo.svg";
 
 /* ── Service dropdown items ── */
 const serviceLinks = [
@@ -82,6 +83,7 @@ const Navbar = () => {
   const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
   const isServicePage = serviceLinks.some((s) => location.pathname === s.path);
+  const transparent = !scrolled && !isOpen;
 
   /** Scroll to a section on the homepage — navigate first if not already there */
   const scrollToSection = (sectionId: string) => {
@@ -121,23 +123,7 @@ const Navbar = () => {
           <div className="flex h-20 items-center justify-between">
             {/* Logo — wave icon */}
             <Link to="/" className="relative z-[70]" onClick={() => setIsOpen(false)}>
-              <svg
-                viewBox="0 0 40 28"
-                className="h-8 w-10 text-[#1e3348] transition-colors duration-300"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-              >
-                <path
-                  d="M2 19 C8 13, 14 25, 20 19 C26 13, 32 25, 38 19"
-                  strokeWidth="2.5"
-                />
-                <path
-                  d="M5 13 C10 7, 15 19, 20 13 C25 7, 30 19, 35 13"
-                  strokeWidth="2"
-                  opacity="0.5"
-                />
-              </svg>
+             <img src={logoImg} alt="Deckpro Logo" className="h-8 w-auto sm:h-10 lg:h-12" />
             </Link>
 
             {/* ── Desktop Nav ── */}
@@ -145,9 +131,9 @@ const Navbar = () => {
               {/* Home */}
               <Link
                 to="/"
-                className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === "/" && !location.hash
-                    ? "text-primary"
-                    : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname === "/" && !location.hash
+                    ? transparent ? "text-white" : "text-primary"
+                    : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                   }`}
               >
                 Home
@@ -158,9 +144,9 @@ const Navbar = () => {
                 <button
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   onMouseEnter={() => setDropdownOpen(true)}
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${isServicePage
-                      ? "text-primary"
-                      : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${isServicePage
+                      ? transparent ? "text-white" : "text-primary"
+                      : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                     }`}
                 >
                   Services
@@ -185,11 +171,11 @@ const Navbar = () => {
                           key={service.path}
                           to={service.path}
                           className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 ${location.pathname === service.path
-                              ? "bg-[#e8f1f8] text-[#1a2f45]"
+                              ? "bg-[#e5f0f1] text-[#1a2f45]"
                               : "text-[#1a2f45]/70 hover:bg-[#f5f8fa]"
                             }`}
                         >
-                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#e8f1f8]">
+                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#e5f0f1]">
                             <service.icon size={16} className="text-[#1a2f45]" />
                           </div>
                           <div>
@@ -206,7 +192,7 @@ const Navbar = () => {
               {/* How It Works — scroll link */}
               <button
                 onClick={() => scrollToSection("how-it-works")}
-                className="px-4 py-2 text-sm font-medium font-body transition-colors duration-300 text-[#1e3348]/60 hover:text-[#1e3348]"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold text-white/80 hover:text-white" : "font-medium text-[#1e3348]/60 hover:text-[#1e3348]"}`}
               >
                 How It Works
               </button>
@@ -214,7 +200,7 @@ const Navbar = () => {
               {/* Gallery — scroll link */}
               <button
                 onClick={() => scrollToSection("gallery")}
-                className="px-4 py-2 text-sm font-medium font-body transition-colors duration-300 text-[#1e3348]/60 hover:text-[#1e3348]"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold text-white/80 hover:text-white" : "font-medium text-[#1e3348]/60 hover:text-[#1e3348]"}`}
               >
                 Gallery
               </button>
@@ -222,9 +208,9 @@ const Navbar = () => {
               {/* Contact */}
               <Link
                 to="/contact"
-                className={`px-4 py-2 text-sm font-medium font-body transition-colors duration-300 ${location.pathname === "/contact"
-                    ? "text-primary"
-                    : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname === "/contact"
+                    ? transparent ? "text-white" : "text-primary"
+                    : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                   }`}
               >
                 Contact
@@ -235,7 +221,10 @@ const Navbar = () => {
             <div className="hidden items-center lg:flex">
               <Link
                 to="/contact"
-                className="rounded-full bg-[#1e3348] px-6 py-2.5 text-sm font-medium font-body text-white transition-all duration-300 hover:bg-[#1e3348]/90 hover:shadow-lg"
+                className={`rounded-full px-6 py-2.5 text-sm font-semibold font-body transition-all duration-300 hover:shadow-lg ${transparent
+                  ? "bg-white text-[#1e3348] hover:bg-white/90"
+                  : "bg-[#1e3348] text-white hover:bg-[#1e3348]/90"
+                }`}
               >
                 Get a Quote
               </Link>
@@ -244,7 +233,7 @@ const Navbar = () => {
             {/* Mobile Toggle */}
             <button
               onClick={toggleMenu}
-              className="relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg text-[#1e3348] lg:hidden transition-colors duration-300"
+              className={`relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg lg:hidden transition-colors duration-300 ${transparent ? "text-white" : "text-[#1e3348]"}`}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >

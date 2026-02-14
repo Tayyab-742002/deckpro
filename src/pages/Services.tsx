@@ -168,8 +168,8 @@ const Services = () => {
       ════════════════════════════════════════════ */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
         {/* Decorative blobs */}
-        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[#d0e4f0]/40 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#d0e4f0]/30 blur-[80px]" />
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-[#d0eaec]/40 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#d0eaec]/30 blur-[80px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -278,7 +278,7 @@ const Services = () => {
                 {/* Floating accent card */}
                 <div className="absolute -bottom-6 -left-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-xl shadow-black/5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1f8]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e5f0f1]">
                       <Ship size={20} className="text-[#1a2f45]" />
                     </div>
                     <div>
@@ -294,7 +294,7 @@ const Services = () => {
               </div>
 
               {/* Soft blob behind the image */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dce9f3]/50 blur-3xl" />
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dcedef]/50 blur-3xl" />
             </motion.div>
           </div>
         </div>

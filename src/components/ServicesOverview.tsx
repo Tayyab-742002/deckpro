@@ -2,63 +2,71 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-
+import marinefloring from "@/assets/servicesOverview/marine-floring.png"
+import marineFeaturedCard from "@/assets/servicesOverview/marine-flooring-featured-card.png"
+import scanning from "@/assets/servicesOverview/3DScanning.png"
+import scanningFeaturedCard from "@/assets/servicesOverview/3dScanning-feature-card.png"
+import camperAnd4x4 from "@/assets/servicesOverview/camperAnd4x4.png"
+import camperAnd4x4FeaturedCard from "@/assets/servicesOverview/CamperAnd4x4-featured-card.png"
 const slides = [
   {
     badge: "Marine Flooring",
     heading: ["Custom EVA Foam", "For Your Vessel"],
     subtitle:
-      "Precision-scanned and fitted to perfection. Premium marine flooring for boats of all sizes, from luxury yachts to fishing vessels.",
-    bg: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=1920&auto=format&fit=crop",
-    brandText: "Premium Flooring",
+      "From fishing boats to luxury cruisers — we 3D scan, custom design, manufacture, and professionally fit premium EVA foam flooring tailored to your boat's exact dimensions.",
+    bg: marinefloring,
+    brandText: "Marine Flooring",
+    link: "/marine-flooring",
     hotspots: [
-      { label: "3D Scanned", desc: "Millimetre-perfect fit", top: "52%", left: "28%" },
-      { label: "Custom Patterns", desc: "Unlimited design options", top: "36%", left: "54%" },
-      { label: "Marine Grade", desc: "Built for the water", top: "60%", left: "44%" },
+      { label: "3D Scanned", desc: "Sub-millimetre accuracy", top: "52%", left: "28%" },
+      { label: "Custom Colours", desc: "Match your boat's style", top: "36%", left: "54%" },
+      { label: "Non-Slip", desc: "Marine-grade EVA foam", top: "60%", left: "44%" },
     ],
     feature: {
       title: "EVA Foam Deck",
-      desc: "Non-slip, UV-resistant comfort",
+      desc: "Non-slip, UV resistant, easy to clean",
       image:
-        "https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=400&auto=format&fit=crop",
+        marineFeaturedCard,
     },
   },
   {
     badge: "Campers & 4x4",
     heading: ["Transform Your", "Adventure Vehicle"],
     subtitle:
-      "Durable, stylish custom flooring for campervans, motorhomes, and 4x4s. Built to withstand the outback and look great doing it.",
-    bg: "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1920&auto=format&fit=crop",
-    brandText: "Tailored to You",
+      "Custom-cut EVA foam flooring for campervans, motorhomes, and 4x4 vehicles. Durable enough for the outback, comfortable enough for living in — 3D scanned and fitted to every curve.",
+    bg: camperAnd4x4,
+    brandText: "Camper & 4x4",
+    link: "/campers",
     hotspots: [
-      { label: "Rugged Build", desc: "Outback-tough materials", top: "50%", left: "30%" },
-      { label: "Easy Clean", desc: "Wipe-down simplicity", top: "38%", left: "56%" },
-      { label: "Perfect Fit", desc: "Custom-cut precision", top: "58%", left: "46%" },
+      { label: "Rugged Build", desc: "Built for harsh conditions", top: "50%", left: "30%" },
+      { label: "Easy Clean", desc: "Wipe down in seconds", top: "38%", left: "56%" },
+      { label: "Perfect Fit", desc: "3D scanned templates", top: "58%", left: "46%" },
     ],
     feature: {
       title: "4x4 Interior",
-      desc: "Adventure-ready flooring",
+      desc: "Outback-tough, custom fitted",
       image:
-        "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&auto=format&fit=crop",
+        camperAnd4x4FeaturedCard,
     },
   },
   {
     badge: "3D Scanning",
-    heading: ["High-Precision", "Digital Mapping"],
+    heading: ["High-Precision", "3D Scanning"],
     subtitle:
-      "Advanced 3D scanning and modelling services for clients requiring detailed templates and designs. Accuracy down to the millimetre.",
-    bg: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1920&auto=format&fit=crop",
-    brandText: "Meticulous Detail",
+      "Standalone 3D scanning and modelling services for clients who need detailed digital templates. We capture complex surfaces with sub-millimetre accuracy for any project.",
+    bg: scanning,
+    brandText: "3D Scanning",
+    link: "/3d-scanning",
     hotspots: [
-      { label: "Laser Accurate", desc: "Sub-millimetre precision", top: "48%", left: "26%" },
-      { label: "Digital Models", desc: "3D design templates", top: "35%", left: "52%" },
-      { label: "Any Surface", desc: "Complex shapes mapped", top: "56%", left: "42%" },
+      { label: "Sub-mm Accuracy", desc: "Precision you can trust", top: "48%", left: "26%" },
+      { label: "Digital Models", desc: "CAD-ready 3D files", top: "35%", left: "52%" },
+      { label: "Any Surface", desc: "Complex shapes captured", top: "56%", left: "42%" },
     ],
     feature: {
       title: "3D Template",
-      desc: "Perfect measurements guaranteed",
+      desc: "CAD-ready digital models",
       image:
-        "https://images.unsplash.com/photo-1633613286991-611fe299c4be?q=80&w=400&auto=format&fit=crop",
+        scanningFeaturedCard,
     },
   },
 ];
@@ -94,7 +102,7 @@ const ServicesOverview = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
+    <section id="services-overview" className="relative w-full h-screen min-h-[600px] overflow-hidden">
       {/* ── Background images with crossfade ── */}
       {slides.map((s, i) => (
         <div
@@ -128,20 +136,20 @@ const ServicesOverview = () => {
               transition={{ duration: 0.5 }}
             >
               {/* Badge */}
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider text-white backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-wider text-white backdrop-blur-sm sm:text-xs">
                 <Sparkles size={12} />
                 {slide.badge}
               </span>
 
               {/* Heading */}
-              <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="mt-5 text-2xl font-bold leading-tight text-white drop-shadow-lg sm:mt-6 sm:text-3xl md:text-4xl lg:text-5xl">
                 {slide.heading[0]}
                 <br />
                 {slide.heading[1]}
               </h2>
 
               {/* Subtitle */}
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/90">
+              <p className="mt-3 max-w-md text-base leading-relaxed text-white/90 drop-shadow-sm sm:mt-4 sm:text-lg">
                 {slide.subtitle}
               </p>
             </motion.div>
@@ -201,7 +209,7 @@ const ServicesOverview = () => {
                 </p>
                 <div className="mt-3 flex gap-2">
                   <Link
-                    to="/marine-flooring"
+                    to={slide.link}
                     className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#1a2f45] transition-all hover:bg-white/90"
                   >
                     Learn More
@@ -227,7 +235,7 @@ const ServicesOverview = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+              className="text-2xl font-bold text-white drop-shadow-lg sm:text-3xl md:text-4xl lg:text-5xl"
             >
               {slide.brandText}
             </motion.p>

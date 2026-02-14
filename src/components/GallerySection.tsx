@@ -4,53 +4,53 @@ import { Camera } from "lucide-react";
 const galleryItems = [
     {
         src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=800&auto=format&fit=crop",
-        alt: "Custom EVA foam marine deck flooring on a luxury vessel",
-        label: "Marine Deck Fit",
+        alt: "Custom teak-look EVA foam flooring fitted on a Bar Crusher fishing boat deck in Perth",
+        label: "Bar Crusher Deck Fit",
     },
     {
         src: "https://images.unsplash.com/photo-1559827291-beb535aa5d4c?q=80&w=800&auto=format&fit=crop",
-        alt: "EVA foam texture close-up with diamond pattern",
-        label: "EVA Diamond Pattern",
+        alt: "Close-up of diamond-pattern EVA foam showing non-slip texture and UV-resistant finish",
+        label: "Diamond Grip Pattern",
     },
     {
         src: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=800&auto=format&fit=crop",
-        alt: "Campervan interior custom flooring installation",
-        label: "Camper Interior",
+        alt: "Toyota HiAce campervan interior with custom-cut EVA foam flooring throughout",
+        label: "HiAce Camper Build",
     },
     {
         src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-        alt: "3D scanning precision measurement for custom flooring",
-        label: "3D Scan Precision",
+        alt: "Handheld 3D scanner capturing sub-millimetre measurements of a boat deck surface",
+        label: "3D Scan in Progress",
     },
     {
         src: "https://images.unsplash.com/photo-1541962716-c85f547ebb7e?q=80&w=800&auto=format&fit=crop",
-        alt: "Custom fitted pontoon boat deck in slate grey",
+        alt: "Slate grey EVA foam panels fitted to a pontoon boat deck at Mandurah marina",
         label: "Pontoon Refit",
     },
     {
         src: "https://images.unsplash.com/photo-1605281317010-fe5fffff7ee1?q=80&w=800&auto=format&fit=crop",
-        alt: "Finished premium ski boat flooring with custom branding",
+        alt: "Quintrex ski boat cockpit floor with two-tone charcoal and white EVA foam",
         label: "Ski Boat Cockpit",
     },
     {
         src: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-        alt: "Land Cruiser cargo area with heavy-duty EVA flooring",
-        label: "4x4 Cargo Build",
+        alt: "Land Cruiser 200 Series cargo area lined with heavy-duty EVA foam flooring",
+        label: "4x4 Cargo Floor",
     },
     {
         src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
-        alt: "Game fisher boat on open water with custom deck",
-        label: "Game Fisher Deck",
+        alt: "Grady-White game fisher with full custom EVA foam deck replacement",
+        label: "Game Fisher Full Deck",
     },
     {
         src: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=800&auto=format&fit=crop",
-        alt: "Motorhome reflooring with multi-room installation",
-        label: "Motorhome Floor",
+        alt: "Jayco motorhome multi-room EVA foam flooring installation from kitchen to sleeping area",
+        label: "Motorhome Refit",
     },
     {
         src: "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?q=80&w=800&auto=format&fit=crop",
-        alt: "Digital template generated from 3D scan data",
-        label: "CNC Template",
+        alt: "Precision CNC-cut EVA foam panel created from 3D scan digital template",
+        label: "CNC-Cut Template",
     },
 ];
 
@@ -135,7 +135,7 @@ const GallerySection = () => {
                             >
                                 {/* Image card */}
                                 <div
-                                    className="overflow-hidden rounded-2xl bg-[#e8f1f8]"
+                                    className="overflow-hidden rounded-2xl bg-[#e5f0f1]"
                                     style={{ height: h }}
                                 >
                                     <img

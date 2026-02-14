@@ -98,7 +98,7 @@ const Scanning3D = () => {
       {/* ══════ HERO ══════ */}
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#8CB9D8] via-[#74AAC9] to-[#4B8AB8]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
             src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
             alt="3D scanning technology in action"

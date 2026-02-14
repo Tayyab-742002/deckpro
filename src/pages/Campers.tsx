@@ -96,7 +96,7 @@ const Campers = () => {
       {/* ══════ HERO ══════ */}
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#8CB9D8] via-[#74AAC9] to-[#4B8AB8]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
             src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1760&auto=format&fit=crop"
             alt="Campervan adventure with premium EVA flooring"
@@ -264,7 +264,7 @@ const Campers = () => {
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyEVA.map((f) => (
               <motion.div key={f.title} variants={popUp} className="group rounded-2xl border border-gray-100 bg-white p-7 text-center transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1">
-                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f1f8] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
+                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
                   <f.icon size={22} />
                 </div>
                 <h4 className="text-base font-semibold text-[#1a2f45] mb-2">{f.title}</h4>
@@ -295,7 +295,7 @@ const Campers = () => {
             {processSteps.map((s, i) => (
               <motion.div key={s.num} variants={popUp} className="group relative rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1">
                 <span className="absolute top-5 right-5 text-5xl font-bold text-[#1a2f45]/[0.05] select-none">{s.num}</span>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f1f8] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
                   <s.icon size={22} />
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a2f45] mb-2">{s.title}</h3>

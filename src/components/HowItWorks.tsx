@@ -1,68 +1,77 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Compass } from "lucide-react";
-
+import { ScanLine } from "lucide-react";
+import scanning from "@/assets/howitworks/scanning.png";
+import design from "@/assets/howitworks/design.png";
+import manufacturing from "@/assets/howitworks/manufacturing.png";
+import fitting from "@/assets/howitworks/expert-fitting.jpg";
 const steps = [
   {
     number: "1",
-    title: "Choose Your Flooring",
+    title: "3D Scanning",
     description:
-      "Browse our marine flooring collection and find your perfect match for any vessel.",
-    image:
-      "https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Marine flooring options",
+      "We come to you — whether it's a boat at the marina, a campervan in your driveway, or a 4x4 in the garage. Our handheld 3D scanner captures every curve and contour with sub-millimetre accuracy, creating an exact digital template of your floor.",
+    image: scanning,
+    imageAlt: "3D scanning a boat deck for custom flooring template",
   },
   {
     number: "2",
-    title: "Book a Consultation",
+    title: "Custom Design",
     description:
-      "Schedule a free 3D scan and consultation to get your custom design plan.",
-    image:
-      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Booking a consultation",
+      "Using the scan data, we design your flooring to your exact specifications. Choose your colours, patterns, and layout — even add custom logos or branding. You approve the design before we start manufacturing.",
+    image: design,
+    imageAlt: "Custom flooring design layout on screen",
   },
   {
     number: "3",
-    title: "Set Sail",
+    title: "Manufacturing",
     description:
-      "We handle the expert installation and you enjoy the open water in style.",
-    image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Enjoying your new flooring on the water",
+      "Your premium EVA foam panels are precision-cut and assembled in our Perth workshop. Every piece is quality-checked to ensure a perfect fit — non-slip, UV resistant, and built to handle the harsh WA conditions.",
+    image: manufacturing,
+    imageAlt: "EVA foam flooring panels being manufactured in the workshop",
+  },
+  {
+    number: "4",
+    title: "Expert Fitting",
+    description:
+      "Our experienced team professionally installs your custom flooring on-site, ensuring a flawless finish. The result — a durable, easy-to-clean floor that looks and feels premium for years to come.",
+    image: fitting,
+    imageAlt: "Professional EVA foam flooring installation on a boat",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 bg-white">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+    <section id="how-it-works" className="py-20 lg:py-32 bg-white">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20 lg:mb-24"
+          className="text-center mb-16 sm:mb-20 lg:mb-24"
         >
           {/* Badge */}
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
-              <Compass size={11} className="text-white" />
+          <div className="flex items-center justify-center gap-2 mb-4 sm:mb-5">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45] sm:h-7 sm:w-7">
+              <ScanLine size={11} className="text-white" />
             </span>
-            <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
+            <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60 sm:text-sm">
               How It Works
             </span>
           </div>
 
-          <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
-            Seamless From
+          <h2 className="text-2xl font-bold text-[#1a2f45] leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
+            Our 4-Stage
             <br />
-            Start to Sea
+            Process
           </h2>
 
-          <p className="mt-5 mx-auto max-w-sm text-sm leading-relaxed text-[#1a2f45]/40">
-            Unpack once and let the world drift by your window. From
-            sun-drenched islands to icy frontiers, your next story begins here.
+          <p className="mt-3 mx-auto max-w-lg text-base leading-relaxed text-[#1a2f45]/50 sm:mt-5 sm:text-lg">
+            From precision 3D scanning to expert fitting — every step is
+            engineered to deliver EVA foam flooring that fits your vessel
+            perfectly.
           </p>
         </motion.div>
 
@@ -93,15 +102,15 @@ const HowItWorks = () => {
                     }
                   >
                     {/* Number circle */}
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-sm font-medium text-[#1a2f45]/50">
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-sm font-medium text-[#1a2f45]/50 sm:h-10 sm:w-10 sm:text-base">
                       {step.number}
                     </div>
 
-                    <h3 className="text-2xl font-semibold text-[#1a2f45] mb-2">
+                    <h3 className="text-lg font-bold text-[#1a2f45] mb-2 sm:text-xl md:text-2xl">
                       {step.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-[#1a2f45]/40 max-w-[15rem]">
+                    <p className="text-sm leading-relaxed text-[#1a2f45]/50 max-w-xs sm:text-base">
                       {step.description}
                     </p>
                   </div>
@@ -114,7 +123,7 @@ const HowItWorks = () => {
                         : "md:pl-14 lg:pl-20"
                     }
                   >
-                    <div className="rounded-2xl bg-[#e8f1f8] overflow-hidden">
+                    <div className="rounded-2xl bg-[#e5f0f1] overflow-hidden">
                       <img
                         src={step.image}
                         alt={step.imageAlt}
@@ -139,9 +148,9 @@ const HowItWorks = () => {
         >
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
+            className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl sm:px-7 sm:py-3 sm:text-base"
           >
-            Book Now
+            Get a Free Quote
           </Link>
         </motion.div>
       </div>
