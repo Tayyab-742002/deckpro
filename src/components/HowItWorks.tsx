@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ScanLine } from "lucide-react";
-import scanning from "@/assets/howitworks/scanning.png";
-import design from "@/assets/howitworks/design.jpg";
-import manufacturing from "@/assets/howitworks/manufacturing.jpg";
-import fitting from "@/assets/howitworks/expert-fitting.jpg";
+import scanning from "@/assets/howItWorks/scanning.png";
+import design from "@/assets/howItWorks/design.jpg";
+import manufacturing from "@/assets/howItWorks/manufacturing.jpg";
+import fitting from "@/assets/howItWorks/expert-fitting.jpg";
 const steps = [
   {
     number: "1",
