@@ -2,30 +2,26 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Wrench } from "lucide-react";
 
+// Videos
+import video1 from "@/assets/featured-videos/1.mp4";
+import video2 from "@/assets/featured-videos/2.mp4";
+import video3 from "@/assets/featured-videos/3.mp4";
+
 /* ── Recent project cards ── */
 const projects = [
   {
-    video:
-      "https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4",
-    poster:
-      "https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=600&auto=format&fit=crop",
+    video: video1,
     category: "Marine Flooring",
     title: "Bar Crusher 780HT — Full Deck Refit",
   },
   {
-    video:
-      "https://videos.pexels.com/video-files/1409899/1409899-uhd_2560_1440_25fps.mp4",
-    poster:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop",
+    video: video2,
     category: "Marine Flooring",
     title: "Quintrex 610 Trident — Custom Cockpit Floor",
   },
   {
-    video:
-      "https://videos.pexels.com/video-files/2499611/2499611-hd_1920_1080_24fps.mp4",
-    poster:
-      "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=600&auto=format&fit=crop",
-    category: "Campervan",
+    video: video3,
+    category: "Camper & 4x4",
     title: "Toyota HiAce — Full Interior Floor Build",
   },
 ];
@@ -43,16 +39,16 @@ const CTASection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="flex items-center gap-2 mb-5">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45]">
+            <div className="flex items-center gap-2 mb-4 sm:mb-5">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45] sm:h-7 sm:w-7">
                 <Wrench size={11} className="text-white" />
               </span>
-              <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60">
+              <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60 sm:text-sm">
                 Recent Projects
               </span>
             </div>
 
-            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
+            <h2 className="text-2xl font-bold text-[#1a2f45] leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Featured
               <br />
               Builds
@@ -65,7 +61,7 @@ const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-sm leading-relaxed text-[#1a2f45]/40 max-w-sm md:ml-auto"
+            className="text-base leading-relaxed text-[#1a2f45]/50 max-w-sm md:ml-auto sm:text-lg"
           >
             Every project is unique. Here's a look at some of our recent
             custom EVA foam flooring builds for boats, campervans, and 4x4s
@@ -120,7 +116,6 @@ const CTASection = () => {
               <div className="relative overflow-hidden rounded-2xl bg-[#e5f0f1] h-56 sm:h-64 lg:h-72">
                 <video
                   src={project.video}
-                  poster={project.poster}
                   muted
                   autoPlay
                   loop

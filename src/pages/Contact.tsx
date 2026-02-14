@@ -76,24 +76,36 @@ const initialFormData: FormData = {
   message: "",
 };
 
+// project 1: before/after
+import before1 from "@/assets/before-after/project1/before.jpg";
+import after1 from "@/assets/before-after/project1/after.jpg";
+
+//project 2: before/after
+import before2 from "@/assets/before-after/project2/before.jpg";
+import after2 from "@/assets/before-after/project2/after.jpg";
+
+//project 3: before/after
+import before3 from "@/assets/before-after/project3/before.jpg";
+import after3 from "@/assets/before-after/project3/after.jpg";
+
 /* ───────── CASE STUDIES (Before & After) ───────── */
 
 const caseStudies = [
   {
-    before: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80",
+    before: before1,
+    after: after1,
     label: "21ft Centre Console — Full Deck",
     stat: "Completed in 3 weeks",
   },
   {
-    before: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1559827291-beb535aa5d4c?w=600&q=80",
+    before: before2,
+    after: after2,
     label: "Quintrex 610 Trident — Cockpit",
     stat: "Custom teak pattern",
   },
   {
-    before: "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1541962716-c85f547ebb7e?w=600&q=80",
+    before: before3,
+    after: after3,
     label: "Haines Hunter 635 — Full Refit",
     stat: "5-year warranty",
   },
@@ -944,16 +956,25 @@ const Contact = () => {
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">Perth, Western Australia</p>
-                    <p className="text-xs text-[#1a2f45]/40">Serving all of WA</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">Busselton & Perth, WA</p>
+                    <p className="text-xs text-[#1a2f45]/40">Serving all of Western Australia</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] flex-shrink-0">
-                    <Clock size={18} />
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">Quick Response</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">+61 415 604 457</p>
+                    <p className="text-xs text-[#1a2f45]/40">Call or text anytime</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] flex-shrink-0">
+                    <Mail size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#1a2f45]">deckpromarine@gmail.com</p>
                     <p className="text-xs text-[#1a2f45]/40">Quotes within 48 hours</p>
                   </div>
                 </div>
@@ -969,14 +990,14 @@ const Contact = () => {
                     <Facebook size={18} />
                   </a>
                   <a
-                    href="mailto:info@deckpro.com.au"
+                    href="mailto:deckpromarine@gmail.com"
                     className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Email"
                   >
                     <Mail size={18} />
                   </a>
                   <a
-                    href="tel:+61000000000"
+                    href="tel:+61415604457"
                     className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Phone"
                   >

@@ -5,8 +5,6 @@ import {
   CheckCircle2,
   Droplets,
   Sun,
-  Shield,
-  Footprints,
   ScanLine,
   Palette,
   Factory,
@@ -18,30 +16,21 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
 
+
+
+// images 
+
+import image1 from "@/assets/services/marine/1.jpg";
+import image2 from "@/assets/services/marine/2.jpg";
+import image3 from "@/assets/services/marine/3.jpg";
+import image4 from "@/assets/services/marine/4.jpg";
+import image5 from "@/assets/services/marine/5.jpg";
+import image6 from "@/assets/services/marine/6.jpg";
+import image7 from "@/assets/services/marine/7.jpg";
+
 /* ───────── DATA ───────── */
 
-const features = [
-  {
-    icon: Droplets,
-    title: "100% Waterproof",
-    desc: "Closed-cell EVA foam won't absorb water — no mould, no mildew, no rot.",
-  },
-  {
-    icon: Sun,
-    title: "UV Stabilised",
-    desc: "Advanced UV inhibitors prevent fading, even under intense Australian sun.",
-  },
-  {
-    icon: Footprints,
-    title: "Non-Slip Grip",
-    desc: "Textured teak or diamond patterns for superior traction when wet.",
-  },
-  {
-    icon: Shield,
-    title: "5-Year Warranty",
-    desc: "Marine-grade durability backed by our comprehensive warranty.",
-  },
-];
+
 
 const processSteps = [
   { icon: ScanLine, num: "01", title: "3D Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
@@ -78,12 +67,12 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80", alt: "Boat deck flooring" },
-  { src: "https://images.unsplash.com/photo-1559827291-beb535aa5d4c?w=600&q=80", alt: "Marine EVA close-up" },
-  { src: "https://images.unsplash.com/photo-1541962716-c85f547ebb7e?w=600&q=80", alt: "Custom fitted deck" },
-  { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80", alt: "Boat on water" },
-  { src: "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=600&q=80", alt: "Premium finish" },
-  { src: "https://images.unsplash.com/photo-1605281317010-fe5fffff7ee1?w=600&q=80", alt: "Precision fitting" },
+  { src: image1, alt: "Boat deck flooring" },
+  { src: image2, alt: "Marine EVA close-up" },
+  { src: image3, alt: "Custom fitted deck" },
+  { src: image4, alt: "Boat on water" },
+  { src: image5, alt: "Premium finish" },
+  { src: image6, alt: "Precision fitting" },
 ];
 
 /* ───────── ANIMATIONS ───────── */
@@ -233,9 +222,6 @@ const MarineFlooring = () => {
             className="grid items-center gap-8 lg:grid-cols-[1fr_1.4fr_1fr]"
           >
             <div>
-              <p className="text-3xl font-light text-[#1a2f45]/20 mb-8">
-                <span className="text-[#1a2f45] font-semibold">01</span>/04
-              </p>
               <div className="flex flex-wrap gap-2 mb-5">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
                   <Droplets size={12} /> Waterproof
@@ -251,18 +237,12 @@ const MarineFlooring = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
                 <img
-                  src="https://images.unsplash.com/photo-1559827291-beb535aa5d4c?q=80&w=900&auto=format&fit=crop"
+                  src={image7}
                   alt="Premium EVA foam marine flooring"
                   className="w-full h-[380px] md:h-[460px] object-cover"
                   loading="lazy"
                 />
               </div>
-              <button className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
-                <ArrowRight size={16} className="rotate-180" />
-              </button>
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
-                <ArrowRight size={16} />
-              </button>
             </div>
 
             <div className="lg:text-right">
@@ -304,11 +284,6 @@ const MarineFlooring = () => {
             ))}
           </motion.div>
 
-          <div className="text-center mt-10">
-            <Link to="/#gallery" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
-              View Full Gallery <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -376,7 +351,7 @@ const MarineFlooring = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
           <img
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1760&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=1760&auto=format&fit=crop"
             alt="Boat on open water"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="lazy"

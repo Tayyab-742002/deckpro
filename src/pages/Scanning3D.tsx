@@ -199,9 +199,6 @@ const Scanning3D = () => {
             className="grid items-center gap-8 lg:grid-cols-[1fr_1.4fr_1fr]"
           >
             <div>
-              <p className="text-3xl font-light text-[#1a2f45]/20 mb-8">
-                <span className="text-[#1a2f45] font-semibold">01</span>/03
-              </p>
               <div className="flex flex-wrap gap-2 mb-5">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
                   <Crosshair size={12} /> Sub-mm
@@ -223,12 +220,6 @@ const Scanning3D = () => {
                   loading="lazy"
                 />
               </div>
-              <button className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
-                <ArrowRight size={16} className="rotate-180" />
-              </button>
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm text-[#1a2f45] shadow-lg transition-all hover:bg-white hover:shadow-xl">
-                <ArrowRight size={16} />
-              </button>
             </div>
 
             <div className="lg:text-right">

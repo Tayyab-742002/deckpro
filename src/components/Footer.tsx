@@ -33,6 +33,9 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent" />
       </div>
 
+      {/* ── Dark top gradient for link readability ── */}
+      <div className="absolute inset-x-0 top-0 z-[2] h-28 bg-gradient-to-b from-black/40 to-transparent" />
+
       {/* ── Top bar: nav links — line — social icons ── */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 pt-10 lg:pt-14">
         <div className="flex items-center justify-between gap-4">
@@ -42,7 +45,7 @@ const Footer = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-xs sm:text-sm font-medium text-white/80 transition-colors duration-300 hover:text-white"
+                className="text-xs sm:text-sm font-medium text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
               >
                 {link.label}
               </Link>
@@ -50,7 +53,7 @@ const Footer = () => {
           </nav>
 
           {/* Separator line */}
-          <div className="hidden sm:block flex-1 mx-6 h-px bg-white/20" />
+          <div className="hidden sm:block flex-1 mx-6 h-px bg-white/40" />
 
           {/* Social icons */}
           <div className="flex items-center gap-4">
@@ -58,7 +61,7 @@ const Footer = () => {
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 transition-colors duration-300 hover:text-white"
+              className="text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
               aria-label="Instagram"
             >
               <Instagram size={20} />
@@ -67,7 +70,7 @@ const Footer = () => {
               href="https://www.facebook.com/share/1AVApWZLQa/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 transition-colors duration-300 hover:text-white"
+              className="text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
               aria-label="Facebook"
             >
               <Facebook size={20} />
