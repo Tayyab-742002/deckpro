@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Anchor } from "lucide-react";
-
+import heroImage from "@/assets/hero-image.jpg";
 const stats = [
   { label: "Projects Completed", value: "50", suffix: "+" },
-  { label: "Year Warranty", value: "5", suffix: "yr" },
   { label: "Client Satisfaction", value: "100", suffix: "%" },
 ];
 
@@ -18,7 +17,7 @@ const HeroSection = () => {
 
         {/* Hero photo */}
         <img
-          src="https://images.unsplash.com/photo-1585000962552-70f0a67223d9?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={heroImage}
           alt="Custom EVA foam marine flooring on a boat deck"
           className="absolute inset-0 h-full w-full object-cover opacity-60"
           loading="eager"
@@ -53,9 +52,9 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-[2rem] font-bold leading-[1.15] text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Custom EVA Foam
+          Custom Designed
           <br />
-          Flooring, Built to Fit
+          Marine Grade Flooring
         </motion.h1>
 
         {/* Subtitle — 16px → 18px */}
@@ -65,9 +64,9 @@ const HeroSection = () => {
           transition={{ delay: 0.7, duration: 0.6 }}
           className="mt-4 max-w-md text-base leading-relaxed text-white/90 drop-shadow-sm sm:mt-5 sm:max-w-lg sm:text-lg"
         >
-          Precision 3D scanned, custom designed, and expertly fitted — premium
-          EVA foam flooring for boats, campervans, and 4x4 vehicles across
-          Western Australia.
+          Precision scanned, custom designed, and expertly fitted on-site —
+          premium EVA foam flooring for boats, campervans, and 4x4 vehicles
+          across WA.
         </motion.p>
 
         {/* CTA */}
@@ -100,7 +99,7 @@ const HeroSection = () => {
         className="absolute bottom-0 left-0 right-0 z-10"
       >
         <div className="mx-auto max-w-4xl px-6 pb-8 sm:px-8 sm:pb-10 lg:pb-12">
-          <div className="flex items-end justify-between gap-4">
+          <div className="flex items-end justify-center gap-16 sm:gap-24 md:gap-32">
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
                 <p className="text-[10px] font-medium uppercase tracking-widest text-white/60 sm:text-xs">

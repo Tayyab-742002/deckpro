@@ -8,7 +8,7 @@ import logoImg from "@/assets/logo.svg";
 const serviceLinks = [
   { label: "Marine Flooring", desc: "Boats & Yachts", path: "/marine-flooring", icon: Anchor },
   { label: "Campers & 4x4", desc: "Motorhomes & Off-Road", path: "/campers", icon: Truck },
-  { label: "3D Scanning", desc: "Precision Modelling", path: "/3d-scanning", icon: Box },
+  { label: "Precision Scanning", desc: "Digital Modelling", path: "/3d-scanning", icon: Box },
 ];
 
 const Navbar = () => {
@@ -120,13 +120,8 @@ const Navbar = () => {
           }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            {/* Logo — wave icon */}
-            <Link to="/" className="relative z-[70]" onClick={() => setIsOpen(false)}>
-             <img src={logoImg} alt="Deckpro Logo" className="h-8 w-auto sm:h-10 lg:h-12" />
-            </Link>
-
-            {/* ── Desktop Nav ── */}
+          <div className="flex h-20 items-center justify-between lg:grid lg:grid-cols-3 lg:h-24">
+            {/* ── Left — Desktop Nav ── */}
             <nav className="hidden items-center gap-1 lg:flex">
               {/* Home */}
               <Link
@@ -196,7 +191,15 @@ const Navbar = () => {
               >
                 How It Works
               </button>
+            </nav>
 
+            {/* ── Center — Logo (centered on all screens) ── */}
+            <Link to="/" className="relative z-[70] lg:justify-self-center" onClick={() => setIsOpen(false)}>
+              <img src={logoImg} alt="Deckpro Logo" className="h-12 w-auto sm:h-14 lg:h-16" />
+            </Link>
+
+            {/* ── Right — Desktop links + CTA ── */}
+            <div className="hidden items-center justify-end gap-1 lg:flex">
               {/* Gallery — scroll link */}
               <button
                 onClick={() => scrollToSection("gallery")}
@@ -215,13 +218,10 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-            </nav>
 
-            {/* Right — single CTA button */}
-            <div className="hidden items-center lg:flex">
               <Link
                 to="/contact"
-                className={`rounded-full px-6 py-2.5 text-sm font-semibold font-body transition-all duration-300 hover:shadow-lg ${transparent
+                className={`ml-2 rounded-full px-6 py-2.5 text-sm font-semibold font-body transition-all duration-300 hover:shadow-lg ${transparent
                   ? "bg-white text-[#1e3348] hover:bg-white/90"
                   : "bg-[#1e3348] text-white hover:bg-[#1e3348]/90"
                 }`}

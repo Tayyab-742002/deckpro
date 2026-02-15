@@ -6,10 +6,10 @@ import manufacturing from "@/assets/whychoosus/custom-design.png";
 import fitting from "@/assets/whychoosus/professional-fitting.jpg";
 const reasons = [
     {
-        title: "Precision 3D Scanning",
-        desc: "We use advanced 3D scanning technology to capture every curve and contour of your boat, campervan, or 4x4 with sub-millimetre accuracy — no guesswork, just a perfect digital template.",
+        title: "Precision Scanning",
+        desc: "We use advanced scanning technology to capture every curve and contour of your boat, campervan, or 4x4 with sub-millimetre accuracy — no guesswork, just a perfect digital template.",
         image: scanning,
-        imageAlt: "3D scanning technology capturing boat deck measurements",
+        imageAlt: "Precision scanning technology capturing boat deck measurements",
     },
     {
         title: "Custom Designed & Built",
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
                     </h2>
 
                     <p className="mt-3 max-w-lg text-base leading-relaxed text-[#1a2f45]/50 sm:mt-4 sm:text-lg">
-                        From 3D scanning to final fitting — we handle the entire process in-house, delivering premium EVA foam flooring for boats, campervans, and 4x4 vehicles across Western Australia.
+                        From precision scanning to final fitting — we handle the entire process in-house, delivering premium EVA foam flooring for boats, campervans, and 4x4 vehicles across Western Australia.
                     </p>
                 </motion.div>
 

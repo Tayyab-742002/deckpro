@@ -12,17 +12,17 @@ const projects = [
   {
     video: video1,
     category: "Marine Flooring",
-    title: "Bar Crusher 780HT — Full Deck Refit",
+    title: "1974 Custom Norwegian Build",
   },
   {
     video: video2,
     category: "Marine Flooring",
-    title: "Quintrex 610 Trident — Custom Cockpit Floor",
+    title: "Haines Hunter Classic 6.0",
   },
   {
     video: video3,
-    category: "Camper & 4x4",
-    title: "Toyota HiAce — Full Interior Floor Build",
+    category: "Marine Flooring",
+    title: "Caribbean Reefrunner",
   },
 ];
 
@@ -63,9 +63,7 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-base leading-relaxed text-[#1a2f45]/50 max-w-sm md:ml-auto sm:text-lg"
           >
-            Every project is unique. Here's a look at some of our recent
-            custom EVA foam flooring builds for boats, campervans, and 4x4s
-            across Western Australia.
+            Every project is unique. Check out some of our recent custom designs.
           </motion.p>
         </div>
 

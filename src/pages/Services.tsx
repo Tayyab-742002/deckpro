@@ -27,9 +27,9 @@ const services = [
     title: "Marine Flooring",
     subtitle: "Boats & Yachts",
     description:
-      "Custom EVA foam flooring for boats of all sizes. From tinnies to luxury yachts — precision 3D scanned and expertly fitted for a flawless, non-slip finish that withstands the harshest marine conditions.",
+      "Custom EVA foam flooring for boats of all sizes. From tinnies to luxury yachts — precision scanned and expertly fitted for a flawless, non-slip finish that withstands the harshest marine conditions.",
     features: [
-      "Precision 3D scanning of your deck",
+      "Precision scanning of your deck",
       "Custom colour & pattern design",
       "CNC-machined from premium EVA foam",
       "Professional on-site installation",
@@ -60,13 +60,13 @@ const services = [
   },
   {
     icon: Box,
-    title: "3D Scanning",
-    subtitle: "Precision Modelling",
+    title: "Precision Scanning",
+    subtitle: "Digital Modelling",
     description:
-      "High-precision 3D scanning and digital modelling for clients requiring detailed templates, accurate measurements, and bespoke design solutions. Perfect for complex or unique spaces.",
+      "High-precision scanning and digital modelling for clients requiring detailed templates, accurate measurements, and bespoke design solutions. Perfect for complex or unique spaces.",
     features: [
       "Sub-millimetre accuracy",
-      "Digital 3D models & templates",
+      "Digital models & templates",
       "Compatible with CAD/CAM workflows",
       "Ideal for complex geometries",
       "Available as standalone service",
@@ -82,9 +82,9 @@ const processSteps = [
   {
     icon: ScanLine,
     step: "01",
-    title: "3D Scanning",
+    title: "Precision Scanning",
     description:
-      "We use precision 3D scanning technology to capture every contour and dimension of your boat deck, campervan, or 4x4 floor — ensuring an exact digital template.",
+      "We use precision scanning technology to capture every contour and dimension of your boat deck, campervan, or 4x4 floor — ensuring an exact digital template.",
   },
   {
     icon: Palette,
@@ -211,7 +211,7 @@ const Services = () => {
               >
                 Premium custom EVA foam flooring for boats, campervans, and 4x4
                 vehicles. Every project follows our meticulous four-stage
-                process — from 3D scan to expert installation.
+                process — from precision scan to expert installation.
               </motion.p>
 
               <motion.div
@@ -320,7 +320,7 @@ const Services = () => {
               Premium Flooring Services
             </h2>
             <p className="mt-5 mx-auto max-w-2xl font-body text-lg text-muted-foreground">
-              Whether it&apos;s a luxury yacht, an outback 4x4, or a detailed 3D model
+              Whether it&apos;s a luxury yacht, an outback 4x4, or a detailed digital model
               — every project receives the same meticulous attention to perfection.
             </p>
           </motion.div>
@@ -652,7 +652,7 @@ const Services = () => {
               {
                 num: "02",
                 title: "Precision Technology",
-                desc: "3D scanning captures every contour with sub-millimetre accuracy. The result is a perfect fit, every time.",
+                desc: "Precision scanning captures every contour with sub-millimetre accuracy. The result is a perfect fit, every time.",
               },
               {
                 num: "03",

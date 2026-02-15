@@ -49,7 +49,7 @@ const vehicleTypes = [
 ];
 
 const processSteps = [
-  { icon: ScanLine, num: "01", title: "3D Scan", desc: "Precision scanning of your vehicle interior — every contour, every angle." },
+  { icon: ScanLine, num: "01", title: "Precision Scan", desc: "Precision scanning of your vehicle interior — every contour, every angle." },
   { icon: Palette, num: "02", title: "Design", desc: "Custom design to your spec — colours, zones, branding, all tailored." },
   { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium EVA foam in our Perth workshop." },
   { icon: Wrench, num: "04", title: "Install", desc: "Expert fitting directly into your vehicle for a flawless finish." },
@@ -103,7 +103,7 @@ const Campers = () => {
             className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
         </div>
 

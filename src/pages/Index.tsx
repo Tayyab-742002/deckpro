@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import MobileServiceBanner from "@/components/MobileServiceBanner";
 import HowItWorks from "@/components/HowItWorks";
 import ServicesOverview from "@/components/ServicesOverview";
 import GallerySection from "@/components/GallerySection";
@@ -11,6 +12,7 @@ const Index = () => {
     <main>
       <HeroSection />
       <WhyChooseUs />
+      <MobileServiceBanner />
       <HowItWorks />
       <ServicesOverview />
       <GallerySection />

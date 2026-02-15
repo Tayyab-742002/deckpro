@@ -5,7 +5,7 @@ import { Instagram, Facebook } from "lucide-react";
 const footerLinks = [
   { label: "Marine Flooring", path: "/marine-flooring" },
   { label: "Campers & 4x4", path: "/campers" },
-  { label: "3D Scanning", path: "/3d-scanning" },
+  { label: "Precision Scanning", path: "/3d-scanning" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -88,8 +88,7 @@ const Footer = () => {
         </h2>
 
         <p className="text-sm text-[#1a2f45]/50 max-w-sm mb-8">
-          Get in touch for a free quote on custom EVA foam flooring for your
-          boat, campervan, or 4x4. We serve all of Western Australia.
+          Get in touch for a quote on some custom designs, unique to your requirements.
         </p>
       </div>
 

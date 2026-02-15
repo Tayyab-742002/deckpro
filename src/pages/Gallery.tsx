@@ -20,7 +20,7 @@ const categories: { key: GalleryCategory; label: string }[] = [
   { key: "all", label: "All Projects" },
   { key: "marine", label: "Marine Flooring" },
   { key: "campers", label: "Campers & 4x4" },
-  { key: "scanning", label: "3D Scanning" },
+  { key: "scanning", label: "Precision Scanning" },
 ];
 
 const galleryItems: GalleryItem[] = [
@@ -30,7 +30,7 @@ const galleryItems: GalleryItem[] = [
   { src: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&q=80", alt: "Campervan interior flooring", category: "campers", title: "VW Transporter", desc: "Full-floor custom EVA foam with living and kitchen zones." },
   { src: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80", alt: "Motorhome reflooring", category: "campers", title: "Jayco Motorhome", desc: "Multi-room installation with entryway drainage design." },
   { src: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80", alt: "4x4 cargo area flooring", category: "campers", title: "200 Series Land Cruiser", desc: "Heavy-duty cargo area flooring — built for outback touring." },
-  { src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80", alt: "3D scanning equipment", category: "scanning", title: "Deck Scanning", desc: "Precision 3D scan capturing every contour of a 42ft yacht deck." },
+  { src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80", alt: "Precision scanning equipment", category: "scanning", title: "Deck Scanning", desc: "Precision scan capturing every contour of a 42ft yacht deck." },
   { src: "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=800&q=80", alt: "Custom precision template", category: "scanning", title: "Template Generation", desc: "Digital template created from scan data — ready for CNC cutting." },
   { src: "https://images.unsplash.com/photo-1605281317010-fe5fffff7ee1?w=800&q=80", alt: "Finished premium flooring", category: "marine", title: "Ski Boat", desc: "Full cockpit flooring with custom branding and UV-stable colours." },
   { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", alt: "Boat on open water", category: "marine", title: "Game Fisher", desc: "Rear deck and cockpit flooring — marine grey with white accent lines." },
@@ -108,7 +108,7 @@ const Gallery = () => {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mx-auto max-w-xl font-body text-lg text-white/60">
-            Browse our portfolio of completed marine flooring, camper builds, and 3D scanning projects across Western Australia.
+            Browse our portfolio of completed marine flooring, camper builds, and precision scanning projects across Western Australia.
           </motion.p>
         </div>
       </section>

@@ -107,9 +107,9 @@ const GallerySection = () => {
                         transition={{ duration: 0.6, delay: 0.15 }}
                         className="text-base leading-relaxed text-[#1a2f45]/50 max-w-sm md:ml-auto sm:text-lg"
                     >
-                        From pristine boat decks to rugged 4×4 interiors, every project
+                        From pristine boat decks to rugged 4x4 interiors, every project
                         is precision-cut and hand-finished. Browse a snapshot of our
-                        latest work across Western Australia.
+                        latest work.
                     </motion.p>
                 </div>
             </div>

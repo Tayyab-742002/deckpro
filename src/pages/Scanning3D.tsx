@@ -14,13 +14,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
 
+// Hero Image 
+
+import heroImage from "@/assets/scanning-heroImage.jpg";
 /* ───────── DATA ───────── */
 
 const capabilities = [
   {
     icon: Crosshair,
     title: "Sub-Millimetre Accuracy",
-    desc: "Our 3D scanners capture surfaces with tolerances under 0.5mm, ensuring a perfect digital replica.",
+    desc: "Our scanners capture surfaces with tolerances under 0.5mm, ensuring a perfect digital replica.",
   },
   {
     icon: Layers,
@@ -29,8 +32,8 @@ const capabilities = [
   },
   {
     icon: Monitor,
-    title: "Digital 3D Models",
-    desc: "Receive full 3D models compatible with CAD, CAM, and CNC workflows. Ready for manufacturing.",
+    title: "Digital Models",
+    desc: "Receive full digital models compatible with CAD, CAM, and CNC workflows. Ready for manufacturing.",
   },
   {
     icon: FileDown,
@@ -42,7 +45,7 @@ const capabilities = [
 const useCases = [
   {
     title: "Marine Flooring Templates",
-    desc: "Our core use. Every boat flooring project starts with a precision 3D scan to create the template for your custom EVA foam floor.",
+    desc: "Our core use. Every boat flooring project starts with a precision scan to create the template for your custom EVA foam floor.",
     image: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=700&q=80",
   },
   {
@@ -53,12 +56,12 @@ const useCases = [
   {
     title: "Custom Part Design",
     desc: "Need a bespoke part, a replacement component, or a one-off fabrication? Our scans provide the precision data to make it happen.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=700&q=80",
+    image: heroImage,
   },
 ];
 
 const faqs = [
-  { q: "Can I get just a 3D scan without flooring?", a: "Yes. While most of our scans are part of a full flooring package, we do offer standalone scanning services. This is ideal for clients who need templates, measurements, or 3D models for their own projects." },
+  { q: "Can I get just a scan without flooring?", a: "Yes. While most of our scans are part of a full flooring package, we do offer standalone scanning services. This is ideal for clients who need templates, measurements, or digital models for their own projects." },
   { q: "What file formats do you deliver?", a: "We can deliver in STL, OBJ, STEP, DXF, and PDF formats depending on your needs. Just let us know your preferred format when enquiring." },
   { q: "How long does a scan take?", a: "A typical boat deck scan takes 1–2 hours depending on the size and complexity. Interior vehicle scans are usually under an hour." },
   { q: "Do you need the boat to be empty?", a: "Ideally, yes. A clear deck allows us to capture the full surface accurately. We'll let you know exactly what needs to be removed before the scan day." },
@@ -100,12 +103,12 @@ const Scanning3D = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
-            alt="3D scanning technology in action"
+            src={heroImage}
+            alt="Precision scanning technology in action"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
         </div>
 
@@ -119,7 +122,7 @@ const Scanning3D = () => {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-[#1a2f45]/75 px-5 py-2 text-xs font-medium tracking-wider text-white backdrop-blur-sm">
               <Box size={13} />
-              3D Scanning
+              Precision Scanning
             </span>
           </motion.div>
 
@@ -140,8 +143,8 @@ const Scanning3D = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="mt-5 max-w-md mx-auto text-sm leading-relaxed text-[#1a2f45]/50 sm:text-base"
           >
-            High-precision 3D scanning and digital modelling for marine, automotive,
-            and custom fabrication projects. Sub-millimetre accuracy, every time.
+            High-precision scanning and digital modelling for marine, automotive,
+            and custom projects.Millimetre accuracy, every time.
           </motion.p>
 
           <motion.div
@@ -204,7 +207,7 @@ const Scanning3D = () => {
                   <Crosshair size={12} /> Sub-mm
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
-                  <Layers size={12} /> 3D Model
+                  <Layers size={12} /> Digital Model
                 </span>
               </div>
               <h3 className="text-2xl font-semibold text-[#1a2f45] mb-1.5">Precision Scanning</h3>
@@ -214,8 +217,8 @@ const Scanning3D = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
                 <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=900&auto=format&fit=crop"
-                  alt="3D scanning technology capturing precise measurements"
+                  src={heroImage}
+                  alt="Precision scanning technology capturing measurements"
                   className="w-full h-[380px] md:h-[460px] object-cover"
                   loading="lazy"
                 />
@@ -251,7 +254,7 @@ const Scanning3D = () => {
               </span>
               <span className="text-sm font-medium text-[#1a2f45]/70">Applications</span>
             </div>
-            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">How We Use 3D Scanning</h2>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">How We Use Precision Scanning</h2>
           </motion.div>
 
           <div className="space-y-20">
@@ -299,7 +302,7 @@ const Scanning3D = () => {
             {[
               { num: "01", title: "Book Your Scan", desc: "Contact us with your project details. We'll confirm a scan date and location." },
               { num: "02", title: "On-Site Scanning", desc: "Our technician arrives with the scanning equipment. The process typically takes 1–2 hours." },
-              { num: "03", title: "Data Processing", desc: "We process the raw scan data into clean, accurate 3D models and templates." },
+              { num: "03", title: "Data Processing", desc: "We process the raw scan data into clean, accurate digital models and templates." },
               { num: "04", title: "Delivery", desc: "You receive your files in your preferred format — ready for design, manufacturing, or fabrication." },
             ].map((s, i) => (
               <motion.div
@@ -333,7 +336,7 @@ const Scanning3D = () => {
                 <span className="text-sm font-medium text-[#1a2f45]/70">FAQ</span>
               </div>
               <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl mb-5">Scanning Questions</h2>
-              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-8">Common questions about our 3D scanning services.</p>
+              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-8">Common questions about our precision scanning services.</p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                 Ask Us Anything <ArrowRight size={14} />
               </Link>
@@ -351,7 +354,7 @@ const Scanning3D = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
           <img
             src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
-            alt="3D scanning equipment"
+            alt="Precision scanning equipment"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="lazy"
           />
@@ -360,7 +363,7 @@ const Scanning3D = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <Zap size={28} className="text-white/40 mx-auto mb-6" />
             <h2 className="text-3xl font-semibold text-white leading-tight sm:text-4xl lg:text-5xl mb-5">
-              Need Precision<br />3D Data?
+              Need Precision<br />Digital Data?
             </h2>
             <p className="mx-auto max-w-lg text-sm leading-relaxed text-white/50 mb-10">
               Whether it&apos;s for flooring templates, custom parts, or detailed measurements — we&apos;ve got the technology.

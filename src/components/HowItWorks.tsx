@@ -8,11 +8,11 @@ import fitting from "@/assets/howItWorks/expert-fitting.jpg";
 const steps = [
   {
     number: "1",
-    title: "3D Scanning",
+    title: "Precision Scanning",
     description:
-      "We come to you — whether it's a boat at the marina, a campervan in your driveway, or a 4x4 in the garage. Our handheld 3D scanner captures every curve and contour with sub-millimetre accuracy, creating an exact digital template of your floor.",
+      "We come to you — whether it's a boat at the marina, a campervan in your driveway, or a 4x4 in the garage. Our precision scanner captures every curve and contour with sub-millimetre accuracy, creating an exact digital template of your floor.",
     image: scanning,
-    imageAlt: "3D scanning a boat deck for custom flooring template",
+    imageAlt: "Precision scanning a boat deck for custom flooring template",
   },
   {
     number: "2",
@@ -69,7 +69,7 @@ const HowItWorks = () => {
           </h2>
 
           <p className="mt-3 mx-auto max-w-lg text-base leading-relaxed text-[#1a2f45]/50 sm:mt-5 sm:text-lg">
-            From precision 3D scanning to expert fitting — every step is
+            From precision scanning to expert fitting — every step is
             engineered to deliver EVA foam flooring that fits your vessel
             perfectly.
           </p>

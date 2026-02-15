@@ -13,12 +13,12 @@ const slides = [
     badge: "Marine Flooring",
     heading: ["Custom EVA Foam", "For Your Vessel"],
     subtitle:
-      "From fishing boats to luxury cruisers — we 3D scan, custom design, manufacture, and professionally fit premium EVA foam flooring tailored to your boat's exact dimensions.",
+      "From fishing boats to luxury cruisers — we precision scan, custom design, manufacture, and professionally fit premium EVA foam flooring tailored to your boat's exact dimensions.",
     bg: marinefloring,
     brandText: "Marine Flooring",
     link: "/marine-flooring",
     hotspots: [
-      { label: "3D Scanned", desc: "Sub-millimetre accuracy", top: "52%", left: "28%" },
+      { label: "Precision Scanned", desc: "Sub-millimetre accuracy", top: "52%", left: "28%" },
       { label: "Custom Colours", desc: "Match your boat's style", top: "36%", left: "54%" },
       { label: "Non-Slip", desc: "Marine-grade EVA foam", top: "60%", left: "44%" },
     ],
@@ -33,14 +33,14 @@ const slides = [
     badge: "Campers & 4x4",
     heading: ["Transform Your", "Adventure Vehicle"],
     subtitle:
-      "Custom-cut EVA foam flooring for campervans, motorhomes, and 4x4 vehicles. Durable enough for the outback, comfortable enough for living in — 3D scanned and fitted to every curve.",
+      "Custom-cut EVA foam flooring for campervans, motorhomes, and 4x4 vehicles. Durable enough for the outback, comfortable enough for living in — precision scanned and fitted to every curve.",
     bg: camperAnd4x4,
     brandText: "Camper & 4x4",
     link: "/campers",
     hotspots: [
       { label: "Rugged Build", desc: "Built for harsh conditions", top: "50%", left: "30%" },
       { label: "Easy Clean", desc: "Wipe down in seconds", top: "38%", left: "56%" },
-      { label: "Perfect Fit", desc: "3D scanned templates", top: "58%", left: "46%" },
+      { label: "Perfect Fit", desc: "Precision scanned templates", top: "58%", left: "46%" },
     ],
     feature: {
       title: "4x4 Interior",
@@ -50,20 +50,20 @@ const slides = [
     },
   },
   {
-    badge: "3D Scanning",
-    heading: ["High-Precision", "3D Scanning"],
+    badge: "Precision Scanning",
+    heading: ["High-Precision", "Scanning"],
     subtitle:
-      "Standalone 3D scanning and modelling services for clients who need detailed digital templates. We capture complex surfaces with sub-millimetre accuracy for any project.",
+      "Standalone precision scanning and modelling services for clients who need detailed digital templates. We capture complex surfaces with sub-millimetre accuracy for any project.",
     bg: scanning,
-    brandText: "3D Scanning",
+    brandText: "Precision Scanning",
     link: "/3d-scanning",
     hotspots: [
       { label: "Sub-mm Accuracy", desc: "Precision you can trust", top: "48%", left: "26%" },
-      { label: "Digital Models", desc: "CAD-ready 3D files", top: "35%", left: "52%" },
+      { label: "Digital Models", desc: "CAD-ready files", top: "35%", left: "52%" },
       { label: "Any Surface", desc: "Complex shapes captured", top: "56%", left: "42%" },
     ],
     feature: {
-      title: "3D Template",
+      title: "Digital Template",
       desc: "CAD-ready digital models",
       image:
         scanningFeaturedCard,

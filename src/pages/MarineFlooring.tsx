@@ -33,7 +33,7 @@ import image7 from "@/assets/services/marine/7.jpg";
 
 
 const processSteps = [
-  { icon: ScanLine, num: "01", title: "3D Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
+  { icon: ScanLine, num: "01", title: "Precision Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
   { icon: Palette, num: "02", title: "Design", desc: "Choose colours, patterns, and layout — everything tailored to your vision." },
   { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium EVA foam in our dedicated workshop." },
   { icon: Wrench, num: "04", title: "Install", desc: "Professional on-site fitting for a flawless, seamless finish." },
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Do I need to bring my boat to you?",
-    a: "No. We come to your boat for both the 3D scan and the installation. We service all of Western Australia.",
+    a: "No. We come to your boat for both the scan and the installation. We service all of Western Australia.",
   },
   {
     q: "What are your payment terms?",
@@ -127,7 +127,7 @@ const MarineFlooring = () => {
             className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
         </div>
 
@@ -162,9 +162,8 @@ const MarineFlooring = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="mt-5 max-w-md mx-auto text-sm leading-relaxed text-[#1a2f45]/50 sm:text-base"
           >
-            From tinnies to luxury yachts — every deck gets the same meticulous
-            3D scan, custom design, and expert installation using premium
-            marine-grade EVA foam.
+            From tinnies & Jet skis to Luxury Vessels - Every deck gets the same premium,
+            Custom design and expert installation using certified marine grade products.
           </motion.p>
 
           <motion.div
@@ -197,7 +196,7 @@ const MarineFlooring = () => {
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                 <Anchor size={13} className="text-white" />
               </span>
-              <span className="text-sm font-medium text-[#1a2f45]/70">Why EVA Foam</span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">Why choose Deckpro Marine?</span>
             </div>
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
               The Gold Standard in<br />Marine Flooring

@@ -473,8 +473,7 @@ const Contact = () => {
               Our Enquiry Process
             </h2>
             <p className="mt-3 mx-auto max-w-lg text-sm leading-relaxed text-[#1a2f45]/40">
-              We do not attend any site without a 50% deposit. This ensures we
-              only work with serious clients who value quality craftsmanship.
+             Our terms are 50% deposit prior to scanning & design, 50% upon completion.
             </p>
           </motion.div>
 
@@ -513,18 +512,18 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 mx-auto max-w-2xl rounded-2xl border border-[#1a2f45]/10 bg-[#1a2f45]/[0.03] p-6 text-center"
+            className="mt-12 mx-auto max-w-2xl rounded-2xl border border-primary bg-[#1a2f45] p-6 text-center"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
-              <Banknote size={18} className="text-[#1a2f45]" />
-              <span className="text-sm font-bold uppercase tracking-wider text-[#1a2f45]">
-                Payment Terms
+              <Banknote size={18} className="text-white" />
+                <span className="text-sm font-bold uppercase tracking-wider text-white">
+                  Payment Terms
               </span>
             </div>
-            <p className="text-sm text-[#1a2f45]/50">
-              <strong className="text-[#1a2f45]">50% deposit</strong> upon accepting your quote to
-              secure a scan date. Remaining <strong className="text-[#1a2f45]">50% due upon
-                job completion</strong> — no exceptions.
+            <p className="text-sm text-white/50">
+              <strong className="text-white">50% deposit</strong> upon accepting your quote to
+              secure a scan date. Remaining <strong className="text-white">50% due upon
+                job completion</strong>.
             </p>
           </motion.div>
         </div>
@@ -606,7 +605,7 @@ const Contact = () => {
                     {([
                       { key: "marine" as ServiceType, icon: Ship, label: "Marine Flooring", sub: "Boats & Yachts" },
                       { key: "camper" as ServiceType, icon: Truck, label: "Campers & 4x4", sub: "Vehicles" },
-                      { key: "scanning" as ServiceType, icon: Box, label: "3D Scanning", sub: "Standalone" },
+                      { key: "scanning" as ServiceType, icon: Box, label: "Precision Scanning", sub: "Standalone" },
                     ]).map((opt) => (
                       <button
                         key={opt.key}
@@ -942,6 +941,27 @@ const Contact = () => {
                 ))}
               </motion.div>
 
+              {/* Mobile service callout */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="rounded-2xl border border-[#3A868F]/20 bg-[#1a2f45] p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3A868F] flex-shrink-0">
+                    <Truck size={18} className="text-white" />
+                  </div>
+                  <h4 className="text-base font-semibold text-white">Fully Mobile Service</h4>
+                </div>
+                <p className="text-sm leading-relaxed text-white/60">
+                  We come to your location — marina, driveway, or garage. No need
+                  to move your boat or vehicle.
+                </p>
+               
+              </motion.div>
+
               {/* Contact info */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -957,7 +977,6 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#1a2f45]">Busselton & Perth, WA</p>
-                    <p className="text-xs text-[#1a2f45]/40">Serving all of Western Australia</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
