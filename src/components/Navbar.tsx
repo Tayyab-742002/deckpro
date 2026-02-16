@@ -116,7 +116,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isOpen
           ? "bg-white"
           : scrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
+            ? "bg-white/90 backdrop-blur-xl shadow-sm"
             : "bg-transparent"
           }`}
       >
@@ -195,11 +195,11 @@ const Navbar = () => {
             </nav>
 
             {/* ── Center — Logo (centered on all screens) ── */}
-            <Link to="/" className="relative z-[70] lg:justify-self-center" onClick={() => setIsOpen(false)}>
+            <Link to="/" className="relative z-[90] lg:justify-self-center" onClick={() => setIsOpen(false)}>
               <img
                 src={logoImg}
                 alt="Deckpro Logo"
-                className={`w-auto transition-all duration-300 ${scrolled ? "h-12 sm:h-14 lg:h-16" : "h-16 sm:h-20 lg:h-24"}`}
+                className={`w-auto transition-all duration-300 ${scrolled || !transparent ? "invert" : ""} ${scrolled ? "h-16 sm:h-20 lg:h-24" : "h-28 sm:h-36 lg:h-48"}`}
               />
             </Link>
 
