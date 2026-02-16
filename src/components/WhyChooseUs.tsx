@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Anchor, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import scanning from "@/assets/whychoosus/3D-Scanning.png";
+import scanning from "@/assets/whychoosus/scanning.jpg";
 import manufacturing from "@/assets/whychoosus/custom-design.png";
 import fitting from "@/assets/whychoosus/professional-fitting.jpg";
 const reasons = [

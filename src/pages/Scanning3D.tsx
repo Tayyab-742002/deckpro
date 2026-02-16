@@ -16,7 +16,9 @@ import Footer from "@/components/Footer";
 
 // Hero Image 
 
-import heroImage from "@/assets/scanning-heroImage.jpg";
+import heroImage from "@/assets/services/scanning/scanning.jpg";
+import marineTemplate from "@/assets/services/scanning/marine-template.jpg";
+import camperInterior from "@/assets/services/camper/CamperAnd4x4-featured-card.png";
 /* ───────── DATA ───────── */
 
 const capabilities = [
@@ -46,12 +48,12 @@ const useCases = [
   {
     title: "Marine Flooring Templates",
     desc: "Our core use. Every boat flooring project starts with a precision scan to create the template for your custom EVA foam floor.",
-    image: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=700&q=80",
+    image: marineTemplate,
   },
   {
     title: "Vehicle Interior Mapping",
     desc: "Campervans, motorhomes, and 4x4s — we scan the entire floor area to create templates for custom flooring installations.",
-    image: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=700&q=80",
+    image: camperInterior,
   },
   {
     title: "Custom Part Design",
@@ -353,7 +355,7 @@ const Scanning3D = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
           <img
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1760&auto=format&fit=crop"
+            src={heroImage}
             alt="Precision scanning equipment"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="lazy"

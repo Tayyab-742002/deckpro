@@ -35,7 +35,7 @@ import image7 from "@/assets/services/marine/7.jpg";
 const processSteps = [
   { icon: ScanLine, num: "01", title: "Precision Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
   { icon: Palette, num: "02", title: "Design", desc: "Choose colours, patterns, and layout — everything tailored to your vision." },
-  { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium EVA foam in our dedicated workshop." },
+  { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium Marine Grade Products in our dedicated workshop." },
   { icon: Wrench, num: "04", title: "Install", desc: "Professional on-site fitting for a flawless, seamless finish." },
 ];
 
@@ -229,7 +229,7 @@ const MarineFlooring = () => {
                   <Sun size={12} /> UV Stable
                 </span>
               </div>
-              <h3 className="text-2xl font-semibold text-[#1a2f45] mb-1.5">Premium EVA Foam</h3>
+              <h3 className="text-2xl font-semibold text-[#1a2f45] mb-1.5">Premium Marine Grade Products</h3>
               <p className="text-sm text-[#1a2f45]/40">Marine-Grade Material</p>
             </div>
 
@@ -237,7 +237,7 @@ const MarineFlooring = () => {
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
                 <img
                   src={image7}
-                  alt="Premium EVA foam marine flooring"
+                  alt="Premium Marine Grade Products"
                   className="w-full h-[380px] md:h-[460px] object-cover"
                   loading="lazy"
                 />
@@ -249,7 +249,7 @@ const MarineFlooring = () => {
                 Closed-cell foam that won't absorb water, resists UV fading, and provides
                 non-slip grip — even in the wettest conditions.
               </p>
-              <p className="text-3xl font-semibold text-[#1a2f45] mb-1">5yr Warranty</p>
+              {/* <p className="text-3xl font-semibold text-[#1a2f45] mb-1">5yr Warranty</p> */}
               <p className="text-xs text-[#1a2f45]/40 mb-6">Marine-grade durability</p>
               <Link
                 to="/contact"

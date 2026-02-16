@@ -18,6 +18,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
 
+
+// Images
+
+import heroImage from "@/assets/services/camper/camperAnd4x4.png";
+import featuredImage from "@/assets/services/camper/CamperAnd4x4-featured-card.png";
 /* ───────── DATA ───────── */
 
 const whyEVA = [
@@ -27,26 +32,6 @@ const whyEVA = [
   { icon: Shield, title: "Shock Absorbing", desc: "Comfortable underfoot with genuine cushion for long road trips." },
 ];
 
-const vehicleTypes = [
-  {
-    title: "Campervans",
-    desc: "Custom flooring for VW Transporters, Mercedes Sprinters, Toyota HiAces, and all popular campervan conversions. Built to handle daily life on the road.",
-    image: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=700&q=80",
-    features: ["Full-floor custom templates", "Slide-out bed compatible", "Wet-area variants available"],
-  },
-  {
-    title: "Motorhomes",
-    desc: "Premium reflooring for motorhomes of all sizes. Replace tired carpet or vinyl with durable, stylish EVA foam that's built for the long haul.",
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=700&q=80",
-    features: ["Multi-room designs", "Kitchen & wet-area rated", "Wheelchair-friendly options"],
-  },
-  {
-    title: "4x4 Vehicles",
-    desc: "Tough, washable flooring for Land Cruisers, Patrols, Hiluxes, and more. Designed for serious off-road use — mud, sand, and saltwater don't stand a chance.",
-    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700&q=80",
-    features: ["Mud & sand resistant", "Cargo-area solutions", "Custom fit to your build"],
-  },
-];
 
 const processSteps = [
   { icon: ScanLine, num: "01", title: "Precision Scan", desc: "Precision scanning of your vehicle interior — every contour, every angle." },
@@ -98,7 +83,7 @@ const Campers = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
-            src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1760&auto=format&fit=crop"
+            src={heroImage}
             alt="Campervan adventure with premium EVA flooring"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
             loading="eager"
@@ -212,7 +197,7 @@ const Campers = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
                 <img
-                  src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=900&auto=format&fit=crop"
+                  src={featuredImage}
                   alt="Campervan interior with custom EVA foam flooring"
                   className="w-full h-[380px] md:h-[460px] object-cover"
                   loading="lazy"
@@ -328,7 +313,7 @@ const Campers = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
           <img
-            src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1760&auto=format&fit=crop"
+            src={heroImage}
             alt="4x4 vehicle on outback road"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="lazy"

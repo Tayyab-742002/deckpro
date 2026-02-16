@@ -7,6 +7,7 @@ const footerLinks = [
   { label: "Campers & 4x4", path: "/campers" },
   { label: "Precision Scanning", path: "/3d-scanning" },
   { label: "Contact", path: "/contact" },
+  { label: "Warranty", path: "/warranty" },
 ];
 
 const Footer = () => {

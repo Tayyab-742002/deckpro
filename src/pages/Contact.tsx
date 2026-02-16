@@ -50,6 +50,7 @@ interface FormData {
   scanDetails: string;
   // Shared
   dimensions: string;
+  cleaning: string;
   message: string;
 }
 
@@ -73,6 +74,7 @@ const initialFormData: FormData = {
   scanLocation: "",
   scanDetails: "",
   dimensions: "",
+  cleaning: "",
   message: "",
 };
 
@@ -94,20 +96,20 @@ const caseStudies = [
   {
     before: before1,
     after: after1,
-    label: "21ft Centre Console — Full Deck",
-    stat: "Completed in 3 weeks",
+    label: "1947 Custom Norweign Fiberglass Project 8.5m",
+    stat: "Attention to detail is our #1 priority.",
   },
   {
     before: before2,
     after: after2,
-    label: "Quintrex 610 Trident — Cockpit",
-    stat: "Custom teak pattern",
+    label: "Haines Hunter Classic 6.5",
+    stat: "Scan - Custom Design - Fitting - Mobile service",
   },
   {
     before: before3,
     after: after3,
-    label: "Haines Hunter 635 — Full Refit",
-    stat: "5-year warranty",
+    label: "Caribbean Reef Runner 21",
+    stat: "Scan - Custom Design - Fitting - Mobile service",
   },
 ];
 
@@ -279,6 +281,7 @@ const BeforeAfterCard = ({
 const Contact = () => {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [photos, setPhotos] = useState<File[]>([]);
+  const [logoFiles, setLogoFiles] = useState<File[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -295,6 +298,12 @@ const Contact = () => {
     if (e.target.files) {
       setPhotos(Array.from(e.target.files));
       if (errors.photos) setErrors((prev) => ({ ...prev, photos: "" }));
+    }
+  };
+
+  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setLogoFiles(Array.from(e.target.files));
     }
   };
 
@@ -329,6 +338,8 @@ const Contact = () => {
       if (!formData.scanType) errs.scanType = "Please select scan type.";
       if (!formData.scanLocation.trim()) errs.scanLocation = "Scan location is required.";
     }
+
+    if (!formData.cleaning) errs.cleaning = "Please confirm cleaning status.";
 
     if (!formData.dimensions.trim()) errs.dimensions = "Approximate dimensions are required.";
     if (photos.length === 0) errs.photos = "Please upload at least one photo.";
@@ -473,7 +484,7 @@ const Contact = () => {
               Our Enquiry Process
             </h2>
             <p className="mt-3 mx-auto max-w-lg text-sm leading-relaxed text-[#1a2f45]/40">
-             Our terms are 50% deposit prior to scanning & design, 50% upon completion.
+              Our terms are 50% deposit prior to scanning & design, 50% upon completion.
             </p>
           </motion.div>
 
@@ -516,8 +527,8 @@ const Contact = () => {
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <Banknote size={18} className="text-white" />
-                <span className="text-sm font-bold uppercase tracking-wider text-white">
-                  Payment Terms
+              <span className="text-sm font-bold uppercase tracking-wider text-white">
+                Payment Terms
               </span>
             </div>
             <p className="text-sm text-white/50">
@@ -787,7 +798,110 @@ const Contact = () => {
                   )}
                 </AnimatePresence>
 
-                {/* ── STEP 4: Dimensions & Photos ── */}
+                {/* ── STEP 4: Residue & Cleaning ── */}
+                <AnimatePresence>
+                  {formData.serviceType && (
+                    <motion.div
+                      key="cleaning"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <div className="h-px bg-gray-100 mb-10" />
+                      <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">4</span>
+                        Residue & Cleaning
+                      </h3>
+
+                      <div className="mb-6 rounded-lg bg-amber-50 p-4 border border-amber-100">
+                        <p className="text-sm text-amber-900 flex gap-2">
+                          <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                          <span>
+                            Old Carpet/Flooring and Glue residue must be cleaned and removed prior to scanning and site visit.
+                            <strong> Heavy soiling will be charged as an extra.</strong>
+                          </span>
+                        </p>
+                      </div>
+
+                      <div className="grid gap-5 mb-10">
+                        <div>
+                          <label htmlFor="cleaning" className={labelClass}>
+                            Will the area be cleaned and prepared prior to our visit? {requiredStar}
+                          </label>
+                          <select
+                            id="cleaning"
+                            name="cleaning"
+                            value={formData.cleaning}
+                            onChange={handleChange}
+                            className={inputClass}
+                          >
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                          {errors.cleaning && errorMsg(errors.cleaning)}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* ── STEP 5: Logos & Lettering ── */}
+                <AnimatePresence>
+                  {formData.serviceType && (
+                    <motion.div
+                      key="logos"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <div className="h-px bg-gray-100 mb-10" />
+                      <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">5</span>
+                        Logos & Lettering
+                      </h3>
+
+                      <div className="grid gap-5 mb-10">
+                        <div>
+                          <label className={labelClass}>
+                            Do you have any logo or lettering you would like to be included in your design? Upload ideas here:
+                          </label>
+                          <div className="relative">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              multiple
+                              onChange={handleLogoChange}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
+                            <div
+                              className={`flex items-center justify-center gap-3 rounded-xl border-2 border-dashed p-8 text-center transition-colors duration-300 ${logoFiles.length > 0
+                                ? "border-[#1a2f45]/30 bg-[#1a2f45]/5"
+                                : "border-gray-200 hover:border-[#1a2f45]/20"
+                                }`}
+                            >
+                              <Upload size={24} className="text-[#1a2f45]/30" />
+                              <div>
+                                <p className="text-sm font-semibold text-[#1a2f45]">
+                                  {logoFiles.length > 0
+                                    ? `${logoFiles.length} file${logoFiles.length > 1 ? "s" : ""} selected`
+                                    : "Click to upload logos/ideas"}
+                                </p>
+                                <p className="text-xs text-[#1a2f45]/40">
+                                  Optional. JPG, PNG, PDF
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* ── STEP 6: Dimensions & Photos ── */}
                 <AnimatePresence>
                   {formData.serviceType && (
                     <motion.div
@@ -799,14 +913,19 @@ const Contact = () => {
                     >
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
-                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">4</span>
-                        Photos & Dimensions
+                        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">6</span>
+                        Dimensions
                       </h3>
                       <div className="grid gap-5">
                         <div>
-                          <label htmlFor="dimensions" className={labelClass}>Approximate Dimensions {requiredStar}</label>
-                          <input id="dimensions" name="dimensions" value={formData.dimensions} onChange={handleChange} placeholder="e.g. 4m x 2.5m, or 150 sq ft" className={inputClass} />
+                          <label htmlFor="dimensions" className={labelClass}>
+                            Exact Dimensions in mm (Longest and widest of each section - This is important for accurate quotation) {requiredStar}
+                          </label>
+                          <input id="dimensions" name="dimensions" value={formData.dimensions} onChange={handleChange} placeholder="e.g. 4000mm x 2500mm" className={inputClass} />
                           {errors.dimensions && errorMsg(errors.dimensions)}
+                          <p className="mt-1 text-xs text-red-400">
+                            *If the measurements are incorrect the quote may need to be adjusted.
+                          </p>
                         </div>
                         <div>
                           <label htmlFor="photos" className={labelClass}>Upload Photos {requiredStar}</label>
@@ -959,7 +1078,7 @@ const Contact = () => {
                   We come to your location — marina, driveway, or garage. No need
                   to move your boat or vehicle.
                 </p>
-               
+
               </motion.div>
 
               {/* Contact info */}
@@ -976,7 +1095,7 @@ const Contact = () => {
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">Busselton & Perth, WA</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">Headquarters Perth - 200km Radius</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

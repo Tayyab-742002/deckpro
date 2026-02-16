@@ -6,7 +6,7 @@ import logoImg from "@/assets/logo.svg";
 
 /* ── Service dropdown items ── */
 const serviceLinks = [
-  { label: "Marine Flooring", desc: "Boats & Yachts", path: "/marine-flooring", icon: Anchor },
+  { label: "Marine Flooring", desc: "Tinnies, Jet Skis & Luxury Vessels", path: "/marine-flooring", icon: Anchor },
   { label: "Campers & 4x4", desc: "Motorhomes & Off-Road", path: "/campers", icon: Truck },
   { label: "Precision Scanning", desc: "Digital Modelling", path: "/3d-scanning", icon: Box },
 ];
@@ -83,7 +83,8 @@ const Navbar = () => {
   const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
   const isServicePage = serviceLinks.some((s) => location.pathname === s.path);
-  const transparent = !scrolled && !isOpen;
+  const isWarrantyPage = location.pathname === "/warranty";
+  const transparent = !scrolled && !isOpen && !isWarrantyPage;
 
   /** Scroll to a section on the homepage — navigate first if not already there */
   const scrollToSection = (sectionId: string) => {
@@ -127,8 +128,8 @@ const Navbar = () => {
               <Link
                 to="/"
                 className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname === "/" && !location.hash
-                    ? transparent ? "text-white" : "text-primary"
-                    : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  ? transparent ? "text-white" : "text-primary"
+                  : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                   }`}
               >
                 Home
@@ -140,8 +141,8 @@ const Navbar = () => {
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   onMouseEnter={() => setDropdownOpen(true)}
                   className={`flex items-center gap-1 px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${isServicePage
-                      ? transparent ? "text-white" : "text-primary"
-                      : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                    ? transparent ? "text-white" : "text-primary"
+                    : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                     }`}
                 >
                   Services
@@ -166,8 +167,8 @@ const Navbar = () => {
                           key={service.path}
                           to={service.path}
                           className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 ${location.pathname === service.path
-                              ? "bg-[#e5f0f1] text-[#1a2f45]"
-                              : "text-[#1a2f45]/70 hover:bg-[#f5f8fa]"
+                            ? "bg-[#e5f0f1] text-[#1a2f45]"
+                            : "text-[#1a2f45]/70 hover:bg-[#f5f8fa]"
                             }`}
                         >
                           <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#e5f0f1]">
@@ -195,7 +196,11 @@ const Navbar = () => {
 
             {/* ── Center — Logo (centered on all screens) ── */}
             <Link to="/" className="relative z-[70] lg:justify-self-center" onClick={() => setIsOpen(false)}>
-              <img src={logoImg} alt="Deckpro Logo" className="h-12 w-auto sm:h-14 lg:h-16" />
+              <img
+                src={logoImg}
+                alt="Deckpro Logo"
+                className={`w-auto transition-all duration-300 ${scrolled ? "h-12 sm:h-14 lg:h-16" : "h-16 sm:h-20 lg:h-24"}`}
+              />
             </Link>
 
             {/* ── Right — Desktop links + CTA ── */}
@@ -212,21 +217,22 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname === "/contact"
-                    ? transparent ? "text-white" : "text-primary"
-                    : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  ? transparent ? "text-white" : "text-primary"
+                  : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
                   }`}
               >
                 Contact
               </Link>
 
+              {/* Warranty */}
               <Link
-                to="/contact"
-                className={`ml-2 rounded-full px-6 py-2.5 text-sm font-semibold font-body transition-all duration-300 hover:shadow-lg ${transparent
-                  ? "bg-white text-[#1e3348] hover:bg-white/90"
-                  : "bg-[#1e3348] text-white hover:bg-[#1e3348]/90"
-                }`}
+                to="/warranty"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname === "/warranty"
+                  ? transparent ? "text-white" : "text-primary"
+                  : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  }`}
               >
-                Get a Quote
+                Warranty
               </Link>
             </div>
 
@@ -287,8 +293,8 @@ const Navbar = () => {
                     to="/"
                     onClick={() => setIsOpen(false)}
                     className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === "/"
-                        ? "text-primary"
-                        : "text-foreground/60 hover:text-foreground"
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
                       }`}
                   >
                     Home
@@ -304,8 +310,8 @@ const Navbar = () => {
                   <button
                     onClick={() => setMobileServicesOpen((p) => !p)}
                     className={`flex w-full items-center justify-between py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${isServicePage
-                        ? "text-primary"
-                        : "text-foreground/60 hover:text-foreground"
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
                       }`}
                   >
                     Services
@@ -335,8 +341,8 @@ const Navbar = () => {
                               to={service.path}
                               onClick={() => setIsOpen(false)}
                               className={`flex items-center gap-3 py-3 transition-colors ${location.pathname === service.path
-                                  ? "text-primary"
-                                  : "text-foreground/50 hover:text-foreground"
+                                ? "text-primary"
+                                : "text-foreground/50 hover:text-foreground"
                                 }`}
                             >
                               <service.icon size={18} />
@@ -389,30 +395,33 @@ const Navbar = () => {
                     to="/contact"
                     onClick={() => setIsOpen(false)}
                     className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === "/contact"
-                        ? "text-primary"
-                        : "text-foreground/60 hover:text-foreground"
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
                       }`}
                   >
                     Contact
                   </Link>
                 </motion.div>
-              </nav>
 
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-                className="mt-10"
-              >
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full bg-[#1e3348] px-8 py-3.5 font-body text-sm font-medium text-white"
+                {/* Warranty */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                 >
-                  Get a Quote
-                </Link>
-              </motion.div>
+                  <Link
+                    to="/warranty"
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname === "/warranty"
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
+                      }`}
+                  >
+                    Warranty
+                  </Link>
+                </motion.div>
+
+              </nav>
 
               {/* Footer info */}
               <div className="mt-auto pt-10 border-t border-border/50">

@@ -11,6 +11,7 @@ const MarineFlooring = lazy(() => import("./pages/MarineFlooring"));
 const Campers = lazy(() => import("./pages/Campers"));
 const Scanning3D = lazy(() => import("./pages/Scanning3D"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Warranty = lazy(() => import("./pages/Warranty"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/3d-scanning" element={<Scanning3D />} />
 
             <Route path="/contact" element={<Contact />} />
+            <Route path="/warranty" element={<Warranty />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
