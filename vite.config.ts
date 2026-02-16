@@ -16,12 +16,12 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    viteImagemin({
-      gifsicle: { optimizationLevel: 3 },
-      mozjpeg: { quality: 75 },
-      pngquant: { quality: [0.65, 0.8], speed: 4 },
-      svgo: { plugins: [{ name: "removeViewBox", active: false }] },
-    }),
+    // viteImagemin({
+    //   gifsicle: { optimizationLevel: 3 },
+    //   mozjpeg: { quality: 75 },
+    //   pngquant: { quality: [0.65, 0.8], speed: 4 },
+    //   svgo: { plugins: [{ name: "removeViewBox", active: false }] },
+    // }),
   ].filter(Boolean),
   resolve: {
     alias: {
