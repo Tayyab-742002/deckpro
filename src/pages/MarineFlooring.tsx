@@ -5,8 +5,6 @@ import {
   CheckCircle2,
   Droplets,
   Sun,
-  Shield,
-  Footprints,
   ScanLine,
   Palette,
   Factory,
@@ -18,35 +16,26 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
 
+
+
+// images 
+
+import image1 from "@/assets/services/marine/1.jpg";
+import image2 from "@/assets/services/marine/2.jpg";
+import image3 from "@/assets/services/marine/3.jpg";
+import image4 from "@/assets/services/marine/4.jpg";
+import image5 from "@/assets/services/marine/5.jpg";
+import image6 from "@/assets/services/marine/6.jpg";
+import image7 from "@/assets/services/marine/7.jpg";
+
 /* ───────── DATA ───────── */
 
-const features = [
-  {
-    icon: Droplets,
-    title: "100% Waterproof",
-    desc: "Closed-cell EVA foam won't absorb water — no mould, no mildew, no rot.",
-  },
-  {
-    icon: Sun,
-    title: "UV Stabilised",
-    desc: "Advanced UV inhibitors prevent fading, even under intense Australian sun.",
-  },
-  {
-    icon: Footprints,
-    title: "Non-Slip Grip",
-    desc: "Textured teak or diamond patterns for superior traction when wet.",
-  },
-  {
-    icon: Shield,
-    title: "5-Year Warranty",
-    desc: "Marine-grade durability backed by our comprehensive warranty.",
-  },
-];
+
 
 const processSteps = [
-  { icon: ScanLine, num: "01", title: "3D Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
+  { icon: ScanLine, num: "01", title: "Precision Scan", desc: "We scan every contour of your boat deck with sub-millimetre precision." },
   { icon: Palette, num: "02", title: "Design", desc: "Choose colours, patterns, and layout — everything tailored to your vision." },
-  { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium EVA foam in our dedicated workshop." },
+  { icon: Factory, num: "03", title: "Manufacture", desc: "CNC-machined from premium Marine Grade Products in our dedicated workshop." },
   { icon: Wrench, num: "04", title: "Install", desc: "Professional on-site fitting for a flawless, seamless finish." },
 ];
 
@@ -65,7 +54,7 @@ const faqs = [
   },
   {
     q: "Do I need to bring my boat to you?",
-    a: "No. We come to your boat for both the 3D scan and the installation. We service all of Western Australia.",
+    a: "No. We come to your boat for both the scan and the installation. We service all of Western Australia.",
   },
   {
     q: "What are your payment terms?",
@@ -78,20 +67,20 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80", alt: "Boat deck flooring" },
-  { src: "https://images.unsplash.com/photo-1559827291-beb535aa5d4c?w=600&q=80", alt: "Marine EVA close-up" },
-  { src: "https://images.unsplash.com/photo-1541962716-c85f547ebb7e?w=600&q=80", alt: "Custom fitted deck" },
-  { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80", alt: "Boat on water" },
-  { src: "https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=600&q=80", alt: "Premium finish" },
-  { src: "https://images.unsplash.com/photo-1605281317010-fe5fffff7ee1?w=600&q=80", alt: "Precision fitting" },
+  { src: image1, alt: "Boat deck flooring" },
+  { src: image2, alt: "Marine EVA close-up" },
+  { src: image3, alt: "Custom fitted deck" },
+  { src: image4, alt: "Boat on water" },
+  { src: image5, alt: "Premium finish" },
+  { src: image6, alt: "Precision fitting" },
 ];
 
 /* ───────── ANIMATIONS ───────── */
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 const popUp = {
-  hidden: { opacity: 0, y: 30, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 /* ───────── FAQ ITEM ───────── */
@@ -99,15 +88,15 @@ const popUp = {
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-border last:border-0">
+    <div className="border-b border-gray-100 last:border-0">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-primary"
+        className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-[#1a2f45]"
       >
-        <span className="font-display text-base font-bold text-foreground pr-4">{q}</span>
+        <span className="text-base font-semibold text-[#1a2f45] pr-4">{q}</span>
         <ChevronDown
           size={20}
-          className={`text-muted-foreground flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-primary" : ""}`}
+          className={`text-[#1a2f45]/30 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#1a2f45]" : ""}`}
         />
       </button>
       <motion.div
@@ -116,7 +105,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="overflow-hidden"
       >
-        <p className="pb-5 font-body text-sm leading-relaxed text-muted-foreground">{a}</p>
+        <p className="pb-5 text-sm leading-relaxed text-[#1a2f45]/40">{a}</p>
       </motion.div>
     </div>
   );
@@ -128,23 +117,30 @@ const MarineFlooring = () => {
   return (
     <main>
       {/* ══════ HERO ══════ */}
-      <section className="relative min-h-[75vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] overflow-hidden flex items-center">
+        {/* Background */}
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
           <img
-            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=80"
-            alt="Luxury boat with custom EVA foam flooring"
-            className="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=1760&auto=format&fit=crop"
+            alt="Luxury boat with custom marine flooring"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f14]/95 via-[#0a0f14]/75 to-[#0a0f14]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f14]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
         </div>
 
-        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-cyan-500/10 blur-[150px]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-32 lg:py-40">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-body font-semibold uppercase tracking-[0.3em] text-white/80 glass">
-              <Anchor size={14} className="text-primary" />
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-3xl px-6 pt-32 pb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mb-6"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#1a2f45]/75 px-5 py-2 text-xs font-medium tracking-wider text-white backdrop-blur-sm">
+              <Anchor size={13} />
               Marine Flooring
             </span>
           </motion.div>
@@ -152,123 +148,170 @@ const MarineFlooring = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl"
+            transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+            className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl"
           >
-            Custom Boat Flooring,
+            Custom Boat
             <br />
-            <span className="text-gradient">Precision Crafted.</span>
+            Flooring
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mt-6 max-w-xl font-body text-lg leading-relaxed text-white/70"
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="mt-5 max-w-md mx-auto text-sm leading-relaxed text-[#1a2f45]/50 sm:text-base"
           >
-            From tinnies to luxury yachts — every deck gets the same meticulous 3D scan,
-            custom design, and expert installation using premium marine-grade EVA foam.
+            From tinnies & Jet skis to Luxury Vessels - Every deck gets the same premium,
+            Custom design and expert installation using certified marine grade products.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-10 flex flex-wrap gap-4">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
-              Get a Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-            <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 glass">
-              View Gallery
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-8"
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl"
+            >
+              Get a Quote
             </Link>
           </motion.div>
         </div>
       </section>
 
       {/* ══════ WHY EVA FOAM ══════ */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">Why EVA Foam</span>
-              <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl mb-6">
-                The Gold Standard in Marine Flooring
-              </h2>
-              <p className="font-body text-base leading-relaxed text-muted-foreground mb-10">
-                EVA (Ethylene-Vinyl Acetate) foam is the material of choice for premium marine flooring worldwide.
-                Lightweight, durable, and available in an extensive range of colours and textures — it transforms any
-                boat deck into a comfortable, stylish, and safe surface.
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20 lg:mb-24"
+          >
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <Anchor size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">Why choose Deckpro Marine?</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">
+              The Gold Standard in<br />Marine Flooring
+            </h2>
+            <p className="mt-4 mx-auto max-w-lg text-sm leading-relaxed text-[#1a2f45]/40">
+              EVA foam is the material of choice for premium marine flooring worldwide.
+              Lightweight, durable, and available in an extensive range of colours and textures.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-7 inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-lg"
+            >
+              Explore All
+            </Link>
+          </motion.div>
 
-              <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 gap-5">
-                {features.map((f) => (
-                  <motion.div key={f.title} variants={popUp} className="rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:shadow-md hover:border-primary/20">
-                    <f.icon size={22} className="text-primary mb-3" />
-                    <h4 className="font-display text-sm font-bold text-foreground mb-1">{f.title}</h4>
-                    <p className="font-body text-xs leading-relaxed text-muted-foreground">{f.desc}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }} className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1559827291-beb535aa5d4c?w=500&q=80" alt="EVA foam texture" className="h-48 w-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
-                  <div className="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1586105449897-20b5efeb3233?w=500&q=80" alt="Flooring pattern" className="h-64 w-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
-                </div>
-                <div className="space-y-4 pt-8">
-                  <div className="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1541962716-c85f547ebb7e?w=500&q=80" alt="Boat deck" className="h-64 w-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
-                  <div className="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1605281317010-fe5fffff7ee1?w=500&q=80" alt="Finished result" className="h-48 w-full object-cover hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="grid items-center gap-8 lg:grid-cols-[1fr_1.4fr_1fr]"
+          >
+            <div>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
+                  <Droplets size={12} /> Waterproof
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1a2f45]/10 px-3.5 py-1.5 text-xs font-medium text-[#1a2f45]/70">
+                  <Sun size={12} /> UV Stable
+                </span>
               </div>
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-cyan-500/10 blur-[100px]" />
-            </motion.div>
-          </div>
+              <h3 className="text-2xl font-semibold text-[#1a2f45] mb-1.5">Premium Marine Grade Products</h3>
+              <p className="text-sm text-[#1a2f45]/40">Marine-Grade Material</p>
+            </div>
+
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
+                <img
+                  src={image7}
+                  alt="Premium Marine Grade Products"
+                  className="w-full h-[380px] md:h-[460px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="lg:text-right">
+              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-6">
+                Closed-cell foam that won't absorb water, resists UV fading, and provides
+                non-slip grip — even in the wettest conditions.
+              </p>
+              {/* <p className="text-3xl font-semibold text-[#1a2f45] mb-1">5yr Warranty</p> */}
+              <p className="text-xs text-[#1a2f45]/40 mb-6">Marine-grade durability</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-6 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-lg"
+              >
+                Book Now
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ══════ GALLERY STRIP ══════ */}
-      <section className="py-20 lg:py-28 section-cream">
+      <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-14">
-            <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">Our Work</span>
-            <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">Marine Projects</h2>
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <Waves size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">Our Work</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">Marine Projects</h2>
           </motion.div>
 
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((img, i) => (
-              <motion.div key={i} variants={popUp} className="group overflow-hidden rounded-2xl">
+              <motion.div key={i} variants={popUp} className="group overflow-hidden rounded-2xl bg-[#f0f0f0]">
                 <img src={img.src} alt={img.alt} className="h-52 lg:h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="text-center mt-10">
-            <Link to="/gallery" className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:underline">
-              View Full Gallery <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ══════ PROCESS ══════ */}
-      <section className="py-28 lg:py-36 bg-background">
+      <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
-            <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">How It Works</span>
-            <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">Scan. Design. Build. Fit.</h2>
-            <p className="mt-5 mx-auto max-w-xl font-body text-lg text-muted-foreground">
+            <div className="flex items-center justify-center gap-2 mb-5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                <ScanLine size={13} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-[#1a2f45]/70">How It Works</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">Scan. Design. Build. Fit.</h2>
+            <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed text-[#1a2f45]/40">
               Our seamless four-stage process delivers premium results, every single time.
             </p>
           </motion.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((s, i) => (
-              <motion.div key={s.num} variants={popUp} className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
-                <span className="absolute top-6 right-6 font-display text-6xl font-bold text-primary/[0.07] group-hover:text-primary/[0.14] transition-colors select-none">{s.num}</span>
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20">
-                  <s.icon size={24} />
+              <motion.div key={s.num} variants={popUp} className="group relative rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1">
+                <span className="absolute top-5 right-5 text-5xl font-bold text-[#1a2f45]/[0.05] select-none">{s.num}</span>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
+                  <s.icon size={22} />
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">{s.title}</h3>
-                <p className="font-body text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                {i < processSteps.length - 1 && <div className="absolute top-1/2 -right-4 hidden h-px w-8 bg-gradient-to-r from-border to-primary/30 lg:block" />}
+                <h3 className="text-lg font-semibold text-[#1a2f45] mb-2">{s.title}</h3>
+                <p className="text-sm leading-relaxed text-[#1a2f45]/40">{s.desc}</p>
+                {i < processSteps.length - 1 && <div className="absolute top-1/2 -right-3 hidden h-px w-6 bg-gray-200 lg:block" />}
               </motion.div>
             ))}
           </motion.div>
@@ -276,21 +319,26 @@ const MarineFlooring = () => {
       </section>
 
       {/* ══════ FAQ ══════ */}
-      <section className="py-28 lg:py-36 section-cream">
+      <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">FAQ</span>
-              <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl mb-6">Common Questions</h2>
-              <p className="font-body text-base text-muted-foreground mb-8">
+              <div className="flex items-center gap-2 mb-5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
+                  <CheckCircle2 size={13} className="text-white" />
+                </span>
+                <span className="text-sm font-medium text-[#1a2f45]/70">FAQ</span>
+              </div>
+              <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl mb-5">Common Questions</h2>
+              <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-8">
                 Everything you need to know about our marine flooring service. Can&apos;t find your answer?
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:underline">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                 Get in touch <ArrowRight size={14} />
               </Link>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-border bg-background p-8">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
               {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
             </motion.div>
           </div>
@@ -298,22 +346,30 @@ const MarineFlooring = () => {
       </section>
 
       {/* ══════ CTA ══════ */}
-      <section className="relative py-28 lg:py-36 overflow-hidden section-dark">
-        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
+          <img
+            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=1760&auto=format&fit=crop"
+            alt="Boat on open water"
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            loading="lazy"
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <Waves size={32} className="text-primary mx-auto mb-6" />
-            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6">
-              Ready to Transform<br /><span className="text-gradient">Your Deck?</span>
+            <Anchor size={28} className="text-white/40 mx-auto mb-6" />
+            <h2 className="text-3xl font-semibold text-white leading-tight sm:text-4xl lg:text-5xl mb-5">
+              Ready to Transform<br />Your Deck?
             </h2>
-            <p className="mx-auto max-w-lg font-body text-lg text-white/60 mb-10">
+            <p className="mx-auto max-w-lg text-sm leading-relaxed text-white/50 mb-10">
               Send us your boat details and we&apos;ll have an accurate quote back to you within 48 hours.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 font-body text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30">
-                Get a Free Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-medium text-[#1a2f45] transition-all duration-300 hover:shadow-xl">
+                Get a Free Quote <ArrowRight size={14} />
               </Link>
-              <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-10 py-4 font-body text-sm font-medium text-white transition-all duration-300 hover:bg-white/5">
+              <Link to="/#gallery" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3 text-sm font-medium text-white/80 transition-all duration-300 hover:bg-white/5">
                 View Our Work
               </Link>
             </div>

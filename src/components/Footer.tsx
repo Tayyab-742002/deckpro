@@ -1,99 +1,114 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
+
+const footerLinks = [
+  { label: "Marine Flooring", path: "/marine-flooring" },
+  { label: "Campers & 4x4", path: "/campers" },
+  { label: "Precision Scanning", path: "/3d-scanning" },
+  { label: "Contact", path: "/contact" },
+  { label: "Warranty", path: "/warranty" },
+];
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: integrate with email service
+    setEmail("");
+  };
+
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="font-display text-lg font-bold text-primary-foreground">D</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold tracking-tight text-foreground">Deckpro</span>
-                <span className="text-[10px] font-body font-medium uppercase tracking-[0.25em] text-muted-foreground">
-                  Marine Flooring WA
-                </span>
-              </div>
-            </div>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed">
-              Perth&apos;s premium custom EVA foam flooring specialists for boats, campervans, and 4x4 vehicles.
-            </p>
-            <div className="mt-6 flex gap-3">
-              <a
-                href="https://www.facebook.com/share/1AVApWZLQa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                aria-label="Facebook"
+    <footer className="relative min-h-[85vh] flex flex-col overflow-hidden">
+      {/* ── Ocean background ── */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
+        <img
+          src="https://images.unsplash.com/photo-1733128666089-e313cc0113ef?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Open ocean background"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          loading="lazy"
+        />
+        {/* Soft top fade for blend */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent" />
+      </div>
+
+      {/* ── Dark top gradient for link readability ── */}
+      <div className="absolute inset-x-0 top-0 z-[2] h-28 bg-gradient-to-b from-black/40 to-transparent" />
+
+      {/* ── Top bar: nav links — line — social icons ── */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 pt-10 lg:pt-14">
+        <div className="flex items-center justify-between gap-4">
+          {/* Nav links */}
+          <nav className="flex items-center gap-5 sm:gap-7">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-xs sm:text-sm font-medium text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
               >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-            </div>
-          </div>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-display text-sm font-bold text-foreground mb-4">Services</h4>
-            <ul className="space-y-3 font-body text-sm">
-              <li><Link to="/marine-flooring" className="text-muted-foreground hover:text-primary transition-colors">Marine Flooring</Link></li>
-              <li><Link to="/campers" className="text-muted-foreground hover:text-primary transition-colors">Campers & 4x4</Link></li>
-              <li><Link to="/3d-scanning" className="text-muted-foreground hover:text-primary transition-colors">3D Scanning</Link></li>
-              <li><Link to="/gallery" className="text-muted-foreground hover:text-primary transition-colors">Gallery</Link></li>
-            </ul>
-          </div>
+          {/* Separator line */}
+          <div className="hidden sm:block flex-1 mx-6 h-px bg-white/40" />
 
-          {/* Company */}
-          <div>
-            <h4 className="font-display text-sm font-bold text-foreground mb-4">Company</h4>
-            <ul className="space-y-3 font-body text-sm">
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">How It Works</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Get a Quote</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-display text-sm font-bold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3 font-body text-sm">
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <MapPin size={14} className="text-primary flex-shrink-0" />
-                Perth, Western Australia
-              </li>
-              <li>
-                <a href="mailto:info@deckpro.com.au" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Mail size={14} className="text-primary flex-shrink-0" />
-                  info@deckpro.com.au
-                </a>
-              </li>
-              <li>
-                <a href="tel:+61000000000" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Phone size={14} className="text-primary flex-shrink-0" />
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+          {/* Social icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
+              aria-label="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://www.facebook.com/share/1AVApWZLQa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white drop-shadow-sm transition-colors duration-300 hover:text-white/80"
+              aria-label="Facebook"
+            >
+              <Facebook size={20} />
+            </a>
           </div>
         </div>
+      </div>
 
-        <div className="mt-16 border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Deckpro Marine Flooring WA. All rights reserved.
-          </p>
-          <p className="font-body text-xs text-muted-foreground">
-            Premium EVA Foam Flooring Specialists
-          </p>
-        </div>
+      {/* ── Center content: heading + email form ── */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
+        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#1a2f45] leading-tight mb-4">
+          Ready to
+          <br />
+          Get Started?
+        </h2>
+
+        <p className="text-sm text-[#1a2f45]/50 max-w-sm mb-8">
+          Get in touch for a quote on some custom designs, unique to your requirements.
+        </p>
+      </div>
+
+      {/* ── Large watermark brand text ── */}
+      <div className="relative z-0 overflow-hidden pointer-events-none select-none">
+        <p
+          className="text-[18vw] sm:text-[16vw] lg:text-[14vw] uppercase font-display font-bold leading-none text-white/40 whitespace-nowrap text-center tracking-tight"
+          aria-hidden="true"
+        >
+          Deckpro
+        </p>
+      </div>
+
+      {/* ── Bottom bar ── */}
+      <div className="relative z-10 pb-6 pt-2">
+        <p className="text-center text-xs text-white font-body">
+          © {new Date().getFullYear()} Deckpro Marine Flooring WA. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );

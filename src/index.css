@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,46 +7,49 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 20% 10%;
+    --foreground: 215 30% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 10%;
+    --card-foreground: 215 30% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 10%;
+    --popover-foreground: 215 30% 18%;
 
-    --primary: 185 42% 39%;
+    --primary: 186 42% 39%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 10% 96%;
-    --secondary-foreground: 210 20% 10%;
+    --secondary: 186 15% 96%;
+    --secondary-foreground: 215 30% 18%;
 
-    --muted: 210 10% 96%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 186 15% 96%;
+    --muted-foreground: 186 10% 45%;
 
-    --accent: 185 42% 39%;
+    --accent: 186 42% 39%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 10% 90%;
-    --input: 210 10% 90%;
-    --ring: 185 42% 39%;
+    --border: 186 15% 90%;
+    --input: 186 15% 90%;
+    --ring: 186 42% 39%;
 
     --radius: 0.5rem;
 
-    /* Custom luxury tokens */
-    --navy: 210 30% 8%;
+    /* Custom tokens — teal palette (#3A868F) */
+    --navy: 215 40% 16%;
     --navy-foreground: 0 0% 95%;
-    --slate: 210 10% 30%;
-    --slate-light: 210 10% 60%;
-    --cream: 40 20% 97%;
-    --teal-glow: 185 50% 50%;
-    --teal-dark: 185 42% 30%;
+    --slate: 186 10% 30%;
+    --slate-light: 186 10% 60%;
+    --cream: 186 20% 97%;
+    --ocean: 186 35% 62%;
+    --ocean-light: 184 40% 75%;
+    --ocean-dark: 188 45% 30%;
+    --teal-glow: 186 45% 50%;
+    --teal-dark: 188 42% 32%;
 
-    --font-display: "Cormorant Garamond", serif;
-    --font-body: 'Raleway', sans-serif;
+    --font-display: "Poppins", sans-serif;
+    --font-body: "Poppins", sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -56,46 +59,47 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
     --font-mono: "PPSupplyMono", monospace;
     --font-sans: "PP Neue Montreal", sans-serif;
     --color-bg: #0a0a0a;
     --color-text: #ffffff;
     --color-text-muted: rgba(255, 255, 255, 0.7);
     --color-text-light: rgba(255, 255, 255, 0.5);
-    --color-accent: #d4af37;
+    --color-accent: #3A868F;
     --font-size-mono: clamp(10px, 1.2vw, 12px);
     --spacing-sm: 0.75rem;
     --spacing-md: 1rem;
   }
 
   .dark {
-    --background: 210 30% 8%;
+    --background: 215 30% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 210 25% 12%;
+    --card: 215 25% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 210 25% 12%;
+    --popover: 215 25% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 185 42% 39%;
+    --primary: 186 42% 39%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 15%;
+    --secondary: 215 20% 15%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 210 20% 15%;
-    --muted-foreground: 210 10% 60%;
+    --muted: 215 20% 15%;
+    --muted-foreground: 186 10% 60%;
 
-    --accent: 185 42% 39%;
+    --accent: 186 42% 39%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 210 20% 18%;
-    --input: 210 20% 18%;
-    --ring: 185 42% 39%;
+    --border: 215 20% 18%;
+    --input: 215 20% 18%;
+    --ring: 186 42% 39%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -130,7 +134,7 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--teal-glow)));
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--ocean)));
   }
 
   .glass {
@@ -145,12 +149,11 @@
   }
 
   .hero-overlay {
-    background: linear-gradient(to right,
-        rgba(10, 15, 20, 0.95) 0%,
-        rgba(10, 15, 20, 0.8) 35%,
-        rgba(10, 15, 20, 0.5) 60%,
-        rgba(10, 15, 20, 0.2) 80%,
-        transparent 100%);
+    background: linear-gradient(to bottom,
+        rgba(58, 160, 170, 0.3) 0%,
+        rgba(50, 140, 150, 0.15) 40%,
+        rgba(45, 120, 130, 0.3) 70%,
+        rgba(35, 100, 110, 0.5) 100%);
   }
 
   .section-dark {
@@ -161,15 +164,32 @@
   .section-cream {
     background-color: hsl(var(--cream));
   }
+
+  /* Gallery marquee — pure CSS, GPU-composited */
+  .marquee-track {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    animation: marquee-scroll 120s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-card {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    contain: layout style paint;
+  }
 }
 
-
-
-@layer base {
-  * {
-    @apply border-border;
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  body {
-    @apply bg-background text-foreground;
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }

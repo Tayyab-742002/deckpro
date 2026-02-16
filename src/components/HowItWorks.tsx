@@ -1,133 +1,157 @@
 import { motion } from "framer-motion";
-import { ScanLine, Palette, Factory, Wrench } from "lucide-react";
-
+import { Link } from "react-router-dom";
+import { ScanLine } from "lucide-react";
+import scanning from "@/assets/howItWorks/scanning.jpg";
+import design from "@/assets/howItWorks/design.jpg";
+import manufacturing from "@/assets/howItWorks/manufacturing.jpg";
+import fitting from "@/assets/howItWorks/expert-fitting.jpg";
 const steps = [
   {
-    icon: ScanLine,
-    step: "01",
-    title: "3D Scanning",
+    number: "1",
+    title: "Precision Scanning",
     description:
-      "We use precision 3D scanning technology to capture every contour of your boat deck, campervan, or 4x4 floor.",
+      "We come to you — whether it's a boat at the marina, a campervan in your driveway, or a 4x4 in the garage. Our precision scanner captures every curve and contour with sub-millimetre accuracy, creating an exact digital template of your floor.",
+    image: scanning,
+    imageAlt: "Precision scanning a boat deck for custom flooring template",
   },
   {
-    icon: Palette,
-    step: "02",
+    number: "2",
     title: "Custom Design",
     description:
-      "Your flooring is designed to your exact specifications — colour, pattern, texture, and layout tailored to you.",
+      "Using the scan data, we design your flooring to your exact specifications. Choose your colours, patterns, and layout — even add custom logos or branding. You approve the design before we start manufacturing.",
+    image: design,
+    imageAlt: "Custom flooring design layout on screen",
   },
   {
-    icon: Factory,
-    step: "03",
+    number: "3",
     title: "Manufacturing",
     description:
-      "Each piece is CNC-machined from premium EVA foam in our workshop, ensuring a perfect fit every time.",
+      "Your premium EVA foam panels are precision-cut and assembled in our Perth workshop. Every piece is quality-checked to ensure a perfect fit — non-slip, UV resistant, and built to handle the harsh WA conditions.",
+    image: manufacturing,
+    imageAlt: "EVA foam flooring panels being manufactured in the workshop",
   },
   {
-    icon: Wrench,
-    step: "04",
+    number: "4",
     title: "Expert Fitting",
     description:
-      "Our team professionally installs your custom flooring on-site, delivering a flawless finish.",
+      "Our experienced team professionally installs your custom flooring on-site, ensuring a flawless finish. The result — a durable, easy-to-clean floor that looks and feels premium for years to come.",
+    image: fitting,
+    imageAlt: "Professional EVA foam flooring installation on a boat",
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
 const HowItWorks = () => {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden section-cream">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-primary/5 blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl translate-x-1/3 translate-y-1/3" />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="how-it-works" className="py-20 lg:py-32 bg-white">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+        {/* ── Section Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20 lg:mb-24"
         >
-          <span className="inline-block font-body text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4">
-            Our Process
-          </span>
-          <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-            How It Works
+          {/* Badge */}
+          <div className="flex items-center justify-center gap-2 mb-4 sm:mb-5">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a2f45] sm:h-7 sm:w-7">
+              <ScanLine size={11} className="text-white" />
+            </span>
+            <span className="text-xs font-medium uppercase tracking-wider text-[#1a2f45]/60 sm:text-sm">
+              How It Works
+            </span>
+          </div>
+
+          <h2 className="text-2xl font-bold text-[#1a2f45] leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
+            Our 4-Stage
+            <br />
+            Process
           </h2>
-          <p className="mt-5 mx-auto max-w-xl font-body text-lg text-muted-foreground">
-            From scan to fit — a seamless four-stage process delivering premium results.
+
+          <p className="mt-3 mx-auto max-w-lg text-base leading-relaxed text-[#1a2f45]/50 sm:mt-5 sm:text-lg">
+            From precision scanning to expert fitting — every step is
+            engineered to deliver EVA foam flooring that fits your vessel
+            perfectly.
           </p>
         </motion.div>
 
-        {/* Steps Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="group relative rounded-2xl border border-border bg-background p-8 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
-            >
-              {/* Step number */}
-              <span className="absolute top-6 right-6 font-display text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
-                {step.step}
-              </span>
+        {/* ── Steps with vertical timeline ── */}
+        <div className="relative">
+          {/* Timeline line — runs down the center on desktop */}
+          <div className="absolute left-1/2 top-4 bottom-24 w-px -translate-x-1/2 bg-gray-200 hidden md:block" />
 
-              {/* Icon */}
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                <step.icon size={24} />
-              </div>
+          <div className="space-y-14 md:space-y-0">
+            {steps.map((step, i) => {
+              const isReversed = i % 2 !== 0;
 
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                {step.title}
-              </h3>
-              <p className="font-body text-sm leading-relaxed text-muted-foreground">
-                {step.description}
-              </p>
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, delay: i * 0.1 }}
+                  className="grid md:grid-cols-2 gap-6 md:gap-0 items-center md:py-10"
+                >
+                  {/* Text column */}
+                  <div
+                    className={
+                      isReversed
+                        ? "md:order-2 md:pl-14 lg:pl-20"
+                        : "md:pr-14 lg:pr-20"
+                    }
+                  >
+                    {/* Number circle */}
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-sm font-medium text-[#1a2f45]/50 sm:h-10 sm:w-10 sm:text-base">
+                      {step.number}
+                    </div>
 
-              {/* Connector line for desktop */}
-              {i < steps.length - 1 && (
-                <div className="absolute top-1/2 -right-4 hidden h-px w-8 bg-border lg:block" />
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+                    <h3 className="text-lg font-bold text-[#1a2f45] mb-2 sm:text-xl md:text-2xl">
+                      {step.title}
+                    </h3>
 
-        {/* Payment Terms Notice */}
+                    <p className="text-sm leading-relaxed text-[#1a2f45]/50 max-w-xs sm:text-base">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Image column */}
+                  <div
+                    className={
+                      isReversed
+                        ? "md:order-1 md:pr-14 lg:pr-20"
+                        : "md:pl-14 lg:pl-20"
+                    }
+                  >
+                    <div className="rounded-2xl bg-[#e5f0f1] overflow-hidden">
+                      <img
+                        src={step.image}
+                        alt={step.imageAlt}
+                        className="w-full aspect-[4/3] object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Bottom CTA ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-16 mx-auto max-w-2xl rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center"
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-16 lg:mt-20 text-center"
         >
-          <p className="font-body text-sm font-semibold uppercase tracking-widest text-primary mb-2">
-            Payment Terms
-          </p>
-          <p className="font-body text-base text-foreground">
-            50% deposit required upon accepting your quote to secure a scan date.
-            <br />
-            <span className="text-muted-foreground">
-              Remaining 50% is due upon job completion — no exceptions.
-            </span>
-          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-[#1a2f45] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1a2f45]/90 hover:shadow-xl sm:px-7 sm:py-3 sm:text-base"
+          >
+            Get a Free Quote
+          </Link>
         </motion.div>
       </div>
     </section>
