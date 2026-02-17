@@ -17,6 +17,7 @@ import {
   Banknote,
   ClipboardCheck,
   Camera,
+  X,
   Sparkles,
 } from "lucide-react";
 import { useState, useRef, useCallback, type FormEvent, type ChangeEvent } from "react";
@@ -285,6 +286,12 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [uploadProgress, setUploadProgress] = useState("");
+
+  /* ── Cloudinary config ── */
+  const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "";
+  const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "";
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -301,10 +308,35 @@ const Contact = () => {
     }
   };
 
+  const removePhoto = (index: number) => {
+    setPhotos((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const removeLogo = (index: number) => {
+    setLogoFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setLogoFiles(Array.from(e.target.files));
     }
+  };
+
+  /** Upload a single file to Cloudinary (unsigned preset) */
+  const uploadToCloudinary = async (file: File, folder: string): Promise<string> => {
+    const fd = new window.FormData();
+    fd.append("file", file);
+    fd.append("upload_preset", UPLOAD_PRESET);
+    fd.append("folder", `deckpro/${folder}`);
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`,
+      { method: "POST", body: fd }
+    );
+
+    if (!res.ok) throw new Error(`Upload failed: ${res.statusText}`);
+    const data = await res.json();
+    return data.secure_url as string;
   };
 
   const validate = (): boolean => {
@@ -351,10 +383,58 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setSubmitting(false);
-    setSubmitted(true);
+    setSubmitError("");
+    setUploadProgress("");
+
+    try {
+      // 1. Upload photos to Cloudinary
+      setUploadProgress(`Uploading photos (0/${photos.length})...`);
+      const photoUrls: string[] = [];
+      for (let i = 0; i < photos.length; i++) {
+        setUploadProgress(`Uploading photos (${i + 1}/${photos.length})...`);
+        const url = await uploadToCloudinary(photos[i], "photos");
+        photoUrls.push(url);
+      }
+
+      // 2. Upload logo files (if any)
+      const logoUrls: string[] = [];
+      if (logoFiles.length > 0) {
+        setUploadProgress("Uploading logos...");
+        for (const logo of logoFiles) {
+          const url = await uploadToCloudinary(logo, "logos");
+          logoUrls.push(url);
+        }
+      }
+
+      // 3. Send form data + URLs to Netlify Function
+      setUploadProgress("Sending enquiry...");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formData, photoUrls, logoUrls }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Failed to send enquiry");
+      }
+
+      setSubmitting(false);
+      setUploadProgress("");
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error("Submission error:", err);
+      setSubmitting(false);
+      setUploadProgress("");
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or contact us directly."
+      );
+    }
   };
 
   /* ── SUCCESS STATE ── */
@@ -895,6 +975,28 @@ const Contact = () => {
                               </div>
                             </div>
                           </div>
+
+                          {/* Logo thumbnail previews */}
+                          {logoFiles.length > 0 && (
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              {logoFiles.map((file, i) => (
+                                <div key={`${file.name}-${i}`} className="relative group">
+                                  <img
+                                    src={URL.createObjectURL(file)}
+                                    alt={`Logo ${i + 1}`}
+                                    className="h-14 w-14 rounded-lg object-cover border border-gray-200"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => removeLogo(i)}
+                                    className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-sm"
+                                  >
+                                    <X size={12} />
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>
@@ -958,6 +1060,29 @@ const Contact = () => {
                             </div>
                           </div>
                           {errors.photos && errorMsg(errors.photos)}
+
+                          {/* Thumbnail previews */}
+                          {photos.length > 0 && (
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              {photos.map((file, i) => (
+                                <div key={`${file.name}-${i}`} className="relative group">
+                                  <img
+                                    src={URL.createObjectURL(file)}
+                                    alt={`Preview ${i + 1}`}
+                                    className="h-14 w-14 rounded-lg object-cover border border-gray-200"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => removePhoto(i)}
+                                    className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-sm"
+                                  >
+                                    <X size={12} />
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
                           <p className="mt-2 text-xs text-[#1a2f45]/30">
                             Photos help us give you a more accurate quote. Show the full area, any hardware, and existing flooring.
                           </p>
@@ -997,6 +1122,16 @@ const Contact = () => {
 
                 {/* ── SUBMIT ── */}
                 <div className="pt-4">
+                  {/* Error message */}
+                  {submitError && (
+                    <div className="mb-4 rounded-lg bg-red-50 p-4 border border-red-100">
+                      <p className="text-sm text-red-700 flex gap-2">
+                        <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                        <span>{submitError}</span>
+                      </p>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
                     disabled={submitting}
@@ -1005,7 +1140,7 @@ const Contact = () => {
                     {submitting ? (
                       <>
                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                        Submitting...
+                        {uploadProgress || "Submitting..."}
                       </>
                     ) : (
                       <>
