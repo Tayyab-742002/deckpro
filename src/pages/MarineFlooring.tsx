@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Do I need to bring my boat to you?",
-    a: "No. We come to your boat for both the scan and the installation. We service all of Western Australia.",
+    a: "No. We come to your boat for both the scan and the installation.",
   },
   {
     q: "What are your payment terms?",
