@@ -8,7 +8,7 @@ import viteImagemin from "vite-plugin-imagemin";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    port: 8081,
     hmr: {
       overlay: false,
     },

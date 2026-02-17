@@ -44,7 +44,7 @@ const faqs = [
   { q: "What vehicles can you work on?", a: "All campervans, motorhomes, caravans, and 4x4 vehicles. If it has a floor, we can upgrade it — from VW Transporters to 200 Series Land Cruisers." },
   { q: "Can I keep my existing layout?", a: "Yes. We scan around your current build. Seats, slide-outs, kitchenettes — everything stays in place." },
   { q: "Is EVA foam suitable for wet areas?", a: "Absolutely. Closed-cell EVA foam is waterproof and drains easily, making it perfect for outdoor showers, awning areas, and entry points." },
-  { q: "How durable is the flooring under heavy gear?", a: "Very. EVA foam handles toolboxes, recovery gear, and heavy foot traffic without denting or deforming." },
+  { q: "How durable is the flooring under heavy gear?", a: "However it is advisable to avoid sharp objects or heavier items with a small surface area." },
   { q: "What are your payment terms?", a: "50% deposit upon accepting your quote to secure a scan date. Remaining 50% is due upon completion — no exceptions." },
 ];
 
