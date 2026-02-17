@@ -10,7 +10,7 @@ const steps = [
     number: "1",
     title: "Precision Scanning",
     description:
-      "We come to you — whether it's a boat at the marina, a campervan in your driveway, or a 4x4 in the garage. Our precision scanner captures every curve and contour with sub-millimetre accuracy, creating an exact digital template of your floor.",
+      "Our Team will come to your loaction. Our skilled technicians use advanced precision scanning technology to capture every curve and contour with sub-millimeter accuracy, procuding an exact digital template to ensure a flawless custom fit.",
     image: scanning,
     imageAlt: "Precision scanning a boat deck for custom flooring template",
   },
