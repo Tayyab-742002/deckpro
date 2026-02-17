@@ -97,7 +97,7 @@ const caseStudies = [
   {
     before: before1,
     after: after1,
-    label: "1947 Custom Norweign Fiberglass Project 8.5m",
+    label: "1974 Custom Norweign Fiberglass Project 8.5m",
     stat: "Attention to detail is our #1 priority.",
   },
   {
@@ -1175,8 +1175,7 @@ const Contact = () => {
                   Before & After
                 </h3>
                 <p className="text-sm text-[#1a2f45]/40 mb-6">
-                  This level of custom work is why we ask for detailed info and a deposit.
-                  Drag the slider to compare before &amp; after.
+                  Attention to detail is one of our core values. Use the sliders below to see some of our projects.
                 </p>
               </motion.div>
 
