@@ -18,7 +18,7 @@ const steps = [
     number: "2",
     title: "Custom Design",
     description:
-      "Using the scan data, we design your flooring to your exact specifications. Choose your colours, patterns, and layout — even add custom logos or branding. You approve the design before we start manufacturing.",
+      "We design your flooring to exact specifications, colour, patterns and layout. You can also add custom logos or branding. Once we have your approval we will move onto the next stage of the project.",
     image: design,
     imageAlt: "Custom flooring design layout on screen",
   },
@@ -26,7 +26,7 @@ const steps = [
     number: "3",
     title: "Manufacturing",
     description:
-      "Your premium EVA foam panels are precision-cut and assembled in our Perth workshop. Every piece is quality-checked to ensure a perfect fit — non-slip, UV resistant, and built to handle the harsh WA conditions.",
+      "Your premium product will be precision-cut and QAQC assessed in our Perth workshop. Non-slip, UV resistant, and built to handle the harsh WA conditions.",
     image: manufacturing,
     imageAlt: "EVA foam flooring panels being manufactured in the workshop",
   },
@@ -34,7 +34,7 @@ const steps = [
     number: "4",
     title: "Expert Fitting",
     description:
-      "Our experienced team professionally installs your custom flooring on-site, ensuring a flawless finish. The result — a durable, easy-to-clean floor that looks and feels premium for years to come.",
+      "Our skilled team installs your flooring with precision and care, delivering a flawless finish. The result is a durable, easy-to-maintain surface that looks exceptional, feels premium, and is custom crafted specifically for your vessel.",
     image: fitting,
     imageAlt: "Professional EVA foam flooring installation on a boat",
   },
