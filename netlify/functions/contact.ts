@@ -340,7 +340,7 @@ const handler: Handler = async (event: HandlerEvent) => {
 
         // Send email via Resend
         const { data, error } = await resend.emails.send({
-            from: "Deckpro Website <onboarding@resend.dev>", // Change to your verified domain: noreply@deckpromarine.com.au
+            from: "Deckpro Website <noreply@deckpromarine.com.au>", // Change to your verified domain: noreply@deckpromarine.com.au
             replyTo: formData.email,
             to: [CONTACT_EMAIL],
             subject: `New Enquiry: ${formData.name} — ${formData.serviceType === "marine" ? "Marine Flooring" : formData.serviceType === "camper" ? "Campers & 4x4" : "Precision Scanning"}`,
