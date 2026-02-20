@@ -1246,7 +1246,7 @@ const Contact = () => {
                     <Mail size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">deckpromarine@gmail.com</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">info@deckpromarine.com.au</p>
                     <p className="text-xs text-[#1a2f45]/40">Quotes within 48 hours</p>
                   </div>
                 </div>
@@ -1262,7 +1262,7 @@ const Contact = () => {
                     <Facebook size={18} />
                   </a>
                   <a
-                    href="mailto:deckpromarine@gmail.com"
+                    href="mailto:info@deckpromarine.com.au"
                     className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Email"
                   >
