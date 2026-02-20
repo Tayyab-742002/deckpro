@@ -208,7 +208,7 @@ const Warranty = () => {
                                         This warranty is provided by <strong>Deckpro Marine Flooring WA Pty Ltd</strong><br />
                                         ACN: 693 671 635<br />
                                         Phone: 0415 604 457<br />
-                                        Email: deckpromarine@gmail.com
+                                        Email: info@deckpromarine.com.au
                                     </p>
                                 </section>
 
@@ -319,7 +319,7 @@ const Warranty = () => {
                                         To make a claim under this warranty or under Australian Consumer Law, please contact us at:<br />
                                         Deckpro Marine Flooring WA Pty Ltd<br />
                                         Phone: 0415 604 457<br />
-                                        Email: <a href="mailto:deckpromarine@gmail.com" className="text-[#1a2f45] underline">deckpromarine@gmail.com</a>
+                                        Email: <a href="mailto:info@deckpromarine.com.au" className="text-[#1a2f45] underline">info@deckpromarine.com.au</a>
                                     </p>
                                     <p>
                                         Provide proof of purchase (e.g., invoice), photos of the issue, and details of when/how the defect occurred. We will inspect the product/installation photos (at our cost) and advise on the next steps within 28 business days.
