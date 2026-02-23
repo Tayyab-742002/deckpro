@@ -159,7 +159,7 @@ const popUp = {
 /* ───────── REUSABLE INPUT STYLES ───────── */
 
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#1a2f45] placeholder:text-[#1a2f45]/30 transition-all duration-300 focus:border-[#1a2f45] focus:ring-2 focus:ring-[#1a2f45]/10 focus:outline-none";
+  "w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-[#1a2f45] placeholder:text-[#1a2f45]/30 transition-all duration-300 focus:border-[#1a2f45] focus:ring-2 focus:ring-[#1a2f45]/10 focus:outline-none";
 const labelClass = "block text-sm font-semibold text-[#1a2f45] mb-1.5";
 const requiredStar = <span className="text-red-500 ml-0.5">*</span>;
 const errorMsg = (msg: string) => (
@@ -247,7 +247,7 @@ const BeforeAfterCard = ({
           style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
         >
           <div className="h-full w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-lg shadow-black/20 border border-gray-200">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-lg shadow-black/20 border border-gray-300">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M4.5 3L1.5 7L4.5 11" stroke="#1a2f45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M9.5 3L12.5 7L9.5 11" stroke="#1a2f45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -959,7 +959,7 @@ const Contact = () => {
                             <div
                               className={`flex items-center justify-center gap-3 rounded-xl border-2 border-dashed p-8 text-center transition-colors duration-300 ${logoFiles.length > 0
                                 ? "border-[#1a2f45]/30 bg-[#1a2f45]/5"
-                                : "border-gray-200 hover:border-[#1a2f45]/20"
+                                : "border-gray-300 hover:border-[#1a2f45]/20"
                                 }`}
                             >
                               <Upload size={24} className="text-[#1a2f45]/30" />
@@ -984,7 +984,7 @@ const Contact = () => {
                                   <img
                                     src={URL.createObjectURL(file)}
                                     alt={`Logo ${i + 1}`}
-                                    className="h-14 w-14 rounded-lg object-cover border border-gray-200"
+                                    className="h-14 w-14 rounded-lg object-cover border border-gray-300"
                                   />
                                   <button
                                     type="button"
@@ -1016,21 +1016,33 @@ const Contact = () => {
                       <div className="h-px bg-gray-100 mb-10" />
                       <h3 className="text-base font-semibold text-[#1a2f45] mb-5 flex items-center gap-2">
                         <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e5f0f1] text-[#1a2f45] text-xs font-bold">6</span>
-                        Dimensions
+                        Dimensions & Photos
                       </h3>
+
+                      {/* Requirements callout */}
+                      <div className="mb-6 rounded-lg bg-amber-50 p-4 border border-amber-100">
+                        <p className="text-sm font-semibold text-amber-900 mb-2">To provide an accurate quote, we require the following:</p>
+                        <ul className="text-sm text-amber-800 space-y-1">
+                          <li>— <strong>Actual measurements</strong> of each area (Length × Width in mm). Generic or estimated dimensions cannot be quoted.</li>
+                          <li>— <strong>Photos of the actual area</strong> to be floored — not stock images or similar boats/vehicles.</li>
+                          <li>— Note whether the substrate (floor) is <strong>textured, smooth, carpet</strong>, etc.</li>
+                          <li>— Note any <strong>holes, cracks, or damage</strong> that may need to be repaired first.</li>
+                        </ul>
+                      </div>
+
                       <div className="grid gap-5">
                         <div>
                           <label htmlFor="dimensions" className={labelClass}>
-                            Exact Dimensions in mm (Longest and widest of each section - This is important for accurate quotation) {requiredStar}
+                            Exact Dimensions in mm — Length × Width of each section {requiredStar}
                           </label>
-                          <input id="dimensions" name="dimensions" value={formData.dimensions} onChange={handleChange} placeholder="e.g. 4000mm x 2500mm" className={inputClass} />
+                          <input id="dimensions" name="dimensions" value={formData.dimensions} onChange={handleChange} placeholder="e.g. Section 1: 4000mm x 2500mm, Section 2: 1200mm x 800mm" className={inputClass} />
                           {errors.dimensions && errorMsg(errors.dimensions)}
                           <p className="mt-1 text-xs text-red-400">
-                            *If the measurements are incorrect the quote may need to be adjusted.
+                            Generic or estimated measurements cannot be quoted accurately. Please measure the actual area.
                           </p>
                         </div>
                         <div>
-                          <label htmlFor="photos" className={labelClass}>Upload Photos {requiredStar}</label>
+                          <label htmlFor="photos" className={labelClass}>Photos of the Actual Area {requiredStar}</label>
                           <div className="relative">
                             <input
                               id="photos"
@@ -1043,7 +1055,7 @@ const Contact = () => {
                             <div
                               className={`flex items-center justify-center gap-3 rounded-xl border-2 border-dashed p-8 text-center transition-colors duration-300 ${photos.length > 0
                                 ? "border-[#1a2f45]/30 bg-[#1a2f45]/5"
-                                : "border-gray-200 hover:border-[#1a2f45]/20"
+                                : "border-gray-300 hover:border-[#1a2f45]/20"
                                 }`}
                             >
                               <Camera size={24} className="text-[#1a2f45]/30" />
@@ -1054,7 +1066,7 @@ const Contact = () => {
                                     : "Click to upload photos"}
                                 </p>
                                 <p className="text-xs text-[#1a2f45]/40">
-                                  JPG, PNG — show the area to be floored
+                                  JPG, PNG — photos of your actual boat/vehicle, not generic images
                                 </p>
                               </div>
                             </div>
@@ -1069,7 +1081,7 @@ const Contact = () => {
                                   <img
                                     src={URL.createObjectURL(file)}
                                     alt={`Preview ${i + 1}`}
-                                    className="h-14 w-14 rounded-lg object-cover border border-gray-200"
+                                    className="h-14 w-14 rounded-lg object-cover border border-gray-300"
                                   />
                                   <button
                                     type="button"
@@ -1084,7 +1096,7 @@ const Contact = () => {
                           )}
 
                           <p className="mt-2 text-xs text-[#1a2f45]/30">
-                            Photos help us give you a more accurate quote. Show the full area, any hardware, and existing flooring.
+                            Include photos of each section, the floor surface/substrate, and any existing damage or hardware.
                           </p>
                         </div>
                       </div>
