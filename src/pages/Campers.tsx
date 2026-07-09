@@ -17,6 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import FaqSchema from "@/components/FaqSchema";
 import { CldImage } from "@/components/ui/cld-image";
 
 const heroImage = "deckpro/site-assets/services/camper/camperAnd4x4";
@@ -43,7 +44,9 @@ const faqs = [
   { q: "What vehicles can you work on?", a: "All campervans, motorhomes, caravans, and 4x4 vehicles. If it has a floor, we can upgrade it — from VW Transporters to 200 Series Land Cruisers." },
   { q: "Can I keep my existing layout?", a: "Yes. We scan around your current build. Seats, slide-outs, kitchenettes — everything stays in place." },
   { q: "Is EVA foam suitable for wet areas?", a: "Absolutely. Closed-cell EVA foam is waterproof and drains easily, making it perfect for outdoor showers, awning areas, and entry points." },
-  { q: "How durable is the flooring under heavy gear?", a: "However it is advisable to avoid sharp objects or heavier items with a small surface area." },
+  { q: "How durable is the flooring under heavy gear?", a: "Very durable — EVA foam stands up well to daily foot traffic, gear, and life on the road. However, it is advisable to avoid sharp objects or heavier items with a small surface area." },
+  { q: "Do I need to bring my vehicle to you?", a: "No — we're a fully mobile service based in Perth, covering a 200km radius. Scanning and fitting both happen at your location: driveway, garage, or storage yard." },
+  { q: "Is the flooring covered by a warranty?", a: "Yes. Every Deckpro installation is backed by our 2 year limited warranty — details are provided with your purchase." },
   { q: "What are your payment terms?", a: "50% deposit upon accepting your quote to secure a scan date. Remaining 50% is due upon completion — no exceptions." },
 ];
 
@@ -77,6 +80,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
 const Campers = () => {
   return (
     <main>
+      <FaqSchema faqs={faqs} />
       {/* ══════ HERO ══════ */}
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         <div className="absolute inset-0">
@@ -239,7 +243,7 @@ const Campers = () => {
                 <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
                   <f.icon size={22} />
                 </div>
-                <h4 className="text-base font-semibold text-[#1a2f45] mb-2">{f.title}</h4>
+                <h3 className="text-base font-semibold text-[#1a2f45] mb-2">{f.title}</h3>
                 <p className="text-sm leading-relaxed text-[#1a2f45]/40">{f.desc}</p>
               </m.div>
             ))}
@@ -260,6 +264,11 @@ const Campers = () => {
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">Scan. Design. Build. Fit.</h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed text-[#1a2f45]/40">
               Our seamless four-stage process delivers premium results, every single time.
+              It all starts with our{" "}
+              <Link to="/3d-scanning" className="font-medium text-[#3A868F] hover:text-[#1a2f45] transition-colors">
+                precision 3D scanning service
+              </Link>
+              .
             </p>
           </m.div>
 

@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import FaqSchema from "@/components/FaqSchema";
 import { CldImage } from "@/components/ui/cld-image";
 
 const heroImage = "deckpro/site-assets/services/scanning/scanning";
@@ -49,16 +50,19 @@ const useCases = [
     title: "Marine Flooring Templates",
     desc: "Our core use. Every boat flooring project starts with a precision scan to create the template for your custom EVA foam floor.",
     image: marineTemplate,
+    related: { to: "/marine-flooring", label: "Explore marine flooring" },
   },
   {
     title: "Vehicle Interior Mapping",
     desc: "Campervans, motorhomes, and 4x4s — we scan the entire floor area to create templates for custom flooring installations.",
     image: camperInterior,
+    related: { to: "/campers", label: "Explore camper & 4x4 flooring" },
   },
   {
     title: "Custom Part Design",
     desc: "Need a bespoke part, a replacement component, or a one-off fabrication? Our scans provide the precision data to make it happen.",
     image: heroImage,
+    related: undefined as { to: string; label: string } | undefined,
   },
 ];
 
@@ -68,6 +72,8 @@ const faqs = [
   { q: "How long does a scan take?", a: "A typical boat deck scan takes 1–2 hours depending on the size and complexity. Interior vehicle scans are usually under an hour." },
   { q: "Do you need the boat to be empty?", a: "Ideally, yes. A clear deck allows us to capture the full surface accurately. We'll let you know exactly what needs to be removed before the scan day." },
   { q: "How accurate are the scans?", a: "Our equipment achieves sub-millimetre accuracy (±0.5mm). This ensures a precision fit for every flooring template we manufacture." },
+  { q: "Where do you offer scanning?", a: "We're a fully mobile service based in Perth, covering a 200km radius — our technician comes to your boat, vehicle, or part wherever it is." },
+  { q: "How do I book a scan?", a: "Submit an enquiry through our contact form with your project details and location, and we'll confirm a scan date and provide a quote within 48 hours." },
 ];
 
 /* ───────── ANIMATIONS ───────── */
@@ -100,6 +106,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
 const Scanning3D = () => {
   return (
     <main>
+      <FaqSchema faqs={faqs} />
       {/* ══════ HERO ══════ */}
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         <div className="absolute inset-0">
@@ -274,9 +281,16 @@ const Scanning3D = () => {
                 <div className="lg:[direction:ltr]">
                   <h3 className="text-2xl font-semibold text-[#1a2f45] mb-4">{uc.title}</h3>
                   <p className="text-sm leading-relaxed text-[#1a2f45]/40 mb-6">{uc.desc}</p>
-                  <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
-                    Enquire About This <ArrowRight size={14} />
-                  </Link>
+                  <div className="flex flex-wrap items-center gap-6">
+                    <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
+                      Enquire About This <ArrowRight size={14} />
+                    </Link>
+                    {uc.related && (
+                      <Link to={uc.related.to} className="inline-flex items-center gap-2 text-sm font-medium text-[#3A868F] hover:text-[#1a2f45] transition-colors">
+                        {uc.related.label} <ArrowRight size={14} />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </m.div>
             ))}
@@ -314,7 +328,7 @@ const Scanning3D = () => {
               >
                 <span className="flex-shrink-0 text-3xl font-bold text-[#1a2f45]/10">{s.num}</span>
                 <div>
-                  <h4 className="text-lg font-semibold text-[#1a2f45] mb-1">{s.title}</h4>
+                  <h3 className="text-lg font-semibold text-[#1a2f45] mb-1">{s.title}</h3>
                   <p className="text-sm leading-relaxed text-[#1a2f45]/40">{s.desc}</p>
                 </div>
               </m.div>

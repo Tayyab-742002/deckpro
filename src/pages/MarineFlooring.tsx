@@ -15,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import FaqSchema from "@/components/FaqSchema";
 import { CldImage } from "@/components/ui/cld-image";
 
 const MARINE_BASE = "deckpro/site-assets/services/marine";
@@ -61,6 +62,14 @@ const faqs = [
   {
     q: "Is the EVA foam slippery when wet?",
     a: "Not at all. Our textured surfaces are specifically designed for non-slip grip, even in the wettest conditions.",
+  },
+  {
+    q: "Is the flooring covered by a warranty?",
+    a: "Yes. Every Deckpro installation is backed by our 2 year limited warranty — details are provided with your purchase.",
+  },
+  {
+    q: "How do I get an accurate quote?",
+    a: "Send us photos of your actual deck and measurements (length × width of each section) through our contact form, and we'll return an accurate quote within 48 hours.",
   },
 ];
 
@@ -114,6 +123,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
 const MarineFlooring = () => {
   return (
     <main>
+      <FaqSchema faqs={faqs} />
       {/* ══════ HERO ══════ */}
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         {/* Background */}
@@ -293,6 +303,11 @@ const MarineFlooring = () => {
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">Scan. Design. Build. Fit.</h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed text-[#1a2f45]/40">
               Our seamless four-stage process delivers premium results, every single time.
+              It all starts with our{" "}
+              <Link to="/3d-scanning" className="font-medium text-[#3A868F] hover:text-[#1a2f45] transition-colors">
+                precision 3D scanning service
+              </Link>
+              .
             </p>
           </m.div>
 
