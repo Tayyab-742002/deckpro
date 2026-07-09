@@ -83,8 +83,11 @@ const Navbar = () => {
   const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
   const isServicePage = serviceLinks.some((s) => location.pathname === s.path);
-  const isWarrantyPage = location.pathname === "/warranty";
-  const transparent = !scrolled && !isOpen && !isWarrantyPage;
+  // Pages with light headers where the transparent white-text navbar would be invisible.
+  // /blog (list) keeps its teal hero, but blog post pages are near-white at the top.
+  const isLightPage =
+    location.pathname === "/warranty" || /^\/blog\/./.test(location.pathname);
+  const transparent = !scrolled && !isOpen && !isLightPage;
 
   /** Scroll to a section on the homepage — navigate first if not already there */
   const scrollToSection = (sectionId: string) => {

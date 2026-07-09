@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Newspaper, ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import { CldImage } from "@/components/ui/cld-image";
 import { SanityImage } from "@/components/ui/sanity-image";
 import blogData from "@/generated/blog-data.json";
 
@@ -23,8 +24,19 @@ const Blog = () => {
   return (
     <main>
       {/* ══════ HEADER ══════ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]">
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
+          <CldImage
+            publicId="deckpro/site-assets/hero-image"
+            alt=""
+            className="absolute inset-0 h-full w-full opacity-[0.55]"
+            eager
+            width={1600}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+        </div>
         <div className="relative z-10 mx-auto max-w-3xl px-6 pt-48 sm:pt-56 pb-24 text-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}
