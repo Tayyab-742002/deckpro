@@ -66,7 +66,7 @@ const BlogPost = () => {
       <BlogPostSchema post={post} />
 
       {/* ══════ HEADER ══════ */}
-      <section className="bg-gradient-to-b from-[#8CC3C8]/30 to-white pt-36 pb-10">
+      <section className="bg-gradient-to-b from-[#8CC3C8]/30 to-white pt-44 sm:pt-52 pb-10">
         <div className="mx-auto max-w-3xl px-6">
           <Link
             to="/blog"

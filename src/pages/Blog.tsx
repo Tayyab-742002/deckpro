@@ -25,7 +25,7 @@ const Blog = () => {
       {/* ══════ HEADER ══════ */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]">
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
-        <div className="relative z-10 mx-auto max-w-3xl px-6 pt-40 pb-24 text-center">
+        <div className="relative z-10 mx-auto max-w-3xl px-6 pt-48 sm:pt-56 pb-24 text-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
