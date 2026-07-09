@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "0.0.0.0",
     port: 8081,
@@ -33,10 +33,13 @@ export default defineConfig(({ mode }) => ({
         // framer-motion is intentionally not pinned to a chunk: its animation
         // engine loads async via LazyMotion, and forcing the package into one
         // chunk would drag the engine back into the critical path.
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          ui: ["lucide-react"],
-        },
+        // Skipped for the SSR (prerender) build, where deps stay external.
+        manualChunks: isSsrBuild
+          ? undefined
+          : {
+              vendor: ["react", "react-dom", "react-router-dom"],
+              ui: ["lucide-react"],
+            },
       },
     },
   },

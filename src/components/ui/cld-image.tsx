@@ -50,7 +50,9 @@ export function CldImage({
         sizes={width ? sizes : undefined}
         alt={alt}
         loading={loading}
-        fetchPriority={eager ? "high" : "auto"}
+        // React 18 only forwards the lowercase DOM attribute; the camelCase
+        // prop is dropped with a warning (camelCase support landed in React 19).
+        {...({ fetchpriority: eager ? "high" : "auto" } as Record<string, string>)}
         decoding="async"
         onLoad={() => setLoaded(true)}
         className={cn("absolute inset-0 h-full w-full", fit)}

@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { LazyMotion } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Index from "./pages/Index";
 
@@ -17,25 +17,25 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
+// Router-agnostic: the client entry wraps this in BrowserRouter,
+// the prerender entry in StaticRouter.
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LazyMotion features={loadMotionFeatures} strict>
-      <BrowserRouter>
-        <Navbar />
-        <Suspense fallback={<div className="min-h-screen" />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
+      <Navbar />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
 
-            <Route path="/marine-flooring" element={<MarineFlooring />} />
-            <Route path="/campers" element={<Campers />} />
-            <Route path="/3d-scanning" element={<Scanning3D />} />
+          <Route path="/marine-flooring" element={<MarineFlooring />} />
+          <Route path="/campers" element={<Campers />} />
+          <Route path="/3d-scanning" element={<Scanning3D />} />
 
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/warranty" element={<Warranty />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/warranty" element={<Warranty />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </LazyMotion>
   </QueryClientProvider>
 );
