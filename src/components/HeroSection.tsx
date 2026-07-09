@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Anchor } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import { CldImage } from "@/components/ui/cld-image";
 const stats = [
   { label: "Projects Completed", value: "50", suffix: "+" },
   { label: "Client Satisfaction", value: "100", suffix: "%" },
@@ -16,11 +16,12 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
 
         {/* Hero photo */}
-        <img
-          src={heroImage}
+        <CldImage
+          publicId="deckpro/site-assets/hero-image"
           alt="Custom EVA foam marine flooring on a boat deck"
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
-          loading="eager"
+          className="absolute inset-0 h-full w-full opacity-60"
+          eager
+          width={1600}
         />
 
         {/* Dark overlay for text readability */}

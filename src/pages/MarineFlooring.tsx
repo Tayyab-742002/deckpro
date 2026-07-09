@@ -15,18 +15,16 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import { CldImage } from "@/components/ui/cld-image";
 
-
-
-// images 
-
-import image1 from "@/assets/services/marine/1.jpg";
-import image2 from "@/assets/services/marine/2.jpg";
-import image3 from "@/assets/services/marine/3.jpg";
-import image4 from "@/assets/services/marine/4.jpg";
-import image5 from "@/assets/services/marine/5.jpg";
-import image6 from "@/assets/services/marine/6.jpg";
-import image7 from "@/assets/services/marine/7.jpg";
+const MARINE_BASE = "deckpro/site-assets/services/marine";
+const image1 = `${MARINE_BASE}/1`;
+const image2 = `${MARINE_BASE}/2`;
+const image3 = `${MARINE_BASE}/3`;
+const image4 = `${MARINE_BASE}/4`;
+const image5 = `${MARINE_BASE}/5`;
+const image6 = `${MARINE_BASE}/6`;
+const image7 = `${MARINE_BASE}/7`;
 
 /* ───────── DATA ───────── */
 
@@ -235,11 +233,11 @@ const MarineFlooring = () => {
 
             <div className="relative">
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                <img
-                  src={image7}
+                <CldImage
+                  publicId={image7}
                   alt="Premium Marine Grade Products"
-                  className="w-full h-[380px] md:h-[460px] object-cover"
-                  loading="lazy"
+                  className="w-full h-[380px] md:h-[460px]"
+                  width={700}
                 />
               </div>
             </div>
@@ -278,7 +276,7 @@ const MarineFlooring = () => {
           <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((img, i) => (
               <motion.div key={i} variants={popUp} className="group overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                <img src={img.src} alt={img.alt} className="h-52 lg:h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <CldImage publicId={img.src} alt={img.alt} className="h-52 lg:h-64 w-full transition-transform duration-700 group-hover:scale-110" width={500} />
               </motion.div>
             ))}
           </motion.div>

@@ -2,19 +2,15 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-import marinefloring from "@/assets/servicesOverview/marine-floring.png"
-import marineFeaturedCard from "@/assets/servicesOverview/marine-flooring-featured-card.png"
-import scanning from "@/assets/servicesOverview/3DScanning.png"
-import scanningFeaturedCard from "@/assets/servicesOverview/3dScanning-feature-card.png"
-import camperAnd4x4 from "@/assets/servicesOverview/camperAnd4x4.png"
-import camperAnd4x4FeaturedCard from "@/assets/servicesOverview/CamperAnd4x4-featured-card.png"
+import { CldImage } from "@/components/ui/cld-image";
+
 const slides = [
   {
     badge: "Marine Flooring",
     heading: ["Custom EVA Foam", "For Your Vessel"],
     subtitle:
       "From fishing boats to luxury cruisers — we precision scan, custom design, manufacture, and professionally fit premium EVA foam flooring tailored to your boat's exact dimensions.",
-    bg: marinefloring,
+    bg: "deckpro/site-assets/servicesOverview/marine-floring",
     brandText: "Marine Flooring",
     link: "/marine-flooring",
     hotspots: [
@@ -25,8 +21,7 @@ const slides = [
     feature: {
       title: "EVA Foam Deck",
       desc: "Non-slip, UV resistant, easy to clean",
-      image:
-        marineFeaturedCard,
+      image: "deckpro/site-assets/servicesOverview/marine-flooring-featured-card",
     },
   },
   {
@@ -34,7 +29,7 @@ const slides = [
     heading: ["Transform Your", "Adventure Vehicle"],
     subtitle:
       "Custom-cut EVA foam flooring for campervans, motorhomes, and 4x4 vehicles. Durable enough for the outback, comfortable enough for living in — precision scanned and fitted to every curve.",
-    bg: camperAnd4x4,
+    bg: "deckpro/site-assets/servicesOverview/camperAnd4x4",
     brandText: "Camper & 4x4",
     link: "/campers",
     hotspots: [
@@ -45,8 +40,7 @@ const slides = [
     feature: {
       title: "4x4 Interior",
       desc: "Outback-tough, custom fitted",
-      image:
-        camperAnd4x4FeaturedCard,
+      image: "deckpro/site-assets/servicesOverview/CamperAnd4x4-featured-card",
     },
   },
   {
@@ -54,7 +48,7 @@ const slides = [
     heading: ["High-Precision", "Scanning"],
     subtitle:
       "Standalone precision scanning and modelling services for clients who need detailed digital templates. We capture complex surfaces with sub-millimetre accuracy for any project.",
-    bg: scanning,
+    bg: "deckpro/site-assets/servicesOverview/3DScanning",
     brandText: "Precision Scanning",
     link: "/3d-scanning",
     hotspots: [
@@ -65,8 +59,7 @@ const slides = [
     feature: {
       title: "Digital Template",
       desc: "CAD-ready digital models",
-      image:
-        scanningFeaturedCard,
+      image: "deckpro/site-assets/servicesOverview/3dScanning-feature-card",
     },
   },
 ];
@@ -110,11 +103,12 @@ const ServicesOverview = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100 z-[1]" : "opacity-0 z-0"
             }`}
         >
-          <img
-            src={s.bg}
+          <CldImage
+            publicId={s.bg}
             alt=""
-            className="h-full w-full object-cover"
-            loading={i === 0 ? "eager" : "lazy"}
+            className="h-full w-full"
+            eager={i === 0}
+            width={1920}
           />
         </div>
       ))}
@@ -195,10 +189,11 @@ const ServicesOverview = () => {
             className="absolute right-8 top-10 z-[4] hidden lg:block lg:right-16 lg:top-16"
           >
             <div className="w-56 overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl">
-              <img
-                src={slide.feature.image}
+              <CldImage
+                publicId={slide.feature.image}
                 alt={slide.feature.title}
-                className="h-28 w-full object-cover"
+                className="h-28 w-full"
+                width={300}
               />
               <div className="p-4">
                 <p className="text-sm font-semibold text-white">

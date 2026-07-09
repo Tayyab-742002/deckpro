@@ -1,0 +1,506 @@
+{
+  "services/camper/camperAnd4x4.png": {
+    "publicId": "deckpro/site-assets/services/camper/camperAnd4x4",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2752,
+    "height": 1380
+  },
+  "services/camper/CamperAnd4x4-featured-card.png": {
+    "publicId": "deckpro/site-assets/services/camper/CamperAnd4x4-featured-card",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2387,
+    "height": 1633
+  },
+  "services/marine/1.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/1",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/2.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/2",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/3.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/3",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/4.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/4",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/5.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/5",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/6.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/6",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/marine/7.jpg": {
+    "publicId": "deckpro/site-assets/services/marine/7",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "services/scanning/scanning.jpg": {
+    "publicId": "deckpro/site-assets/services/scanning/scanning",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 4000,
+    "height": 3000
+  },
+  "services/scanning/marine-template.jpg": {
+    "publicId": "deckpro/site-assets/services/scanning/marine-template",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2432,
+    "height": 4312
+  },
+  "gallery/project-one/1.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/1",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/2.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/2",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2252,
+    "height": 4000
+  },
+  "gallery/project-one/3.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/3",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/4.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/4",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/5.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/5",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/6.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/6",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/7.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/7",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/8.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/8",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/9.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/9",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/10.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/10",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/11.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/11",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-one/12.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-one/12",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/1.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/1",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/2.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/2",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/3.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/3",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/4.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/4",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/5.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/5",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/6.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/6",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/7.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/7",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/8.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/8",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/9.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/9",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/10.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/10",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-two/11.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-two/11",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/1.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/1",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/2.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/2",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/3.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/3",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/4.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/4",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/5.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/5",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/6.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/6",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 4000,
+    "height": 3000
+  },
+  "gallery/project-three/7.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/7",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/8.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/8",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/9.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/9",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/10.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/10",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/11.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/11",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/12.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/12",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/13.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/13",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/14.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/14",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "gallery/project-three/15.jpg": {
+    "publicId": "deckpro/site-assets/gallery/project-three/15",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "hero-image.jpg": {
+    "publicId": "deckpro/site-assets/hero-image",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2752,
+    "height": 1536
+  },
+  "howItWorks/scanning.jpg": {
+    "publicId": "deckpro/site-assets/howItWorks/scanning",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 4000,
+    "height": 3000
+  },
+  "howItWorks/design.jpg": {
+    "publicId": "deckpro/site-assets/howItWorks/design",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2400,
+    "height": 1625
+  },
+  "howItWorks/manufacturing.jpg": {
+    "publicId": "deckpro/site-assets/howItWorks/manufacturing",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2400,
+    "height": 1792
+  },
+  "howItWorks/expert-fitting.jpg": {
+    "publicId": "deckpro/site-assets/howItWorks/expert-fitting",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 1440,
+    "height": 1920
+  },
+  "servicesOverview/marine-floring.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/marine-floring",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2752,
+    "height": 1366
+  },
+  "servicesOverview/marine-flooring-featured-card.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/marine-flooring-featured-card",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2400,
+    "height": 1615
+  },
+  "servicesOverview/3DScanning.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/3DScanning",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2752,
+    "height": 1368
+  },
+  "servicesOverview/3dScanning-feature-card.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/3dScanning-feature-card",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2400,
+    "height": 1631
+  },
+  "servicesOverview/camperAnd4x4.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/camperAnd4x4",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2752,
+    "height": 1380
+  },
+  "servicesOverview/CamperAnd4x4-featured-card.png": {
+    "publicId": "deckpro/site-assets/servicesOverview/CamperAnd4x4-featured-card",
+    "resourceType": "image",
+    "format": "png",
+    "width": 2387,
+    "height": 1633
+  },
+  "whychoosus/scanning.jpg": {
+    "publicId": "deckpro/site-assets/whychoosus/scanning",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 4000,
+    "height": 3000
+  },
+  "whychoosus/custom-design.jpg": {
+    "publicId": "deckpro/site-assets/whychoosus/custom-design",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 2752,
+    "height": 1536
+  },
+  "whychoosus/professional-fitting.jpg": {
+    "publicId": "deckpro/site-assets/whychoosus/professional-fitting",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project1/before.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project1/before",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project1/after.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project1/after",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project2/before.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project2/before",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project2/after.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project2/after",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project3/before.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project3/before",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "before-after/project3/after.jpg": {
+    "publicId": "deckpro/site-assets/before-after/project3/after",
+    "resourceType": "image",
+    "format": "jpg",
+    "width": 3000,
+    "height": 4000
+  },
+  "featured-videos/1.mp4": {
+    "publicId": "deckpro/site-assets/featured-videos/1",
+    "resourceType": "video",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920
+  },
+  "featured-videos/2.mp4": {
+    "publicId": "deckpro/site-assets/featured-videos/2",
+    "resourceType": "video",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920
+  },
+  "featured-videos/3.mp4": {
+    "publicId": "deckpro/site-assets/featured-videos/3",
+    "resourceType": "video",
+    "format": "mp4",
+    "width": 1080,
+    "height": 1920
+  }
+}

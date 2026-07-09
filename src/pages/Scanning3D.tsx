@@ -13,12 +13,12 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import { CldImage } from "@/components/ui/cld-image";
 
-// Hero Image 
+const heroImage = "deckpro/site-assets/services/scanning/scanning";
+const marineTemplate = "deckpro/site-assets/services/scanning/marine-template";
+const camperInterior = "deckpro/site-assets/services/camper/CamperAnd4x4-featured-card";
 
-import heroImage from "@/assets/services/scanning/scanning.jpg";
-import marineTemplate from "@/assets/services/scanning/marine-template.jpg";
-import camperInterior from "@/assets/services/camper/CamperAnd4x4-featured-card.png";
 /* ───────── DATA ───────── */
 
 const capabilities = [
@@ -104,11 +104,12 @@ const Scanning3D = () => {
       <section className="relative min-h-[70vh] overflow-hidden flex items-center">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#8CC3C8] via-[#6AB3B9] to-[#4B959C]" />
-          <img
-            src={heroImage}
+          <CldImage
+            publicId={heroImage}
             alt="Precision scanning technology in action"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
-            loading="eager"
+            className="absolute inset-0 h-full w-full opacity-[0.55]"
+            eager
+            width={1600}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-white/30 to-white/50" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
@@ -218,11 +219,11 @@ const Scanning3D = () => {
 
             <div className="relative">
               <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                <img
-                  src={heroImage}
+                <CldImage
+                  publicId={heroImage}
                   alt="Precision scanning technology capturing measurements"
-                  className="w-full h-[380px] md:h-[460px] object-cover"
-                  loading="lazy"
+                  className="w-full h-[380px] md:h-[460px]"
+                  width={700}
                 />
               </div>
             </div>
@@ -271,7 +272,7 @@ const Scanning3D = () => {
               >
                 <div className="relative lg:[direction:ltr]">
                   <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                    <img src={uc.image} alt={uc.title} className="h-72 lg:h-96 w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                    <CldImage publicId={uc.image} alt={uc.title} className="h-72 lg:h-96 w-full transition-transform duration-700 hover:scale-105" width={800} />
                   </div>
                 </div>
                 <div className="lg:[direction:ltr]">
@@ -354,11 +355,11 @@ const Scanning3D = () => {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
-          <img
-            src={heroImage}
+          <CldImage
+            publicId={heroImage}
             alt="Precision scanning equipment"
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
-            loading="lazy"
+            className="absolute inset-0 h-full w-full opacity-20"
+            width={1600}
           />
         </div>
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">

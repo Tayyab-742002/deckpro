@@ -1,26 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Wrench } from "lucide-react";
-
-// Videos
-import video1 from "@/assets/featured-videos/1.mp4";
-import video2 from "@/assets/featured-videos/2.mp4";
-import video3 from "@/assets/featured-videos/3.mp4";
+import { CldVideo } from "@/components/ui/cld-video";
 
 /* ── Recent project cards ── */
 const projects = [
   {
-    video: video1,
+    video: "deckpro/site-assets/featured-videos/1",
     category: "Marine Flooring",
     title: "1974 Custom Norwegian Build",
   },
   {
-    video: video2,
+    video: "deckpro/site-assets/featured-videos/2",
     category: "Marine Flooring",
     title: "Haines Hunter Classic 6.0",
   },
   {
-    video: video3,
+    video: "deckpro/site-assets/featured-videos/3",
     category: "Marine Flooring",
     title: "Caribbean Reefrunner",
   },
@@ -112,15 +108,7 @@ const CTASection = () => {
             >
               {/* Video thumbnail */}
               <div className="relative overflow-hidden rounded-2xl bg-[#e5f0f1] h-56 sm:h-64 lg:h-72">
-                <video
-                  src={project.video}
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  preload="none"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                <CldVideo publicId={project.video} className="h-full w-full" />
               </div>
 
               {/* Meta */}

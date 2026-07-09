@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useState, useRef, useCallback, type FormEvent, type ChangeEvent } from "react";
 import Footer from "@/components/Footer";
+import { cldImageUrl } from "@/lib/cloudinary";
 
 /* ───────── TYPES ───────── */
 
@@ -80,16 +81,16 @@ const initialFormData: FormData = {
 };
 
 // project 1: before/after
-import before1 from "@/assets/before-after/project1/before.jpg";
-import after1 from "@/assets/before-after/project1/after.jpg";
+const before1 = "deckpro/site-assets/before-after/project1/before";
+const after1 = "deckpro/site-assets/before-after/project1/after";
 
 //project 2: before/after
-import before2 from "@/assets/before-after/project2/before.jpg";
-import after2 from "@/assets/before-after/project2/after.jpg";
+const before2 = "deckpro/site-assets/before-after/project2/before";
+const after2 = "deckpro/site-assets/before-after/project2/after";
 
 //project 3: before/after
-import before3 from "@/assets/before-after/project3/before.jpg";
-import after3 from "@/assets/before-after/project3/after.jpg";
+const before3 = "deckpro/site-assets/before-after/project3/before";
+const after3 = "deckpro/site-assets/before-after/project3/after";
 
 /* ───────── CASE STUDIES (Before & After) ───────── */
 
@@ -221,8 +222,9 @@ const BeforeAfterCard = ({
       >
         {/* After image — full background */}
         <img
-          src={after}
+          src={cldImageUrl(after, 700)}
           alt={`${label} — After`}
+          loading="lazy"
           className="absolute inset-0 h-full w-full object-cover pointer-events-none"
           draggable={false}
         />
@@ -233,8 +235,9 @@ const BeforeAfterCard = ({
           style={{ width: `${sliderPos}%` }}
         >
           <img
-            src={before}
+            src={cldImageUrl(before, 700)}
             alt={`${label} — Before`}
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
             style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100vw', maxWidth: 'none' }}
             draggable={false}

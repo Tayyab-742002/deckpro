@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ScanLine } from "lucide-react";
-import scanning from "@/assets/howItWorks/scanning.jpg";
-import design from "@/assets/howItWorks/design.jpg";
-import manufacturing from "@/assets/howItWorks/manufacturing.jpg";
-import fitting from "@/assets/howItWorks/expert-fitting.jpg";
+import { CldImage } from "@/components/ui/cld-image";
+
 const steps = [
   {
     number: "1",
     title: "Precision Scanning",
     description:
       "Our Team will come to your loaction. Our skilled technicians use advanced precision scanning technology to capture every curve and contour with sub-millimeter accuracy, procuding an exact digital template to ensure a flawless custom fit.",
-    image: scanning,
+    image: "deckpro/site-assets/howItWorks/scanning",
     imageAlt: "Precision scanning a boat deck for custom flooring template",
   },
   {
@@ -19,7 +17,7 @@ const steps = [
     title: "Custom Design",
     description:
       "We design your flooring to exact specifications, colour, patterns and layout. You can also add custom logos or branding. Once we have your approval we will move onto the next stage of the project.",
-    image: design,
+    image: "deckpro/site-assets/howItWorks/design",
     imageAlt: "Custom flooring design layout on screen",
   },
   {
@@ -27,7 +25,7 @@ const steps = [
     title: "Manufacturing",
     description:
       "Your premium product will be precision-cut and QAQC assessed in our Perth workshop. Non-slip, UV resistant, and built to handle the harsh WA conditions.",
-    image: manufacturing,
+    image: "deckpro/site-assets/howItWorks/manufacturing",
     imageAlt: "EVA foam flooring panels being manufactured in the workshop",
   },
   {
@@ -35,7 +33,7 @@ const steps = [
     title: "Expert Fitting",
     description:
       "Our skilled team installs your flooring with precision and care, delivering a flawless finish. The result is a durable, easy-to-maintain surface that looks exceptional, feels premium, and is custom crafted specifically for your vessel.",
-    image: fitting,
+    image: "deckpro/site-assets/howItWorks/expert-fitting",
     imageAlt: "Professional EVA foam flooring installation on a boat",
   },
 ];
@@ -124,11 +122,11 @@ const HowItWorks = () => {
                     }
                   >
                     <div className="rounded-2xl bg-[#e5f0f1] overflow-hidden">
-                      <img
-                        src={step.image}
+                      <CldImage
+                        publicId={step.image}
                         alt={step.imageAlt}
-                        className="w-full aspect-[4/3] object-cover"
-                        loading="lazy"
+                        className="w-full aspect-[4/3]"
+                        width={800}
                       />
                     </div>
                   </div>

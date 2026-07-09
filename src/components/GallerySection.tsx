@@ -1,62 +1,19 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Camera, X } from "lucide-react";
+import { CldImage } from "@/components/ui/cld-image";
+import { cldImageUrl } from "@/lib/cloudinary";
 
-// project 1 : images
+const GALLERY_BASE = "deckpro/site-assets/gallery";
 
-import image1 from "@/assets/gallery/project-one/1.jpg";
-import image2 from "@/assets/gallery/project-one/2.jpg";
-import image3 from "@/assets/gallery/project-one/3.jpg";
-import image4 from "@/assets/gallery/project-one/4.jpg";
-import image5 from "@/assets/gallery/project-one/5.jpg";
-import image6 from "@/assets/gallery/project-one/6.jpg";
-import image7 from "@/assets/gallery/project-one/7.jpg";
-import image8 from "@/assets/gallery/project-one/8.jpg";
-import image9 from "@/assets/gallery/project-one/9.jpg";
-import image10 from "@/assets/gallery/project-one/10.jpg";
-import image11 from "@/assets/gallery/project-one/11.jpg";
-import image12 from "@/assets/gallery/project-one/12.jpg";
-
-
-// project 2 : images
-import image13 from "@/assets/gallery/project-two/1.jpg";
-import image14 from "@/assets/gallery/project-two/2.jpg";
-import image15 from "@/assets/gallery/project-two/3.jpg";
-import image16 from "@/assets/gallery/project-two/4.jpg";
-import image17 from "@/assets/gallery/project-two/5.jpg";
-import image19 from "@/assets/gallery/project-two/6.jpg";
-import image20 from "@/assets/gallery/project-two/7.jpg";
-import image21 from "@/assets/gallery/project-two/8.jpg";
-import image22 from "@/assets/gallery/project-two/9.jpg";
-import image23 from "@/assets/gallery/project-two/10.jpg";
-import image24 from "@/assets/gallery/project-two/11.jpg";
-
-
-// project 3 : Images
-
-import image25 from "@/assets/gallery/project-three/1.jpg";
-import image26 from "@/assets/gallery/project-three/2.jpg";
-import image27 from "@/assets/gallery/project-three/3.jpg";
-import image28 from "@/assets/gallery/project-three/4.jpg";
-import image29 from "@/assets/gallery/project-three/5.jpg";
-import image30 from "@/assets/gallery/project-three/6.jpg";
-import image31 from "@/assets/gallery/project-three/7.jpg";
-import image32 from "@/assets/gallery/project-three/8.jpg";
-import image33 from "@/assets/gallery/project-three/9.jpg";
-import image34 from "@/assets/gallery/project-three/10.jpg";
-import image35 from "@/assets/gallery/project-three/11.jpg";
-import image36 from "@/assets/gallery/project-three/12.jpg";
-import image37 from "@/assets/gallery/project-three/13.jpg";
-import image38 from "@/assets/gallery/project-three/14.jpg";
-import image39 from "@/assets/gallery/project-three/15.jpg";
-
+// Shuffled display order across all three projects, by [project, index].
 const galleryItems = [
-    image25, image3, image13, image36, image8, image29, image17, image1,
-    image34, image14, image6, image31, image22, image9, image37, image20,
-    image4, image27, image11, image16, image33, image2, image23, image39,
-    image7, image30, image15, image35, image21, image5, image26, image10,
-    image38, image19, image12, image28, image32, image24,
-];
+    "project-three/1", "project-one/3", "project-two/1", "project-three/12", "project-one/8", "project-three/5", "project-two/5", "project-one/1",
+    "project-three/10", "project-two/2", "project-one/6", "project-three/7", "project-two/9", "project-one/9", "project-three/13", "project-two/7",
+    "project-one/4", "project-three/3", "project-one/11", "project-two/4", "project-three/9", "project-one/2", "project-two/10", "project-three/15",
+    "project-one/7", "project-three/6", "project-two/3", "project-three/11", "project-two/8", "project-one/5", "project-three/2", "project-one/10",
+    "project-three/14", "project-two/6", "project-one/12", "project-three/4", "project-three/8", "project-two/11",
+].map((p) => `${GALLERY_BASE}/${p}`);
 
 /* Card heights: alternate between tall and short for visual interest */
 const getHeight = (i: number) => {
@@ -134,12 +91,11 @@ const GallerySection = () => {
                                     className="overflow-hidden rounded-2xl bg-[#e5f0f1]"
                                     style={{ height: h }}
                                 >
-                                    <img
-                                        src={src}
+                                    <CldImage
+                                        publicId={src}
                                         alt="Deckpro custom EVA foam flooring project"
-                                        className="h-full w-full object-cover"
-                                        loading="lazy"
-                                        decoding="async"
+                                        className="h-full w-full"
+                                        width={400}
                                     />
                                 </div>
                             </div>
@@ -172,7 +128,7 @@ const GallerySection = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ duration: 0.25 }}
-                            src={selectedImage}
+                            src={cldImageUrl(selectedImage, 1600)}
                             alt="Deckpro custom EVA foam flooring project"
                             className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
                             onClick={(e) => e.stopPropagation()}

@@ -1,27 +1,26 @@
 import { motion } from "framer-motion";
 import { Anchor, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import scanning from "@/assets/whychoosus/scanning.jpg";
-import manufacturing from "@/assets/whychoosus/custom-design.jpg";
-import fitting from "@/assets/whychoosus/professional-fitting.jpg";
+import { CldImage } from "@/components/ui/cld-image";
+
 const reasons = [
     {
         title: "Precision Scanning",
         desc: "We use advanced scanning technology to capture every curve and contour of your boat, campervan, or 4x4 with sub-millimetre accuracy — no guesswork, just a perfect digital template.",
-        image: scanning,
+        image: "deckpro/site-assets/whychoosus/scanning",
         imageAlt: "Precision scanning technology capturing boat deck measurements",
     },
     {
         title: "Custom Designed & Built",
         desc: "Every EVA foam panel is designed to your exact specifications — choose your colours, patterns, and even add custom logos. All manufactured in-house at our Perth workshop.",
-        image: manufacturing,
+        image: "deckpro/site-assets/whychoosus/custom-design",
         imageAlt: "Custom EVA foam flooring being manufactured in workshop",
         cta: true,
     },
     {
         title: "Professional Fitting",
         desc: "Our experienced team handles the complete on-site installation, ensuring a flawless, non-slip finish that's UV resistant, easy to clean, and built to last. Serving all of WA.",
-        image: fitting,
+        image: "deckpro/site-assets/whychoosus/professional-fitting",
         imageAlt: "Professional marine flooring installation on a boat",
     },
 ];
@@ -70,11 +69,11 @@ const WhyChooseUs = () => {
                         >
                             {/* Image container */}
                             <div className="relative overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                                <img
-                                    src={item.image}
+                                <CldImage
+                                    publicId={item.image}
                                     alt={item.imageAlt}
-                                    className="w-full h-[300px] sm:h-[360px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-                                    loading="lazy"
+                                    className="w-full h-[300px] sm:h-[360px] md:h-[400px] transition-transform duration-700 group-hover:scale-105"
+                                    width={700}
                                 />
 
                                 {/* "Learn More" pill on middle card */}
