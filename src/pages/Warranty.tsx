@@ -7,7 +7,6 @@ const Warranty = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(true);
 
     // Check session storage on mount
     useEffect(() => {
@@ -15,7 +14,6 @@ const Warranty = () => {
         if (auth === "true") {
             setIsAuthenticated(true);
         }
-        setLoading(false);
     }, []);
 
     const handleLogin = (e: React.FormEvent) => {
@@ -99,8 +97,6 @@ const Warranty = () => {
             document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
     }, []);
-
-    if (loading) return null;
 
     return (
         <main className="min-h-screen bg-[#fafbfc]">
