@@ -18,6 +18,15 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Security headers on every response (Netlify already sends HSTS)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
 # Vite emits content-hashed filenames under /assets — safe to cache forever
 [[headers]]
   for = "/assets/*"

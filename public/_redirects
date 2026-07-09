@@ -1,2 +1,6 @@
 /api/*  /.netlify/functions/:splat  200
-/*      /index.html               200
+
+# Every real route is prerendered to a static file (which shadows this rule),
+# so anything reaching the fallback is a genuinely unknown URL — serve the
+# prerendered 404 page with a real 404 status instead of soft-404ing.
+/*      /404.html                 404
