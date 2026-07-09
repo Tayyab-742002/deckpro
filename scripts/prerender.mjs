@@ -56,6 +56,26 @@ const NOT_FOUND = {
   description: "The page you are looking for does not exist.",
 };
 
+// Blog routes come from the Sanity data fetched by fetch-blog.mjs (which runs
+// as a pre-script and writes an empty list until the Sanity project exists).
+const { posts } = JSON.parse(readFileSync("src/generated/blog-data.json", "utf8"));
+ROUTES.push({
+  path: "/blog",
+  title: "Blog | Deckpro Marine Flooring WA",
+  description:
+    "Project stories, EVA foam flooring care guides, and news from the Deckpro Marine workshop in Perth WA.",
+});
+for (const post of posts) {
+  ROUTES.push({
+    path: `/blog/${post.slug}`,
+    title: `${post.title} | Deckpro Marine Flooring WA`,
+    description: post.excerpt,
+    image: post.mainImage ? `${post.mainImage.url}?w=1200&auto=format` : undefined,
+    ogType: "article",
+    lastmod: (post.publishedAt || "").slice(0, 10) || undefined,
+  });
+}
+
 const template = readFileSync("dist/index.html", "utf8");
 if (!template.includes("<!--app-html-->")) {
   throw new Error("dist/index.html is missing the <!--app-html--> marker");
@@ -90,6 +110,15 @@ function buildPage(route, appHtml, { indexable = true } = {}) {
       `$1${description}$2`
     );
 
+  if (route.image) {
+    html = html
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${escapeHtml(route.image)}$2`)
+      .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${escapeHtml(route.image)}$2`);
+  }
+  if (route.ogType) {
+    html = html.replace(/(<meta property="og:type" content=")[^"]*(")/, `$1${route.ogType}$2`);
+  }
+
   const extraTags = indexable
     ? `<link rel="canonical" href="${canonicalUrl(route.path)}" />\n    <meta property="og:url" content="${canonicalUrl(route.path)}" />\n  </head>`
     : `<meta name="robots" content="noindex" />\n  </head>`;
@@ -104,11 +133,11 @@ function buildPage(route, appHtml, { indexable = true } = {}) {
   return html;
 }
 
-/** Content images on a page (full-size Cloudinary URLs, skipping LQIP blur placeholders). */
+/** Content images on a page — Cloudinary + Sanity CDN URLs, skipping LQIP blur placeholders. */
 function extractImages(appHtml) {
   const urls = new Set();
-  for (const [, src] of appHtml.matchAll(/<img[^>]*\ssrc="(https:\/\/res\.cloudinary\.com\/[^"]+)"/g)) {
-    if (!src.includes("e_blur")) urls.add(src);
+  for (const [, src] of appHtml.matchAll(/<img[^>]*\ssrc="(https:\/\/(?:res\.cloudinary\.com|cdn\.sanity\.io)\/[^"]+)"/g)) {
+    if (!src.includes("e_blur")) urls.add(src.replace(/&amp;/g, "&"));
   }
   return [...urls];
 }
@@ -143,7 +172,7 @@ ${ROUTES.map((r) => {
   const images = (routeImages.get(r.path) || [])
     .map((src) => `    <image:image>\n      <image:loc>${escapeXml(src)}</image:loc>\n    </image:image>`)
     .join("\n");
-  return `  <url>\n    <loc>${canonicalUrl(r.path)}</loc>\n    <lastmod>${today}</lastmod>\n${images ? images + "\n" : ""}  </url>`;
+  return `  <url>\n    <loc>${canonicalUrl(r.path)}</loc>\n    <lastmod>${r.lastmod || today}</lastmod>\n${images ? images + "\n" : ""}  </url>`;
 }).join("\n")}
 </urlset>
 `;

@@ -226,6 +226,17 @@ const Navbar = () => {
                 Contact
               </Link>
 
+              {/* Blog */}
+              <Link
+                to="/blog"
+                className={`px-4 py-2 text-sm font-body transition-colors duration-300 ${transparent ? "font-semibold" : "font-medium"} ${location.pathname.startsWith("/blog")
+                  ? transparent ? "text-white" : "text-primary"
+                  : transparent ? "text-white/80 hover:text-white" : "text-[#1e3348]/60 hover:text-[#1e3348]"
+                  }`}
+              >
+                Blog
+              </Link>
+
               {/* Warranty */}
               <Link
                 to="/warranty"
@@ -405,11 +416,29 @@ const Navbar = () => {
                   </Link>
                 </m.div>
 
-                {/* Warranty */}
+                {/* Blog */}
                 <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                >
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3.5 font-display text-2xl sm:text-3xl font-medium transition-colors ${location.pathname.startsWith("/blog")
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
+                      }`}
+                  >
+                    Blog
+                  </Link>
+                </m.div>
+
+                {/* Warranty */}
+                <m.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                 >
                   <Link
                     to="/warranty"

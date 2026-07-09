@@ -13,6 +13,8 @@ const Campers = lazy(() => import("./pages/Campers"));
 const Scanning3D = lazy(() => import("./pages/Scanning3D"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Warranty = lazy(() => import("./pages/Warranty"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -33,6 +35,8 @@ const App = () => (
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/warranty" element={<Warranty />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

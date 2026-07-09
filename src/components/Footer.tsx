@@ -6,6 +6,7 @@ const footerLinks = [
   { label: "Marine Flooring", path: "/marine-flooring" },
   { label: "Campers & 4x4", path: "/campers" },
   { label: "Precision Scanning", path: "/3d-scanning" },
+  { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
   { label: "Warranty", path: "/warranty" },
 ];
