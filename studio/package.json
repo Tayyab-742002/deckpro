@@ -10,14 +10,16 @@
   },
   "dependencies": {
     "@sanity/icons": "^3.7.4",
-    "@sanity/vision": "^4.22.0",
+    "@sanity/vision": "^6.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sanity": "^4.22.0",
+    "sanity": "^6.4.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
+    "autoprefixer": "^10.5.2",
+    "browserslist": "^4.28.5",
     "typescript": "^5.8.0"
   }
 }
