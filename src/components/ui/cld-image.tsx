@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cldImageUrl, cldPlaceholderUrl, cldSrcSet } from "@/lib/cloudinary";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +28,17 @@ export function CldImage({
   objectFit = "cover",
 }: CldImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const loading = eager ? "eager" : "lazy";
   const fit = objectFit === "contain" ? "object-contain" : "object-cover";
+
+  // With prerendered HTML the image often finishes downloading before React
+  // hydrates and attaches onLoad — the event has already fired, so `loaded`
+  // would stay false and the blurred placeholder would never crossfade away.
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth > 0) setLoaded(true);
+  }, []);
 
   return (
     <span className={cn("relative block overflow-hidden", className)}>
@@ -45,6 +54,7 @@ export function CldImage({
         style={{ opacity: loaded ? 0 : 1, transition: "opacity 0.5s ease" }}
       />
       <img
+        ref={imgRef}
         src={cldImageUrl(publicId, width)}
         srcSet={width ? cldSrcSet(publicId, width) : undefined}
         sizes={width ? sizes : undefined}
