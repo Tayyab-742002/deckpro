@@ -65,12 +65,12 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: image1, alt: "Boat deck flooring" },
-  { src: image2, alt: "Marine EVA close-up" },
-  { src: image3, alt: "Custom fitted deck" },
-  { src: image4, alt: "Boat on water" },
-  { src: image5, alt: "Premium finish" },
-  { src: image6, alt: "Precision fitting" },
+  { src: image1, alt: "Custom EVA foam boat deck flooring installed by Deckpro" },
+  { src: image2, alt: "Close-up of textured marine-grade EVA foam decking" },
+  { src: image3, alt: "Precision-fitted custom EVA foam deck on a boat" },
+  { src: image4, alt: "Boat with new Deckpro EVA foam flooring on the water" },
+  { src: image5, alt: "Premium two-tone EVA foam flooring finish on a boat deck" },
+  { src: image6, alt: "Precision-cut EVA foam panels fitted around deck hardware" },
 ];
 
 /* ───────── ANIMATIONS ───────── */
@@ -345,7 +345,8 @@ const MarineFlooring = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f45] via-[#1a2f45]/95 to-[#1a2f45]" />
           <img
             src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=1760&auto=format&fit=crop"
-            alt="Boat on open water"
+            alt=""
+            aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
             loading="lazy"
           />

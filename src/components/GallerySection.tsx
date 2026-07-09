@@ -80,12 +80,16 @@ const GallerySection = () => {
                 <div className="marquee-track flex gap-5 w-max">
                     {marqueeItems.map((src, i) => {
                         const h = getHeight(i);
+                        // The second half of the track repeats the first purely so the
+                        // CSS marquee loops seamlessly — hide it from crawlers/AT.
+                        const isLoopClone = i >= galleryItems.length;
                         return (
                             <div
                                 key={i}
                                 className="marquee-card group flex-shrink-0 cursor-pointer"
                                 style={{ width: 280 }}
                                 onClick={() => setSelectedImage(src)}
+                                aria-hidden={isLoopClone || undefined}
                             >
                                 <div
                                     className="overflow-hidden rounded-2xl bg-[#e5f0f1]"
@@ -93,7 +97,11 @@ const GallerySection = () => {
                                 >
                                     <CldImage
                                         publicId={src}
-                                        alt="Deckpro custom EVA foam flooring project"
+                                        alt={
+                                            isLoopClone
+                                                ? ""
+                                                : `Custom EVA foam boat flooring by Deckpro Marine Perth — project photo ${i + 1}`
+                                        }
                                         className="h-full w-full"
                                         width={400}
                                         sizes="280px"

@@ -104,13 +104,25 @@ function buildPage(route, appHtml, { indexable = true } = {}) {
   return html;
 }
 
+/** Content images on a page (full-size Cloudinary URLs, skipping LQIP blur placeholders). */
+function extractImages(appHtml) {
+  const urls = new Set();
+  for (const [, src] of appHtml.matchAll(/<img[^>]*\ssrc="(https:\/\/res\.cloudinary\.com\/[^"]+)"/g)) {
+    if (!src.includes("e_blur")) urls.add(src);
+  }
+  return [...urls];
+}
+
+const routeImages = new Map();
+
 for (const route of ROUTES) {
   const appHtml = await render(route.path);
   const html = buildPage(route, appHtml);
   const outDir = route.path === "/" ? "dist" : path.join("dist", route.path.slice(1));
   mkdirSync(outDir, { recursive: true });
   writeFileSync(path.join(outDir, "index.html"), html);
-  console.log(`prerendered ${route.path} (${(Buffer.byteLength(appHtml) / 1024).toFixed(1)} KiB of markup)`);
+  routeImages.set(route.path, extractImages(appHtml));
+  console.log(`prerendered ${route.path} (${(Buffer.byteLength(appHtml) / 1024).toFixed(1)} KiB of markup, ${routeImages.get(route.path).length} images)`);
 }
 
 // Real 404 page: Netlify's fallback (see public/_redirects) serves this with
@@ -120,13 +132,23 @@ writeFileSync(path.join("dist", "404.html"), notFoundHtml);
 console.log("prerendered /404.html");
 
 // sitemap.xml — lastmod is the build date: every deploy regenerates each page.
+// Includes per-page image entries so Google Images associates the
+// Cloudinary-hosted photos with these pages.
 const today = new Date().toISOString().slice(0, 10);
+const escapeXml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ROUTES.map((r) => `  <url>\n    <loc>${canonicalUrl(r.path)}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${ROUTES.map((r) => {
+  const images = (routeImages.get(r.path) || [])
+    .map((src) => `    <image:image>\n      <image:loc>${escapeXml(src)}</image:loc>\n    </image:image>`)
+    .join("\n");
+  return `  <url>\n    <loc>${canonicalUrl(r.path)}</loc>\n    <lastmod>${today}</lastmod>\n${images ? images + "\n" : ""}  </url>`;
+}).join("\n")}
 </urlset>
 `;
 writeFileSync(path.join("dist", "sitemap.xml"), sitemap);
-console.log(`wrote sitemap.xml (${ROUTES.length} URLs)`);
+const totalImages = [...routeImages.values()].reduce((n, imgs) => n + imgs.length, 0);
+console.log(`wrote sitemap.xml (${ROUTES.length} URLs, ${totalImages} image entries)`);
 
 rmSync("dist-ssr", { recursive: true, force: true });

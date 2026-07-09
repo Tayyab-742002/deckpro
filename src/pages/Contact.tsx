@@ -98,7 +98,7 @@ const caseStudies = [
   {
     before: before1,
     after: after1,
-    label: "1974 Custom Norweign Fiberglass Project 8.5m",
+    label: "1974 Custom Norwegian Fiberglass Project 8.5m",
     stat: "Attention to detail is our #1 priority.",
   },
   {

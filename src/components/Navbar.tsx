@@ -198,7 +198,7 @@ const Navbar = () => {
             <Link to="/" className="relative z-[90] lg:justify-self-center" onClick={() => setIsOpen(false)}>
               <img
                 src={logoImg}
-                alt="Deckpro Logo"
+                alt="Deckpro Marine Flooring WA logo"
                 width={112}
                 height={112}
                 className={`w-auto transition-all duration-300 ${scrolled || !transparent ? "invert" : ""} ${scrolled ? "h-16 sm:h-20 lg:h-24" : "h-28 sm:h-36 lg:h-48"}`}
