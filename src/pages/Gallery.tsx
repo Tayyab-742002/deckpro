@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState } from "react";
 import { ArrowRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -49,14 +49,14 @@ const popUp = {
 /* ───────── LIGHTBOX ───────── */
 
 const Lightbox = ({ item, onClose }: { item: GalleryItem; onClose: () => void }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
     onClick={onClose}
   >
-    <motion.div
+    <m.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
@@ -72,8 +72,8 @@ const Lightbox = ({ item, onClose }: { item: GalleryItem; onClose: () => void })
         <h3 className="font-display text-xl font-bold text-foreground mb-1">{item.title}</h3>
         <p className="font-body text-sm text-muted-foreground">{item.desc}</p>
       </div>
-    </motion.div>
-  </motion.div>
+    </m.div>
+  </m.div>
 );
 
 /* ───────── PAGE ───────── */
@@ -90,13 +90,13 @@ const Gallery = () => {
       <section className="relative py-32 lg:py-40 overflow-hidden section-dark">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[150px]" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
+          <m.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-body font-semibold uppercase tracking-[0.3em] text-white/80 glass">
               Portfolio
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -105,11 +105,11 @@ const Gallery = () => {
             Our Work Speaks
             <br />
             <span className="text-gradient">For Itself.</span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mx-auto max-w-xl font-body text-lg text-white/60">
+          <m.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mx-auto max-w-xl font-body text-lg text-white/60">
             Browse our portfolio of completed marine flooring, camper builds, and precision scanning projects across Western Australia.
-          </motion.p>
+          </m.p>
         </div>
       </section>
 
@@ -133,7 +133,7 @@ const Gallery = () => {
           </div>
 
           {/* Grid */}
-          <motion.div
+          <m.div
             key={activeCategory}
             variants={stagger}
             initial="hidden"
@@ -141,7 +141,7 @@ const Gallery = () => {
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
           >
             {filtered.map((item, i) => (
-              <motion.div
+              <m.div
                 key={`${item.title}-${i}`}
                 variants={popUp}
                 layout
@@ -163,16 +163,16 @@ const Gallery = () => {
                     <p className="font-body text-xs text-white/70 mt-0.5">{item.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ══════ CTA ══════ */}
       <section className="py-20 lg:py-28 section-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl mb-5">
               Like What You See?
             </h2>
@@ -186,7 +186,7 @@ const Gallery = () => {
               Start Your Project
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

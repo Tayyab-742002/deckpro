@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Camera, X } from "lucide-react";
 import { CldImage } from "@/components/ui/cld-image";
 import { cldImageUrl } from "@/lib/cloudinary";
@@ -33,7 +33,7 @@ const GallerySection = () => {
                 {/* ── Header area: heading left, description right ── */}
                 <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-16 lg:mb-20 items-end">
                     {/* Left — badge + heading */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -54,10 +54,10 @@ const GallerySection = () => {
                             <br />
                             Can Walk On
                         </h2>
-                    </motion.div>
+                    </m.div>
 
                     {/* Right — subtitle */}
-                    <motion.p
+                    <m.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -67,7 +67,7 @@ const GallerySection = () => {
                         From pristine boat decks to rugged 4x4 interiors, every project
                         is precision-cut and hand-finished. Browse a snapshot of our
                         latest work.
-                    </motion.p>
+                    </m.p>
                 </div>
             </div>
 
@@ -96,6 +96,7 @@ const GallerySection = () => {
                                         alt="Deckpro custom EVA foam flooring project"
                                         className="h-full w-full"
                                         width={400}
+                                        sizes="280px"
                                     />
                                 </div>
                             </div>
@@ -107,7 +108,7 @@ const GallerySection = () => {
             {/* ── Lightbox modal ── */}
             <AnimatePresence>
                 {selectedImage && (
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -123,7 +124,7 @@ const GallerySection = () => {
                             <X size={20} />
                         </button>
 
-                        <motion.img
+                        <m.img
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
@@ -133,7 +134,7 @@ const GallerySection = () => {
                             className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         />
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
         </section>

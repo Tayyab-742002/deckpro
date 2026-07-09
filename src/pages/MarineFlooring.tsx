@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Anchor,
   ArrowRight,
@@ -97,14 +97,14 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
           className={`text-[#1a2f45]/30 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#1a2f45]" : ""}`}
         />
       </button>
-      <motion.div
+      <m.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="overflow-hidden"
       >
         <p className="pb-5 text-sm leading-relaxed text-[#1a2f45]/40">{a}</p>
-      </motion.div>
+      </m.div>
     </div>
   );
 };
@@ -131,7 +131,7 @@ const MarineFlooring = () => {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-6 pt-32 pb-20 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -141,20 +141,15 @@ const MarineFlooring = () => {
               <Anchor size={13} />
               Marine Flooring
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-            className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl"
-          >
+          <h1 className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl">
             Custom Boat
             <br />
             Flooring
-          </motion.h1>
+          </h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
@@ -162,9 +157,9 @@ const MarineFlooring = () => {
           >
             From tinnies & Jet skis to Luxury Vessels - Every deck gets the same premium,
             Custom design and expert installation using certified marine grade products.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
@@ -176,14 +171,14 @@ const MarineFlooring = () => {
             >
               Get a Quote
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ══════ WHY EVA FOAM ══════ */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -209,9 +204,9 @@ const MarineFlooring = () => {
             >
               Explore All
             </Link>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -238,6 +233,7 @@ const MarineFlooring = () => {
                   alt="Premium Marine Grade Products"
                   className="w-full h-[380px] md:h-[460px]"
                   width={700}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                 />
               </div>
             </div>
@@ -256,14 +252,14 @@ const MarineFlooring = () => {
                 Book Now
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ══════ GALLERY STRIP ══════ */}
       <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-14">
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                 <Waves size={13} className="text-white" />
@@ -271,15 +267,15 @@ const MarineFlooring = () => {
               <span className="text-sm font-medium text-[#1a2f45]/70">Our Work</span>
             </div>
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">Marine Projects</h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <m.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((img, i) => (
-              <motion.div key={i} variants={popUp} className="group overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                <CldImage publicId={img.src} alt={img.alt} className="h-52 lg:h-64 w-full transition-transform duration-700 group-hover:scale-110" width={500} />
-              </motion.div>
+              <m.div key={i} variants={popUp} className="group overflow-hidden rounded-2xl bg-[#f0f0f0]">
+                <CldImage publicId={img.src} alt={img.alt} className="h-52 lg:h-64 w-full transition-transform duration-700 group-hover:scale-110" width={500} sizes="(min-width: 768px) 33vw, 50vw" />
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
         </div>
       </section>
@@ -287,7 +283,7 @@ const MarineFlooring = () => {
       {/* ══════ PROCESS ══════ */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
             <div className="flex items-center justify-center gap-2 mb-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                 <ScanLine size={13} className="text-white" />
@@ -298,11 +294,11 @@ const MarineFlooring = () => {
             <p className="mt-4 mx-auto max-w-xl text-sm leading-relaxed text-[#1a2f45]/40">
               Our seamless four-stage process delivers premium results, every single time.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <m.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((s, i) => (
-              <motion.div key={s.num} variants={popUp} className="group relative rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1">
+              <m.div key={s.num} variants={popUp} className="group relative rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1">
                 <span className="absolute top-5 right-5 text-5xl font-bold text-[#1a2f45]/[0.05] select-none">{s.num}</span>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#e5f0f1] text-[#1a2f45] transition-all duration-300 group-hover:bg-[#1a2f45] group-hover:text-white">
                   <s.icon size={22} />
@@ -310,9 +306,9 @@ const MarineFlooring = () => {
                 <h3 className="text-lg font-semibold text-[#1a2f45] mb-2">{s.title}</h3>
                 <p className="text-sm leading-relaxed text-[#1a2f45]/40">{s.desc}</p>
                 {i < processSteps.length - 1 && <div className="absolute top-1/2 -right-3 hidden h-px w-6 bg-gray-200 lg:block" />}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -320,7 +316,7 @@ const MarineFlooring = () => {
       <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <div className="flex items-center gap-2 mb-5">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                   <CheckCircle2 size={13} className="text-white" />
@@ -334,11 +330,11 @@ const MarineFlooring = () => {
               <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                 Get in touch <ArrowRight size={14} />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
               {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -355,7 +351,7 @@ const MarineFlooring = () => {
           />
         </div>
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <Anchor size={28} className="text-white/40 mx-auto mb-6" />
             <h2 className="text-3xl font-semibold text-white leading-tight sm:text-4xl lg:text-5xl mb-5">
               Ready to Transform<br />Your Deck?
@@ -371,7 +367,7 @@ const MarineFlooring = () => {
                 View Our Work
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

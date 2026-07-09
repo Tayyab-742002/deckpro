@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { CldImage } from "@/components/ui/cld-image";
@@ -122,7 +122,7 @@ const ServicesOverview = () => {
         {/* Top-left: badge + heading + subtitle */}
         <div className="max-w-xl">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={current}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,13 +146,13 @@ const ServicesOverview = () => {
               <p className="mt-3 max-w-md text-base leading-relaxed text-white/90 drop-shadow-sm sm:mt-4 sm:text-lg">
                 {slide.subtitle}
               </p>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
         {/* ── Hotspot labels — desktop only ── */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={`hotspots-${current}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -161,7 +161,7 @@ const ServicesOverview = () => {
             className="absolute inset-0 z-[3] hidden pointer-events-none lg:block"
           >
             {slide.hotspots.map((h, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -173,14 +173,14 @@ const ServicesOverview = () => {
                   <p className="text-sm font-semibold text-white">{h.label}</p>
                   <p className="text-xs text-white/60">{h.desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         {/* ── Feature card — top-right, desktop only ── */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={`feature-${current}`}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -194,6 +194,7 @@ const ServicesOverview = () => {
                 alt={slide.feature.title}
                 className="h-28 w-full"
                 width={300}
+                sizes="224px"
               />
               <div className="p-4">
                 <p className="text-sm font-semibold text-white">
@@ -205,6 +206,7 @@ const ServicesOverview = () => {
                 <div className="mt-3 flex gap-2">
                   <Link
                     to={slide.link}
+                    aria-label={`Learn more about ${slide.badge}`}
                     className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#1a2f45] transition-all hover:bg-white/90"
                   >
                     Learn More
@@ -218,13 +220,13 @@ const ServicesOverview = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         {/* Bottom-left: brand text + nav arrows */}
         <div>
           <AnimatePresence mode="wait">
-            <motion.p
+            <m.p
               key={`brand-${current}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -233,7 +235,7 @@ const ServicesOverview = () => {
               className="text-2xl font-bold text-white drop-shadow-lg sm:text-3xl md:text-4xl lg:text-5xl"
             >
               {slide.brandText}
-            </motion.p>
+            </m.p>
           </AnimatePresence>
 
           <div className="mt-4 flex gap-2">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Lock, ShieldCheck, AlertCircle, CheckCircle2 } from "lucide-react";
 import Footer from "@/components/Footer";
 
@@ -107,7 +107,7 @@ const Warranty = () => {
             <AnimatePresence mode="wait">
                 {!isAuthenticated ? (
                     /* ── LOCK SCREEN ── */
-                    <motion.div
+                    <m.div
                         key="lock-screen"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -145,20 +145,20 @@ const Warranty = () => {
                             </form>
 
                             {error && (
-                                <motion.div
+                                <m.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className="mt-4 flex items-center justify-center gap-2 text-sm text-red-500"
                                 >
                                     <AlertCircle size={16} />
                                     {error}
-                                </motion.div>
+                                </m.div>
                             )}
                         </div>
-                    </motion.div>
+                    </m.div>
                 ) : (
                     /* ── WARRANTY CONTENT ── */
-                    <motion.div
+                    <m.div
                         key="content"
                         id="warranty-content"
                         initial={{ opacity: 0 }}
@@ -346,7 +346,7 @@ const Warranty = () => {
                             </div>
                         </div>
                         <Footer />
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
         </main>

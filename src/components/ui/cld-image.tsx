@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cldImageUrl, cldPlaceholderUrl } from "@/lib/cloudinary";
+import { cldImageUrl, cldPlaceholderUrl, cldSrcSet } from "@/lib/cloudinary";
 import { cn } from "@/lib/utils";
 
 interface CldImageProps {
@@ -8,8 +8,10 @@ interface CldImageProps {
   alt: string;
   /** Classes for sizing/position/rounding/hover — applied to the wrapping box. */
   className?: string;
-  /** Requested delivery width in px, for responsive sizing. */
+  /** Requested delivery width in px — also the largest responsive candidate. */
   width?: number;
+  /** `sizes` hint for the responsive srcset. Defaults to full-bleed, the common case here. */
+  sizes?: string;
   /** Load immediately instead of lazily (use for above-the-fold images). */
   eager?: boolean;
   objectFit?: "cover" | "contain";
@@ -21,6 +23,7 @@ export function CldImage({
   alt,
   className,
   width,
+  sizes = "100vw",
   eager = false,
   objectFit = "cover",
 }: CldImageProps) {
@@ -43,8 +46,11 @@ export function CldImage({
       />
       <img
         src={cldImageUrl(publicId, width)}
+        srcSet={width ? cldSrcSet(publicId, width) : undefined}
+        sizes={width ? sizes : undefined}
         alt={alt}
         loading={loading}
+        fetchPriority={eager ? "high" : "auto"}
         decoding="async"
         onLoad={() => setLoaded(true)}
         className={cn("absolute inset-0 h-full w-full", fit)}

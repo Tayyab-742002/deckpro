@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Anchor, Truck, Box } from "lucide-react";
 import logoImg from "@/assets/logo.svg";
 
@@ -109,7 +109,7 @@ const Navbar = () => {
   return (
     <>
       {/* ── HEADER BAR ── */}
-      <motion.header
+      <m.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
@@ -154,7 +154,7 @@ const Navbar = () => {
 
                 <AnimatePresence>
                   {dropdownOpen && (
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
@@ -180,7 +180,7 @@ const Navbar = () => {
                           </div>
                         </Link>
                       ))}
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>
@@ -199,6 +199,8 @@ const Navbar = () => {
               <img
                 src={logoImg}
                 alt="Deckpro Logo"
+                width={112}
+                height={112}
                 className={`w-auto transition-all duration-300 ${scrolled || !transparent ? "invert" : ""} ${scrolled ? "h-16 sm:h-20 lg:h-24" : "h-28 sm:h-36 lg:h-48"}`}
               />
             </Link>
@@ -245,7 +247,7 @@ const Navbar = () => {
             >
               <AnimatePresence mode="wait" initial={false}>
                 {isOpen ? (
-                  <motion.div
+                  <m.div
                     key="close"
                     initial={{ opacity: 0, rotate: -90 }}
                     animate={{ opacity: 1, rotate: 0 }}
@@ -253,9 +255,9 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <X size={24} />
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="menu"
                     initial={{ opacity: 0, rotate: 90 }}
                     animate={{ opacity: 1, rotate: 0 }}
@@ -263,18 +265,18 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <Menu size={24} />
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </button>
           </div>
         </div>
-      </motion.header>
+      </m.header>
 
       {/* ── MOBILE MENU OVERLAY ── */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -284,7 +286,7 @@ const Navbar = () => {
             <div className="flex h-full flex-col overflow-y-auto overscroll-contain pt-24 pb-10 px-8">
               <nav className="flex flex-col gap-1">
                 {/* Home */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -299,10 +301,10 @@ const Navbar = () => {
                   >
                     Home
                   </Link>
-                </motion.div>
+                </m.div>
 
                 {/* Services Accordion */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -323,7 +325,7 @@ const Navbar = () => {
 
                   <AnimatePresence>
                     {mobileServicesOpen && (
-                      <motion.div
+                      <m.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -331,7 +333,7 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {serviceLinks.map((service, i) => (
-                          <motion.div
+                          <m.div
                             key={service.path}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -350,15 +352,15 @@ const Navbar = () => {
                                 {service.label}
                               </span>
                             </Link>
-                          </motion.div>
+                          </m.div>
                         ))}
-                      </motion.div>
+                      </m.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </m.div>
 
                 {/* How It Works */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -369,10 +371,10 @@ const Navbar = () => {
                   >
                     How It Works
                   </button>
-                </motion.div>
+                </m.div>
 
                 {/* Gallery */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -383,10 +385,10 @@ const Navbar = () => {
                   >
                     Gallery
                   </button>
-                </motion.div>
+                </m.div>
 
                 {/* Contact */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -401,10 +403,10 @@ const Navbar = () => {
                   >
                     Contact
                   </Link>
-                </motion.div>
+                </m.div>
 
                 {/* Warranty */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
@@ -419,7 +421,7 @@ const Navbar = () => {
                   >
                     Warranty
                   </Link>
-                </motion.div>
+                </m.div>
 
               </nav>
 
@@ -433,7 +435,7 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

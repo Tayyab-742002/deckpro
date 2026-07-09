@@ -30,9 +30,11 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
+        // framer-motion is intentionally not pinned to a chunk: its animation
+        // engine loads async via LazyMotion, and forcing the package into one
+        // chunk would drag the engine back into the critical path.
         manualChunks: {
           vendor: ["react", "react-dom", "react-router-dom"],
-          motion: ["framer-motion"],
           ui: ["lucide-react"],
         },
       },

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Anchor } from "lucide-react";
 import { CldImage } from "@/components/ui/cld-image";
@@ -34,7 +34,7 @@ const HeroSection = () => {
       {/* ── Content ── */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-3xl flex-col items-center px-5 pt-28 text-center sm:px-6 sm:pt-32 md:pt-[20vh] lg:pt-[22vh]">
         {/* Badge */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -44,22 +44,20 @@ const HeroSection = () => {
             <Anchor size={13} />
             Perth's Custom Marine Flooring Specialists
           </span>
-        </motion.div>
+        </m.div>
 
         {/* Heading — standard responsive: 36 → 48 → 60 → 72px */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[2rem] font-bold leading-[1.15] text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl"
-        >
+        {/* No opacity fade-in: this is the LCP element, and Chrome excludes
+            zero-opacity elements from LCP candidacy until they become visible,
+            so animating it in would directly delay LCP. */}
+        <h1 className="text-[2rem] font-bold leading-[1.15] text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
           Custom Designed
           <br />
           Marine Grade Flooring
-        </motion.h1>
+        </h1>
 
         {/* Subtitle — 16px → 18px */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
@@ -68,10 +66,10 @@ const HeroSection = () => {
           Precision scanned, custom designed, and expertly fitted on-site —
           premium EVA foam flooring for boats, campervans, and 4x4 vehicles
           across WA.
-        </motion.p>
+        </m.p>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
@@ -89,11 +87,11 @@ const HeroSection = () => {
           >
             Our Services
           </a>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* ── Stats bar ── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.8 }}
@@ -114,7 +112,7 @@ const HeroSection = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 };

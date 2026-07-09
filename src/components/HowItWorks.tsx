@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ScanLine } from "lucide-react";
 import { CldImage } from "@/components/ui/cld-image";
@@ -43,7 +43,7 @@ const HowItWorks = () => {
     <section id="how-it-works" className="py-20 lg:py-32 bg-white">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         {/* ── Section Header ── */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -71,7 +71,7 @@ const HowItWorks = () => {
             engineered to deliver EVA foam flooring that fits your vessel
             perfectly.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* ── Steps with vertical timeline ── */}
         <div className="relative">
@@ -83,7 +83,7 @@ const HowItWorks = () => {
               const isReversed = i % 2 !== 0;
 
               return (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -127,17 +127,18 @@ const HowItWorks = () => {
                         alt={step.imageAlt}
                         className="w-full aspect-[4/3]"
                         width={800}
+                        sizes="(min-width: 768px) 50vw, 100vw"
                       />
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
         </div>
 
         {/* ── Bottom CTA ── */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,7 +151,7 @@ const HowItWorks = () => {
           >
             Get a Free Quote
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

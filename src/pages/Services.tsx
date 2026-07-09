@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Ship,
   Truck,
@@ -176,7 +176,7 @@ const Services = () => {
             {/* Left — Text */}
             <div>
               {/* Breadcrumb-style badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
@@ -190,9 +190,9 @@ const Services = () => {
                     Our Services
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -201,9 +201,9 @@ const Services = () => {
                 Crafted with
                 <br />
                 Precision
-              </motion.h1>
+              </m.h1>
 
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -212,9 +212,9 @@ const Services = () => {
                 Premium custom EVA foam flooring for boats, campervans, and 4x4
                 vehicles. Every project follows our meticulous four-stage
                 process — from precision scan to expert installation.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.65, duration: 0.5 }}
@@ -232,10 +232,10 @@ const Services = () => {
                 >
                   Explore Below
                 </a>
-              </motion.div>
+              </m.div>
 
               {/* Mini stats strip */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.85, duration: 0.5 }}
@@ -255,11 +255,11 @@ const Services = () => {
                     </p>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Right — Image composition */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -295,7 +295,7 @@ const Services = () => {
 
               {/* Soft blob behind the image */}
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-[#dcedef]/50 blur-3xl" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -306,7 +306,7 @@ const Services = () => {
       <section id="our-services" className="py-28 lg:py-36 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -323,12 +323,12 @@ const Services = () => {
               Whether it&apos;s a luxury yacht, an outback 4x4, or a detailed digital model
               — every project receives the same meticulous attention to perfection.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Service Cards — Alternating Layout */}
           <div className="space-y-24 lg:space-y-32">
             {services.map((service, i) => (
-              <motion.div
+              <m.div
                 key={service.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -413,7 +413,7 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -429,7 +429,7 @@ const Services = () => {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -446,10 +446,10 @@ const Services = () => {
               A seamless four-stage workflow delivering premium results,
               every single time.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Timeline — Desktop: horizontal row, Mobile: vertical */}
-          <motion.div
+          <m.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -457,7 +457,7 @@ const Services = () => {
             className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
             {processSteps.map((step, i) => (
-              <motion.div
+              <m.div
                 key={step.step}
                 variants={itemPop}
                 className="group relative rounded-2xl border border-border bg-background p-8 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
@@ -483,12 +483,12 @@ const Services = () => {
                 {i < processSteps.length - 1 && (
                   <div className="absolute top-1/2 -right-4 hidden h-px w-8 bg-gradient-to-r from-border to-primary/30 lg:block" />
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Payment Terms */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -505,7 +505,7 @@ const Services = () => {
                 Remaining 50% is due upon job completion — no exceptions.
               </span>
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -516,7 +516,7 @@ const Services = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left — Content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -534,7 +534,7 @@ const Services = () => {
                 durable, and available in an extensive range of colours and textures.
               </p>
 
-              <motion.div
+              <m.div
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -542,7 +542,7 @@ const Services = () => {
                 className="grid grid-cols-2 gap-5"
               >
                 {materialFeatures.map((feat) => (
-                  <motion.div
+                  <m.div
                     key={feat.title}
                     variants={itemPop}
                     className="rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:shadow-md hover:border-primary/20"
@@ -557,13 +557,13 @@ const Services = () => {
                     <p className="font-body text-xs leading-relaxed text-muted-foreground">
                       {feat.description}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right — Image Grid */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -611,7 +611,7 @@ const Services = () => {
 
               {/* Decorative accent */}
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-primary/10 blur-[100px]" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -621,7 +621,7 @@ const Services = () => {
       ════════════════════════════════════════════ */}
       <section className="py-28 lg:py-36 section-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -634,9 +634,9 @@ const Services = () => {
             <h2 className="font-display text-4xl font-bold text-foreground sm:text-5xl">
               The Deckpro Difference
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -675,7 +675,7 @@ const Services = () => {
                 desc: "Clear pricing, upfront deposit terms, and no surprises. You know exactly what to expect at every stage.",
               },
             ].map((item) => (
-              <motion.div
+              <m.div
                 key={item.num}
                 variants={itemPop}
                 className="group rounded-2xl border border-border bg-background p-8 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
@@ -689,9 +689,9 @@ const Services = () => {
                 <p className="font-body text-sm leading-relaxed text-muted-foreground">
                   {item.desc}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -702,7 +702,7 @@ const Services = () => {
         <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -740,7 +740,7 @@ const Services = () => {
                 View Our Work
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

@@ -10,6 +10,45 @@
     />
     <meta name="author" content="Deckpro Marine Flooring WA" />
 
+    <!-- Preconnect to the origins the page depends on for fonts and media -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+
+    <!-- Load the font stylesheet without blocking rendering: preload it, then
+         swap it to an active stylesheet once fetched. -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap"
+      />
+    </noscript>
+
+    <!-- LCP: the homepage hero photo, so the browser starts fetching it immediately.
+         imagesrcset/imagesizes mirror CldImage's own output for this exact image,
+         so the browser reuses this preload instead of double-fetching. -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      imagesrcset="
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_400/deckpro/site-assets/hero-image 400w,
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_640/deckpro/site-assets/hero-image 640w,
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_800/deckpro/site-assets/hero-image 800w,
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_960/deckpro/site-assets/hero-image 960w,
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_1280/deckpro/site-assets/hero-image 1280w,
+        https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_1600/deckpro/site-assets/hero-image 1600w
+      "
+      imagesizes="100vw"
+      href="https://res.cloudinary.com/%VITE_CLOUDINARY_CLOUD_NAME%/image/upload/f_auto,q_auto:eco,w_1600/deckpro/site-assets/hero-image"
+    />
+
     <meta property="og:title" content="Deckpro Marine Flooring WA" />
     <meta
       property="og:description"

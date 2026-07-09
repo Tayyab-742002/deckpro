@@ -1,12 +1,13 @@
 import { lazy, Suspense } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { LazyMotion } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Index from "./pages/Index";
 
-const Index = lazy(() => import("./pages/Index"));
+// Animation engine loads after first paint; m.* elements render static until then.
+const loadMotionFeatures = () =>
+  import("./lib/motion-features").then((mod) => mod.default);
 const MarineFlooring = lazy(() => import("./pages/MarineFlooring"));
 const Campers = lazy(() => import("./pages/Campers"));
 const Scanning3D = lazy(() => import("./pages/Scanning3D"));
@@ -18,9 +19,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+    <LazyMotion features={loadMotionFeatures} strict>
       <BrowserRouter>
         <Navbar />
         <Suspense fallback={<div className="min-h-screen" />}>
@@ -37,7 +36,7 @@ const App = () => (
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </TooltipProvider>
+    </LazyMotion>
   </QueryClientProvider>
 );
 

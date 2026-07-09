@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Box,
   ArrowRight,
@@ -88,9 +88,9 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
         <span className="text-base font-semibold text-[#1a2f45] pr-4">{q}</span>
         <ChevronDown size={20} className={`text-[#1a2f45]/30 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#1a2f45]" : ""}`} />
       </button>
-      <motion.div initial={false} animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+      <m.div initial={false} animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
         <p className="pb-5 text-sm leading-relaxed text-[#1a2f45]/40">{a}</p>
-      </motion.div>
+      </m.div>
     </div>
   );
 };
@@ -117,7 +117,7 @@ const Scanning3D = () => {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-6 pt-32 pb-20 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -127,20 +127,15 @@ const Scanning3D = () => {
               <Box size={13} />
               Precision Scanning
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-            className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl"
-          >
+          <h1 className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl">
             Precision
             <br />
             Scanning
-          </motion.h1>
+          </h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
@@ -148,9 +143,9 @@ const Scanning3D = () => {
           >
             High-precision scanning and digital modelling for marine, automotive,
             and custom projects.Millimetre accuracy, every time.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
@@ -162,14 +157,14 @@ const Scanning3D = () => {
             >
               Request a Scan
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ══════ CAPABILITIES ══════ */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -195,9 +190,9 @@ const Scanning3D = () => {
             >
               Explore All
             </Link>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -224,6 +219,7 @@ const Scanning3D = () => {
                   alt="Precision scanning technology capturing measurements"
                   className="w-full h-[380px] md:h-[460px]"
                   width={700}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                 />
               </div>
             </div>
@@ -243,14 +239,14 @@ const Scanning3D = () => {
                 Book Now
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ══════ USE CASES ══════ */}
       <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-20">
             <div className="flex items-center justify-center gap-2 mb-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                 <Layers size={13} className="text-white" />
@@ -258,11 +254,11 @@ const Scanning3D = () => {
               <span className="text-sm font-medium text-[#1a2f45]/70">Applications</span>
             </div>
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">How We Use Precision Scanning</h2>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-20">
             {useCases.map((uc, i) => (
-              <motion.div
+              <m.div
                 key={uc.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -272,7 +268,7 @@ const Scanning3D = () => {
               >
                 <div className="relative lg:[direction:ltr]">
                   <div className="overflow-hidden rounded-2xl bg-[#f0f0f0]">
-                    <CldImage publicId={uc.image} alt={uc.title} className="h-72 lg:h-96 w-full transition-transform duration-700 hover:scale-105" width={800} />
+                    <CldImage publicId={uc.image} alt={uc.title} className="h-72 lg:h-96 w-full transition-transform duration-700 hover:scale-105" width={800} sizes="(min-width: 1024px) 50vw, 100vw" />
                   </div>
                 </div>
                 <div className="lg:[direction:ltr]">
@@ -282,7 +278,7 @@ const Scanning3D = () => {
                     Enquire About This <ArrowRight size={14} />
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -291,7 +287,7 @@ const Scanning3D = () => {
       {/* ══════ HOW IT WORKS ══════ */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                 <Box size={13} className="text-white" />
@@ -299,7 +295,7 @@ const Scanning3D = () => {
               <span className="text-sm font-medium text-[#1a2f45]/70">How It Works</span>
             </div>
             <h2 className="text-3xl font-semibold text-[#1a2f45] leading-tight sm:text-4xl lg:text-5xl">The Scanning Process</h2>
-          </motion.div>
+          </m.div>
 
           <div className="mx-auto max-w-3xl space-y-6">
             {[
@@ -308,7 +304,7 @@ const Scanning3D = () => {
               { num: "03", title: "Data Processing", desc: "We process the raw scan data into clean, accurate digital models and templates." },
               { num: "04", title: "Delivery", desc: "You receive your files in your preferred format — ready for design, manufacturing, or fabrication." },
             ].map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.num}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -321,7 +317,7 @@ const Scanning3D = () => {
                   <h4 className="text-lg font-semibold text-[#1a2f45] mb-1">{s.title}</h4>
                   <p className="text-sm leading-relaxed text-[#1a2f45]/40">{s.desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -331,7 +327,7 @@ const Scanning3D = () => {
       <section className="py-24 lg:py-32 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <div className="flex items-center gap-2 mb-5">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1a2f45]">
                   <CheckCircle2 size={13} className="text-white" />
@@ -343,10 +339,10 @@ const Scanning3D = () => {
               <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1a2f45] hover:text-[#1a2f45]/70 transition-colors">
                 Ask Us Anything <ArrowRight size={14} />
               </Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
+            </m.div>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="rounded-2xl border border-gray-100 bg-white p-8">
               {faqs.map((faq, i) => <FAQItem key={i} q={faq.q} a={faq.a} />)}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -363,7 +359,7 @@ const Scanning3D = () => {
           />
         </div>
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <Zap size={28} className="text-white/40 mx-auto mb-6" />
             <h2 className="text-3xl font-semibold text-white leading-tight sm:text-4xl lg:text-5xl mb-5">
               Need Precision<br />Digital Data?
@@ -374,7 +370,7 @@ const Scanning3D = () => {
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-medium text-[#1a2f45] transition-all duration-300 hover:shadow-xl">
               Request a Scan <ArrowRight size={14} />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

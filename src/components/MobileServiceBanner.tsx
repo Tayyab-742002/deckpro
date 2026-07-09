@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Truck, ScanLine, Palette, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const MobileServiceBanner = () => {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
           {/* Left — headline */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -37,10 +37,10 @@ const MobileServiceBanner = () => {
               No need to move your boat or vehicle. Our fully mobile team
               handles everything on-site — from scanning to fitting.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Right — three service points + CTA */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -66,7 +66,7 @@ const MobileServiceBanner = () => {
             >
               Book a Mobile Visit
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

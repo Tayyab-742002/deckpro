@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Wrench } from "lucide-react";
 import { CldVideo } from "@/components/ui/cld-video";
@@ -29,7 +29,7 @@ const CTASection = () => {
         {/* ── Header: heading left, description right ── */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-14 lg:mb-18 items-end">
           {/* Left */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -49,10 +49,10 @@ const CTASection = () => {
               <br />
               Builds
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Right */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -60,13 +60,13 @@ const CTASection = () => {
             className="text-base leading-relaxed text-[#1a2f45]/50 max-w-sm md:ml-auto sm:text-lg"
           >
             Every project is unique. Check out some of our recent custom designs.
-          </motion.p>
+          </m.p>
         </div>
 
         {/* ── Cards grid: CTA + 3 projects ── */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
           {/* Quote card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -94,11 +94,11 @@ const CTASection = () => {
               Get a Quote
               <ArrowRight size={16} />
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Project cards */}
           {projects.map((project, i) => (
-            <motion.div
+            <m.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const CTASection = () => {
               <h4 className="mt-1 text-base font-semibold text-[#1a2f45] leading-snug">
                 {project.title}
               </h4>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

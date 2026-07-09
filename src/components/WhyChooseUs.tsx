@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Anchor, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CldImage } from "@/components/ui/cld-image";
@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
         <section className="py-20 lg:py-32 bg-white">
             <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
                 {/* ── Header ── */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -54,12 +54,12 @@ const WhyChooseUs = () => {
                     <p className="mt-3 max-w-lg text-base leading-relaxed text-[#1a2f45]/50 sm:mt-4 sm:text-lg">
                         From precision scanning to final fitting — we handle the entire process in-house, delivering premium EVA foam flooring for boats, campervans, and 4x4 vehicles across Western Australia.
                     </p>
-                </motion.div>
+                </m.div>
 
                 {/* ── Cards — middle one is wider ── */}
                 <div className="grid gap-5 md:grid-cols-[1fr_1.6fr_1fr]">
                     {reasons.map((item, i) => (
-                        <motion.div
+                        <m.div
                             key={item.title}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -74,12 +74,14 @@ const WhyChooseUs = () => {
                                     alt={item.imageAlt}
                                     className="w-full h-[300px] sm:h-[360px] md:h-[400px] transition-transform duration-700 group-hover:scale-105"
                                     width={700}
+                                    sizes="(min-width: 768px) 33vw, 100vw"
                                 />
 
                                 {/* "Learn More" pill on middle card */}
                                 {item.cta && (
                                     <Link
                                         to="/contact"
+                                        aria-label={`Learn more about ${item.title}`}
                                         className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-medium text-[#1a2f45] shadow-lg shadow-black/10 transition-all duration-300 hover:shadow-xl hover:bg-[#f5f8fa] sm:bottom-5 sm:px-5 sm:py-2.5 sm:text-sm"
                                     >
                                         Learn More <ArrowRight size={12} />
@@ -94,7 +96,7 @@ const WhyChooseUs = () => {
                             <p className="mt-1.5 text-sm leading-relaxed text-[#1a2f45]/50 sm:text-base">
                                 {item.desc}
                             </p>
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

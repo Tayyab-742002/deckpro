@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   MapPin,
@@ -445,7 +445,7 @@ const Contact = () => {
     return (
       <main>
         <section className="min-h-screen flex items-center justify-center bg-white pt-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -468,7 +468,7 @@ const Contact = () => {
               Back to Home
               <ArrowRight size={16} />
             </a>
-          </motion.div>
+          </m.div>
         </section>
         <Footer />
       </main>
@@ -496,7 +496,7 @@ const Contact = () => {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-6 pt-32 pb-20 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -506,20 +506,15 @@ const Contact = () => {
               <Send size={13} />
               Get a Quote
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-            className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl"
-          >
+          <h1 className="text-4xl font-semibold leading-tight text-[#1a2f45] sm:text-5xl md:text-6xl">
             Start Your
             <br />
             Project Today
-          </motion.h1>
+          </h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
@@ -527,9 +522,9 @@ const Contact = () => {
           >
             Provide detailed information about your project and we&apos;ll send
             you an accurate quote within 48 hours. Serious enquiries only.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
@@ -541,7 +536,7 @@ const Contact = () => {
             >
               Fill Out the Form
             </a>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -550,7 +545,7 @@ const Contact = () => {
          ══════════════════════════════════════ */}
       <section className="py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -569,10 +564,10 @@ const Contact = () => {
             <p className="mt-3 mx-auto max-w-lg text-sm leading-relaxed text-[#1a2f45]/40">
               Our terms are 50% deposit prior to scanning & design, 50% upon completion.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Process steps */}
-          <motion.div
+          <m.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -580,7 +575,7 @@ const Contact = () => {
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
             {processSteps.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.num}
                 variants={popUp}
                 className="group relative rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1"
@@ -596,12 +591,12 @@ const Contact = () => {
                 {i < processSteps.length - 1 && (
                   <div className="absolute top-1/2 -right-3 hidden h-px w-6 bg-gray-200 lg:block" />
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Deposit callout */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -619,7 +614,7 @@ const Contact = () => {
               secure a scan date. Remaining <strong className="text-white">50% due upon
                 job completion</strong>.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -631,7 +626,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-start">
 
             {/* ── LEFT: Enquiry Form ── */}
-            <motion.div
+            <m.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -734,7 +729,7 @@ const Contact = () => {
                 {/* ── CONDITIONAL: Marine Fields ── */}
                 <AnimatePresence>
                   {formData.serviceType === "marine" && (
-                    <motion.div
+                    <m.div
                       key="marine"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -778,14 +773,14 @@ const Contact = () => {
                           {errors.boatReady && errorMsg(errors.boatReady)}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── CONDITIONAL: Camper/4x4 Fields ── */}
                 <AnimatePresence>
                   {formData.serviceType === "camper" && (
-                    <motion.div
+                    <m.div
                       key="camper"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -836,14 +831,14 @@ const Contact = () => {
                           {errors.vehicleReady && errorMsg(errors.vehicleReady)}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── CONDITIONAL: Scanning Fields ── */}
                 <AnimatePresence>
                   {formData.serviceType === "scanning" && (
-                    <motion.div
+                    <m.div
                       key="scanning"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -877,14 +872,14 @@ const Contact = () => {
                           <textarea id="scanDetails" name="scanDetails" value={formData.scanDetails} onChange={handleChange} rows={3} placeholder="Tell us more about what you need scanned and what format you require..." className={inputClass} />
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── STEP 4: Residue & Cleaning ── */}
                 <AnimatePresence>
                   {formData.serviceType && (
-                    <motion.div
+                    <m.div
                       key="cleaning"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -926,14 +921,14 @@ const Contact = () => {
                           {errors.cleaning && errorMsg(errors.cleaning)}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── STEP 5: Logos & Lettering ── */}
                 <AnimatePresence>
                   {formData.serviceType && (
-                    <motion.div
+                    <m.div
                       key="logos"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -1002,14 +997,14 @@ const Contact = () => {
                           )}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── STEP 6: Dimensions & Photos ── */}
                 <AnimatePresence>
                   {formData.serviceType && (
-                    <motion.div
+                    <m.div
                       key="photos"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -1103,14 +1098,14 @@ const Contact = () => {
                           </p>
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* ── STEP 5: Message ── */}
                 <AnimatePresence>
                   {formData.serviceType && (
-                    <motion.div
+                    <m.div
                       key="notes"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -1131,7 +1126,7 @@ const Contact = () => {
                         placeholder="Any other details, preferences, colour ideas, or questions..."
                         className={inputClass}
                       />
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
@@ -1169,12 +1164,12 @@ const Contact = () => {
                   </p>
                 </div>
               </form>
-            </motion.div>
+            </m.div>
 
             {/* ── RIGHT: Before & After + Contact Info ── */}
             <div className="lg:sticky lg:top-28 space-y-8">
               {/* Before & After heading */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1192,10 +1187,10 @@ const Contact = () => {
                 <p className="text-sm text-[#1a2f45]/40 mb-6">
                   Attention to detail is one of our core values. Use the sliders below to see some of our projects.
                 </p>
-              </motion.div>
+              </m.div>
 
               {/* Case study cards */}
-              <motion.div
+              <m.div
                 variants={stagger}
                 initial="hidden"
                 whileInView="visible"
@@ -1203,14 +1198,14 @@ const Contact = () => {
                 className="grid gap-4"
               >
                 {caseStudies.map((cs, i) => (
-                  <motion.div key={i} variants={popUp}>
+                  <m.div key={i} variants={popUp}>
                     <BeforeAfterCard {...cs} />
-                  </motion.div>
+                  </m.div>
                 ))}
-              </motion.div>
+              </m.div>
 
               {/* Mobile service callout */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1228,10 +1223,10 @@ const Contact = () => {
                   to move your boat or vehicle.
                 </p>
 
-              </motion.div>
+              </m.div>
 
               {/* Contact info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -1291,7 +1286,7 @@ const Contact = () => {
                     <Phone size={18} />
                   </a>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>
