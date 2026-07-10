@@ -146,6 +146,10 @@ const Footer = () => {
         <p className="text-center text-xs text-white font-body">
           © {new Date().getFullYear()} Deckpro Marine Flooring WA. All rights
           reserved.
+          {" · "}
+          <Link to="/privacy" className="underline-offset-2 hover:underline">
+            Privacy Policy
+          </Link>
         </p>
       </div>
     </footer>

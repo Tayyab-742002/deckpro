@@ -47,6 +47,12 @@ const ROUTES = [
     description:
       "Warranty information for Deckpro Marine Flooring custom EVA foam flooring installations across Western Australia.",
   },
+  {
+    path: "/privacy",
+    title: "Privacy Policy | Deckpro Marine Flooring WA",
+    description:
+      "How Deckpro Marine Flooring WA collects, uses, and protects the personal information you provide through this website.",
+  },
 ];
 
 const NOT_FOUND = {

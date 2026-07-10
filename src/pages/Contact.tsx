@@ -21,6 +21,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useState, useRef, useCallback, type FormEvent, type ChangeEvent } from "react";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { cldImageUrl } from "@/lib/cloudinary";
 
@@ -1161,6 +1162,11 @@ const Contact = () => {
                   </button>
                   <p className="mt-4 text-xs text-[#1a2f45]/30">
                     By submitting this form, you agree to be contacted via phone or email regarding your project enquiry.
+                    See our{" "}
+                    <Link to="/privacy" className="text-[#3A868F] hover:text-[#1a2f45] transition-colors">
+                      Privacy Policy
+                    </Link>
+                    .
                   </p>
                 </div>
               </form>
