@@ -11,6 +11,31 @@ const footerLinks = [
   { label: "Warranty", path: "/warranty" },
 ];
 
+// Mirrors the service areas on the Google Business Profile — keep the two in
+// sync (Google caps service areas at 20). Popular areas first.
+const serviceAreas = [
+  "Perth",
+  "Fremantle",
+  "Mandurah",
+  "Hillarys",
+  "Ocean Reef",
+  "Joondalup",
+  "Rockingham",
+  "Two Rocks",
+  "Yanchep",
+  "Henderson",
+  "Coogee",
+  "South Fremantle",
+  "Success",
+  "Safety Bay",
+  "Dawesville",
+  "Bunbury",
+  "Busselton",
+  "Lancelin",
+  "Cervantes",
+  "Westminster",
+];
+
 const Footer = () => {
   const [email, setEmail] = useState("");
 
@@ -102,6 +127,17 @@ const Footer = () => {
           aria-hidden="true"
         >
           Deckpro
+        </p>
+      </div>
+
+      {/* ── Areas we serve ── */}
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-4">
+        <h2 className="text-center text-xs font-semibold uppercase tracking-wider text-white mb-2">
+          Areas We Serve
+        </h2>
+        <p className="text-center text-xs leading-relaxed text-white/80 font-body">
+          {serviceAreas.join(" · ")}
+          {" "}— fully mobile service across Perth &amp; WA, up to 200km from the metro area.
         </p>
       </div>
 
