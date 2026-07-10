@@ -12,28 +12,22 @@ const footerLinks = [
 ];
 
 // Mirrors the service areas on the Google Business Profile — keep the two in
-// sync (Google caps service areas at 20). Popular areas first.
+// sync (Google caps service areas at 20). Ordered roughly north to south.
 const serviceAreas = [
-  "Perth",
-  "Fremantle",
-  "Mandurah",
-  "Hillarys",
-  "Ocean Reef",
-  "Joondalup",
-  "Rockingham",
   "Two Rocks",
-  "Yanchep",
-  "Henderson",
-  "Coogee",
+  "Ocean Reef",
+  "Hillarys",
+  "Nedlands",
+  "South Perth",
+  "Attadale",
+  "Bicton",
+  "East Fremantle",
   "South Fremantle",
+  "Coogee",
   "Success",
+  "Henderson",
   "Safety Bay",
   "Dawesville",
-  "Bunbury",
-  "Busselton",
-  "Lancelin",
-  "Cervantes",
-  "Westminster",
 ];
 
 const Footer = () => {
@@ -137,7 +131,7 @@ const Footer = () => {
         </h2>
         <p className="text-center text-xs leading-relaxed text-white/80 font-body">
           {serviceAreas.join(" · ")}
-          {" "}— fully mobile service across Perth &amp; WA, up to 200km from the metro area.
+          {" "}— fully mobile service across the Perth metro area.
         </p>
       </div>
 

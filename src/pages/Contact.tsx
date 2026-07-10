@@ -1245,7 +1245,7 @@ const Contact = () => {
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">Headquarters Perth - 200km Radius</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">Perth Metro — Fully Mobile Service</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

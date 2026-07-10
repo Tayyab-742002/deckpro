@@ -45,7 +45,7 @@ const faqs = [
   { q: "Can I keep my existing layout?", a: "Yes. We scan around your current build. Seats, slide-outs, kitchenettes — everything stays in place." },
   { q: "Is EVA foam suitable for wet areas?", a: "Absolutely. Closed-cell EVA foam is waterproof and drains easily, making it perfect for outdoor showers, awning areas, and entry points." },
   { q: "How durable is the flooring under heavy gear?", a: "Very durable — EVA foam stands up well to daily foot traffic, gear, and life on the road. However, it is advisable to avoid sharp objects or heavier items with a small surface area." },
-  { q: "Do I need to bring my vehicle to you?", a: "No — we're a fully mobile service based in Perth, covering a 200km radius. Scanning and fitting both happen at your location: driveway, garage, or storage yard." },
+  { q: "Do I need to bring my vehicle to you?", a: "No — we're a fully mobile service covering the Perth metro area. Scanning and fitting both happen at your location: driveway, garage, or storage yard." },
   { q: "Is the flooring covered by a warranty?", a: "Yes. Every Deckpro installation is backed by our 2 year limited warranty — details are provided with your purchase." },
   { q: "What are your payment terms?", a: "50% deposit upon accepting your quote to secure a scan date. Remaining 50% is due upon completion — no exceptions." },
 ];

@@ -72,7 +72,7 @@ const faqs = [
   { q: "How long does a scan take?", a: "A typical boat deck scan takes 1–2 hours depending on the size and complexity. Interior vehicle scans are usually under an hour." },
   { q: "Do you need the boat to be empty?", a: "Ideally, yes. A clear deck allows us to capture the full surface accurately. We'll let you know exactly what needs to be removed before the scan day." },
   { q: "How accurate are the scans?", a: "Our equipment achieves sub-millimetre accuracy (±0.5mm). This ensures a precision fit for every flooring template we manufacture." },
-  { q: "Where do you offer scanning?", a: "We're a fully mobile service based in Perth, covering a 200km radius — our technician comes to your boat, vehicle, or part wherever it is." },
+  { q: "Where do you offer scanning?", a: "We're a fully mobile service covering the Perth metro area — our technician comes to your boat, vehicle, or part at the marina, driveway, or workshop." },
   { q: "How do I book a scan?", a: "Submit an enquiry through our contact form with your project details and location, and we'll confirm a scan date and provide a quote within 48 hours." },
 ];
 
