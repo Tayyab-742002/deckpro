@@ -14,6 +14,7 @@ const footerLinks = [
 // Mirrors the service areas on the Google Business Profile — keep the two in
 // sync (Google caps service areas at 20). Ordered roughly north to south.
 const serviceAreas = [
+  "Perth",
   "Two Rocks",
   "Ocean Reef",
   "Hillarys",
@@ -27,6 +28,7 @@ const serviceAreas = [
   "Success",
   "Henderson",
   "Safety Bay",
+  "Rockingham",
   "Dawesville",
 ];
 
