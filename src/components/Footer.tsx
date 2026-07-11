@@ -16,7 +16,9 @@ const footerLinks = [
 const serviceAreas = [
   "Perth",
   "Two Rocks",
+  "Yanchep",
   "Ocean Reef",
+  "Joondalup",
   "Hillarys",
   "Nedlands",
   "South Perth",
@@ -27,9 +29,12 @@ const serviceAreas = [
   "Coogee",
   "Success",
   "Henderson",
-  "Safety Bay",
   "Rockingham",
+  "Safety Bay",
+  "Mandurah",
   "Dawesville",
+  "Bunbury",
+  "Busselton",
 ];
 
 const Footer = () => {
@@ -133,7 +138,7 @@ const Footer = () => {
         </h2>
         <p className="text-center text-xs leading-relaxed text-white/80 font-body">
           {serviceAreas.join(" · ")}
-          {" "}— fully mobile service across the Perth metro area.
+          {" "}— Perth-based, fully mobile from Two Rocks to Busselton.
         </p>
       </div>
 
