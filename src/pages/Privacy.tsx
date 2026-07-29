@@ -67,7 +67,7 @@ const Privacy = () => {
             You can ask us at any time to access, correct, or delete the personal
             information we hold about you. Email{" "}
             <a href="mailto:info@deckpromarine.com.au">info@deckpromarine.com.au</a> or
-            call <a href="tel:+61415604457">+61 415 604 457</a> and we&rsquo;ll action it
+            call <a href="tel:+61429279118">+61 429 279 118</a> and we&rsquo;ll action it
             promptly.
           </p>
 

@@ -1253,7 +1253,7 @@ const Contact = () => {
                     <Phone size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#1a2f45]">+61 415 604 457</p>
+                    <p className="text-sm font-semibold text-[#1a2f45]">+61 429 279 118</p>
                     <p className="text-xs text-[#1a2f45]/40">Call or text anytime</p>
                   </div>
                 </div>
@@ -1285,7 +1285,7 @@ const Contact = () => {
                     <Mail size={18} />
                   </a>
                   <a
-                    href="tel:+61415604457"
+                    href="tel:+61429279118"
                     className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-100 text-[#1a2f45]/40 transition-all hover:border-[#1a2f45]/20 hover:text-[#1a2f45] hover:bg-[#e5f0f1]"
                     aria-label="Phone"
                   >
